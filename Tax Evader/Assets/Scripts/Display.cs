@@ -27,6 +27,7 @@ public class Display : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     // Button clicks on the UI will be sent to the respective Asset
+     // Abstract this interface so sent to multiple areas   
     }
 }
