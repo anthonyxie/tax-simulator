@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Display : MonoBehaviour
 {
 
@@ -12,9 +13,10 @@ public class Display : MonoBehaviour
     //Should purchases in Tax Asset class go through the display class? Or should each asset interact directly with a net worth class?
 
     // Start is called before the first frame update
-    public Button properties;
-    public Button assets;
-    Button Stocks;
+    public Button PropertyButton;
+    public Button AssetButton;
+    public Button StockButton;
+    private TextMeshProUGUI netWorthText;
 
     Button submitIncome;
 
@@ -24,6 +26,13 @@ public class Display : MonoBehaviour
         
     }
 
+    //called in update method
+    void ShowMoney(){
+        string netWorth = "Net Worth:" + NetWorth.GetInstance().NetWorthTotal + "\n";
+        string income = "income:" + NetWorth.GetInstance().Income + "\n";
+        string 
+
+    }
     // Update is called once per frame
     void Update()
     {
