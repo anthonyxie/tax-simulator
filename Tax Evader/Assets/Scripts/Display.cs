@@ -16,27 +16,62 @@ public class Display : MonoBehaviour
     public Button PropertyButton;
     public Button AssetButton;
     public Button StockButton;
-    private TextMeshProUGUI netWorthText;
+    public TextMeshProUGUI netWorthText;
 
+    public TextMeshProUGUI assetPanelText;
+    string assetPanelMode = "default";
     Button submitIncome;
 
+    private static Display instance;
+
+    void Awake(){
+        instance = this;
+    }
+    
+    public static Display GetInstance(){
+        return instance;
+    }
 
     void Start()
     {
-        
+        PropertyButton.onClick.AddListener(propertyMode);
     }
 
-    //called in update method
+    void stockMode()
+    {
+        assetPanelMode = "stock";
+        assetPanelText.text = "Stocks!";
+        //Enable button to buy stock
+    }
+    //AddProperty: triggered when button is clicked after asset panel turns to property mode
+    void AddProperty(){
+        
+    }
+    void propertyMode()
+    {
+        assetPanelMode = "property";
+        assetPanelText.text = PropertyManager.GetInstance().displayProperties;
+    }
+    void assetMode()
+    {
+
+    }
+
+    void changeAssetPanel(){
+
+    }
+    //called in update metho
     void ShowMoney(){
         string netWorth = "Net Worth:" + NetWorth.GetInstance().NetWorthTotal + "\n";
         string income = "income:" + NetWorth.GetInstance().Income + "\n";
-        string 
-
+        string projectedTax = "Projected tax:" + NetWorth.GetInstance().projectedTax + "\n";
+        netWorthText.text = netWorth+income+projectedTax;
     }
     // Update is called once per frame
     void Update()
     {
      // Button clicks on the UI will be sent to the respective Asset
      // Abstract this interface so sent to multiple areas   
+     ShowMoney();
     }
 }

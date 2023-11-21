@@ -6,6 +6,7 @@ using UnityEngine;
 public class NetWorth : MonoBehaviour
 {
 
+
     private static NetWorth instance;
 
     public static NetWorth GetInstance(){
@@ -14,10 +15,18 @@ public class NetWorth : MonoBehaviour
     public float NetWorthTotal;
     public float Income;
     public float projectedTax;
+    private void Awake()
+    {
+        if(instance != null)
+        {
+
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        NetWorthTotal = 1000000000;
+        NetWorthTotal = 100000;
         Income = 100000;
         projectedTax = 0.2f * Income;
     }
@@ -31,6 +40,10 @@ public class NetWorth : MonoBehaviour
     //available assets and add them all together to calculate, similarly with tax. Will work for demo
     public void UpdateWorth(float deltaWorth,float deltaIncome, float deltaTax)
     {
+
+        foreach(Property property in Player.GetInstance().ownedProperties){
+            projectedTax += property.taxPercentage * property.price;
+        }
         NetWorthTotal += deltaWorth;
         projectedTax -= deltaTax;
         Income -= deltaIncome;
