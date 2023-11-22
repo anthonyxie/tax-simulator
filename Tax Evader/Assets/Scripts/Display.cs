@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
+
 public class Display : MonoBehaviour
 {
 
@@ -13,9 +15,11 @@ public class Display : MonoBehaviour
     //Should purchases in Tax Asset class go through the display class? Or should each asset interact directly with a net worth class?
 
     // Start is called before the first frame update
-    public Button PropertyButton;
-    public Button AssetButton;
-    public Button StockButton;
+    public Button propertyButton;
+    public Button assetButton;
+    public Button stockButton;
+    public Button donationButton;
+    public Button bankButton;
     public TextMeshProUGUI netWorthText;
 
     public TextMeshProUGUI assetPanelText;
@@ -34,36 +38,36 @@ public class Display : MonoBehaviour
 
     void Start()
     {
-        PropertyButton.onClick.AddListener(propertyMode);
-        AssetButton.onClick.AddListener(assetMode);
-        StockButton.onClick.AddListener(stockMode);
+        propertyButton.onClick.AddListener(PropertyMode);
+        assetButton.onClick.AddListener(AssetMode);
+        stockButton.onClick.AddListener(StockMode);
+        donationButton.onClick.AddListener(DonationMode);
+        bankButton.onClick.AddListener(BankMode);
     }
 
-    void stockMode()
+    void StockMode()
     {
         assetPanelMode = "stock";
-        assetPanelText.text = "Stocks!";
-        //Enable button to buy stock
-    }
-    //AddProperty: triggered when button is clicked after asset panel turns to property mode
-    void AddProperty(){
         
     }
-    void propertyMode()
+    //AddProperty: triggered when button is clicked after asset panel turns to property mode
+    void PropertyMode()
     {
         assetPanelMode = "property";
-        assetPanelText.text = PropertyManager.GetInstance().displayProperties;
     }
-    void assetMode()
+    void AssetMode()
     {
         assetPanelMode = "asset";
-        assetPanelText.text = "mfw I am looking at some assets frfr";
     }
 
-    void changeAssetPanel(){
-
+    void DonationMode() {
+        assetPanelMode = "donation";
     }
-    //called in update metho
+
+    void BankMode() {
+        assetPanelMode = "bank";
+    }
+
     void ShowMoney(){
         string netWorth = "Net Worth:" + NetWorth.GetInstance().NetWorthTotal + "\n";
         string income = "income:" + NetWorth.GetInstance().Income + "\n";
