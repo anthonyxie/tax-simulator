@@ -35,10 +35,10 @@ public class PropertyManager : MonoBehaviour
     }
 
     void purchaseProperty(Property property){
-        if(NetWorth.GetInstance().Income >= property.price){
-        NetWorth.GetInstance().Income -= property.price;
-        NetWorth.GetInstance().projectedTax -= property.price * 0.2f;
-        Player.GetInstance().ownedProperties.Add(property);
+        if (NetWorth.GetInstance().Income >= property.price) {
+            NetWorth.GetInstance().Income -= property.price;
+            NetWorth.GetInstance().projectedTax -= property.price * 0.2f;
+            Player.GetInstance().ownedProperties.Add(property);
         }
     }
     //display properties:

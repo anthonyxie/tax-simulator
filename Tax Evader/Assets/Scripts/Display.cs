@@ -35,6 +35,8 @@ public class Display : MonoBehaviour
     void Start()
     {
         PropertyButton.onClick.AddListener(propertyMode);
+        AssetButton.onClick.AddListener(assetMode);
+        StockButton.onClick.AddListener(stockMode);
     }
 
     void stockMode()
@@ -54,7 +56,8 @@ public class Display : MonoBehaviour
     }
     void assetMode()
     {
-
+        assetPanelMode = "asset";
+        assetPanelText.text = "mfw I am looking at some assets frfr";
     }
 
     void changeAssetPanel(){
