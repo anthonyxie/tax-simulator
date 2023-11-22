@@ -1,4 +1,4 @@
-// This script attaches the tabbed menu logic to the game.
+    // This script attaches the tabbed menu logic to the game.
 using UnityEngine;
 using UnityEngine.UIElements;
 

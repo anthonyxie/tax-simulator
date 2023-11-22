@@ -13,16 +13,29 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="tabs" style="height: auto; flex-direction: row; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-basis: auto; justify-content: space-around; align-items: center; margin-left: 5%; margin-right: 5%; background-color: rgb(228, 198, 150); flex-grow: 1; flex-shrink: 0;">
-            <ui:Label text="Properties" display-tooltip-when-elided="true" name="PropertiesTab" class="currentlySelectedTab" style="flex-direction: row; width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
-            <ui:Label text="Assets" display-tooltip-when-elided="true" name="AssetsTab" style="width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
-            <ui:Label text="Banks" display-tooltip-when-elided="true" name="BanksTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
-            <ui:Label text="Stocks" display-tooltip-when-elided="true" name="StocksTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
-            <ui:Label text="Donations" display-tooltip-when-elided="true" name="DonationsTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+        <ui:VisualElement name="tabs" style="flex-direction: row; align-items: auto;">
+            <ui:Label text="Properties" display-tooltip-when-elided="true" name="PropertiesTab" class="currentlySelectedTab tab" style="flex-direction: row; width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Assets" display-tooltip-when-elided="true" name="AssetsTab" class="tab" style="width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Banks" display-tooltip-when-elided="true" name="BanksTab" class="tab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Stocks" display-tooltip-when-elided="true" name="StocksTab" class="tab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Donations" display-tooltip-when-elided="true" name="DonationsTab" class="tab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
         </ui:VisualElement>
-        <ui:VisualElement name="tabsContent" style="height: auto; flex-basis: auto; margin-left: 5%; margin-right: 5%; background-color: rgb(245, 239, 187); flex-grow: 1; flex-shrink: 0;">
-            <ui:Label text="ASSESETS" display-tooltip-when-elided="true" name="AssestsContent" class="unselectedContent" />
-            <ui:Label text="at the property tab" display-tooltip-when-elided="true" name="PropertiesContent" />
+        <ui:VisualElement name="tabsMenu" style="height: 133px; flex-basis: auto; margin-left: 5%; margin-right: 5%; background-color: rgb(245, 239, 187); flex-grow: 1; flex-shrink: 0;">
+            <ui:VisualElement name="PropertiesMenu">
+                <ui:Label text="at the property tab" display-tooltip-when-elided="true" name="PropertiesContent" />
+            </ui:VisualElement>
+            <ui:VisualElement name="AssetsMenu" class="unselectedContent">
+                <ui:Label text="at the asset tab" display-tooltip-when-elided="true" name="AssetContent" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BanksMenu" class="unselectedContent">
+                <ui:Label text="mfw im banking" display-tooltip-when-elided="true" name="BanksContent" />
+            </ui:VisualElement>
+            <ui:VisualElement name="StocksMenu" class="unselectedContent">
+                <ui:Label text="mfw im at the stocks" display-tooltip-when-elided="true" name="StocksContent" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DonationsMenu" class="unselectedContent">
+                <ui:Label text="me when im donating" display-tooltip-when-elided="true" name="DonationsContent" class="unselectedContent" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:ProgressBar value="20" title="Risk Factor" name="taxbar" style="flex-basis: auto; flex-direction: column; margin-left: 5%; margin-right: 5%; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: auto; -unity-text-align: middle-left; color: rgb(255, 255, 255); flex-grow: 0; height: auto; justify-content: center; -unity-text-outline-color: rgb(245, 239, 187); -unity-text-outline-width: 0;" />
         <ui:ProgressBar value="22" title="my-progress" name="incomebar" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 5%; margin-right: 5%; margin-top: 0; margin-bottom: 0; flex-basis: auto; -unity-text-align: middle-left; flex-grow: 0; height: auto; justify-content: center; -unity-text-outline-color: rgb(245, 239, 187);" />

@@ -1,4 +1,7 @@
 // This script defines the tab selection logic.
+
+using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class TabbedMenuController
@@ -11,7 +14,7 @@ public class TabbedMenuController
     // Define the suffix of the tab name
     private const string tabNameSuffix = "Tab";
     // Define the suffix of the tab content name
-    private const string contentNameSuffix = "Content";
+    private const string contentNameSuffix = "Menu";
 
     private readonly VisualElement root;
 
@@ -35,6 +38,7 @@ public class TabbedMenuController
     */
     private void TabOnClick(ClickEvent evt)
     {
+        Debug.Log("tab is clicked");
         Label clickedTab = evt.currentTarget as Label;
         if (!TabIsCurrentlySelected(clickedTab))
         {
@@ -82,6 +86,7 @@ public class TabbedMenuController
     // Method that takes a tab as a parameter and returns the associated content element
     private VisualElement FindContent(Label tab)
     {
+        Debug.Log(tab.name);
         return root.Q(GenerateContentName(tab));
     }
 }
