@@ -12,9 +12,11 @@ public class NetWorth : MonoBehaviour
     public static NetWorth GetInstance(){
         return instance;
     }
+    //need to develop system to save and load portfolios, but this should work for now.
     public float NetWorthTotal;
     public float Income;
     public float projectedTax;
+    public float taxPercentage = 0.2f; // may change from portfolio to portfolio
     private void Awake()
     {
         if(instance != null)
@@ -28,25 +30,21 @@ public class NetWorth : MonoBehaviour
     {
         NetWorthTotal = 100000;
         Income = 100000;
-        projectedTax = 0.2f * Income;
+        projectedTax = taxPercentage * Income;
     }
 
     // Update is called once per frame
 
     //This function updates the net worth, income, and projected tax values.
 
-    //Called when an asset is created
-    // TODO: instead of directly changing networth, have Net Worth search through all
-    //available assets and add them all together to calculate, similarly with tax. Will work for demo
-    public void UpdateWorth(float deltaWorth,float deltaIncome, float deltaTax)
+    //Called when an asset is purchased.
+    // The Income is already subtracted after the asset is purchased, so we just need to change the tax value.
+    // The net worth should also be adjusted, maybe asset values may change from year-to-year?
+    public void UpdateWorth()
     {
-
         foreach(Property property in Player.GetInstance().ownedProperties){
             projectedTax += property.taxPercentage * property.price;
         }
-        NetWorthTotal += deltaWorth;
-        projectedTax -= deltaTax;
-        Income -= deltaIncome;
     }
     void Update()
     {
