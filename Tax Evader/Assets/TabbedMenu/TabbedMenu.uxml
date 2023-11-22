@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TabbedMenu/style.uss?fileID=7433441132597879392&amp;guid=9ed18d1678de6444e893a2b04a5eeac2&amp;type=3#style" />
+    <ui:VisualElement style="flex-shrink: 0; height: 100%; width: 100%; justify-content: space-around;">
+        <ui:Label text="Y0 Portfolio" display-tooltip-when-elided="true" name="header" style="height: auto; -unity-font: url(&apos;project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&amp;guid=7f6fb254a9d92e94dbfdfde872cef7cd&amp;type=3#Inika-Regular&apos;); -unity-font-definition: initial; -unity-text-align: middle-center; flex-basis: auto; justify-content: center; align-items: center; width: 100%; font-size: 30px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0; color: rgb(245, 239, 187);" />
+        <ui:VisualElement name="ClientInfoBar" style="background-color: rgb(255, 255, 255); flex-direction: row; flex-basis: auto; margin-left: 0; margin-right: 0; flex-grow: 1; flex-shrink: 0; height: auto; justify-content: space-between; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
+            <ui:VisualElement name="clientImg" style="background-image: url(&apos;project://database/Assets/TabbedMenu/richClient.png?fileID=2800000&amp;guid=052165e939db0de4693fdb4cd2ecb9d4&amp;type=3#richClient&apos;); width: 35%; height: auto; flex-direction: row; flex-shrink: 0; flex-grow: 1;" />
+            <ui:VisualElement name="clientInfo" style="flex-direction: column; width: 65%; -unity-text-align: middle-center; -unity-font: url(&apos;project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&amp;guid=7f6fb254a9d92e94dbfdfde872cef7cd&amp;type=3#Inika-Regular&apos;); -unity-font-definition: initial; flex-grow: 1; flex-shrink: 0;">
+                <ui:Label text="Jane Client Doe" display-tooltip-when-elided="true" name="clientName" style="width: 389px; -unity-text-align: middle-center; font-size: 26px; color: rgb(0, 0, 0);" />
+                <ui:VisualElement name="clientDetails" style="justify-content: space-around;">
+                    <ui:Label text="Y0 Income" display-tooltip-when-elided="true" style="color: rgb(0, 0, 0); font-size: 18px; -unity-text-align: middle-left;" />
+                    <ui:Label text="Proposed Tax" display-tooltip-when-elided="true" style="color: rgb(0, 0, 0); font-size: 18px; -unity-text-align: middle-left;" />
+                    <ui:Label text="Net Worth" display-tooltip-when-elided="true" style="color: rgb(0, 0, 0); -unity-text-align: middle-left; font-size: 18px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tabs" style="height: auto; flex-direction: row; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-basis: auto; justify-content: space-around; align-items: center; margin-left: 5%; margin-right: 5%; background-color: rgb(228, 198, 150); flex-grow: 1; flex-shrink: 0;">
+            <ui:Label text="Properties" display-tooltip-when-elided="true" name="PropertiesTab" class="currentlySelectedTab" style="flex-direction: row; width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Assets" display-tooltip-when-elided="true" name="AssetsTab" style="width: auto; flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Banks" display-tooltip-when-elided="true" name="BanksTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Stocks" display-tooltip-when-elided="true" name="StocksTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+            <ui:Label text="Donations" display-tooltip-when-elided="true" name="DonationsTab" style="flex-grow: 1; -unity-text-align: middle-center; height: 100%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="tabsContent" style="height: auto; flex-basis: auto; margin-left: 5%; margin-right: 5%; background-color: rgb(245, 239, 187); flex-grow: 1; flex-shrink: 0;">
+            <ui:Label text="ASSESETS" display-tooltip-when-elided="true" name="AssestsContent" class="unselectedContent" />
+            <ui:Label text="at the property tab" display-tooltip-when-elided="true" name="PropertiesContent" />
+        </ui:VisualElement>
+        <ui:ProgressBar value="20" title="Risk Factor" name="taxbar" style="flex-basis: auto; flex-direction: column; margin-left: 5%; margin-right: 5%; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: auto; -unity-text-align: middle-left; color: rgb(255, 255, 255); flex-grow: 0; height: auto; justify-content: center; -unity-text-outline-color: rgb(245, 239, 187); -unity-text-outline-width: 0;" />
+        <ui:ProgressBar value="22" title="my-progress" name="incomebar" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 5%; margin-right: 5%; margin-top: 0; margin-bottom: 0; flex-basis: auto; -unity-text-align: middle-left; flex-grow: 0; height: auto; justify-content: center; -unity-text-outline-color: rgb(245, 239, 187);" />
+        <ui:VisualElement name="Underreport" style="flex-direction: row; align-items: center; justify-content: space-around; margin-left: 5%; margin-right: 5%; flex-shrink: 0; height: auto;">
+            <ui:TextField picking-mode="Ignore" label="Reported Income:" value="filler text" text="enter $$$$$" style="height: 40px; -unity-font: url(&apos;project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&amp;guid=7f6fb254a9d92e94dbfdfde872cef7cd&amp;type=3#Inika-Regular&apos;); -unity-font-definition: initial; font-size: 24px; -unity-text-align: middle-left; color: rgb(228, 198, 150); flex-basis: auto; margin-left: 0; margin-right: 0; margin-top: 0; width: auto; margin-bottom: 0; align-items: center; flex-grow: 1;" />
+            <ui:Button text="Submit" display-tooltip-when-elided="true" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 30px; padding-right: 30px; padding-top: 5px; padding-bottom: 5px; flex-direction: row; width: auto; flex-grow: 0.1; color: rgb(0, 0, 0); background-color: rgb(101, 233, 134);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

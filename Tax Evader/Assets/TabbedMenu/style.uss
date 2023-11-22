@@ -1,0 +1,45 @@
+Label#header {
+    color: rgb(228, 198, 150);
+    font-size: 30px;
+}
+
+#tabs Label {
+    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&guid=7f6fb254a9d92e94dbfdfde872cef7cd&type=3#Inika-Regular');
+    font-size: 18px;
+    white-space: nowrap;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.currentlySelectedTab {
+    background-color: rgb(173, 166, 166);
+}
+
+#tabContent {
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.unselectedContent {
+    display: none;
+}
+
+#clientInfo Label {
+    -unity-font: url('project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&guid=7f6fb254a9d92e94dbfdfde872cef7cd&type=3#Inika-Regular');
+    -unity-font-definition: initial;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-left;
+    flex-direction: column;
+}
+
+* {
+    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/TabbedMenu/Inika-Regular.ttf?fileID=12800000&guid=7f6fb254a9d92e94dbfdfde872cef7cd&type=3#Inika-Regular');
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
