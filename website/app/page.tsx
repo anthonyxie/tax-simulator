@@ -91,13 +91,8 @@ export default function HomePage() {
         
       </div>
       
-      <div style={{
-        backgroundColor: '#F5EFBB',
-        marginBottom: "1%",
-        paddingLeft: "10px",
-        paddingRight: "10px",
-      }}>
-          <Tabs defaultValue="Properties" color='blue'>
+      <div id='tabbedMenu'>
+          <Tabs defaultValue="Properties" color='taupe'>
           <Tabs.List grow>
             <Tabs.Tab value="Properties">
               Properties
@@ -118,7 +113,7 @@ export default function HomePage() {
 
           <Tabs.Panel value="Properties">
             properties
-            and stuff fbdjskfbkjsdfbnkjdnfjkdsfjksdf jkdnfsjkdf dsf skj hf dsjfsdjf bhdfbjws dfjsdbf hsd fsdbfsdbf sduhsfdjbf sd s
+            and stuff fbdjskfbkjsdfb nkjdnfjkdsfjksdf jkdnfs jkdf dsf skj hf dsjfsdjf bhdfb jws dfjsdbf hsd fsdbfsdbf sduh sfdjbf sd s
           </Tabs.Panel>
 
           <Tabs.Panel value="Assets">

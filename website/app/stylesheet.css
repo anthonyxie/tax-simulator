@@ -42,6 +42,22 @@ body{
   display: flex;
 }
 
+#tabbedMenu{
+  padding-bottom: 1%;
+}
+.mantine-Tabs-root	{
+}
+.mantine-Tabs-tab	{
+  background-color: #E4C696;
+}
+.mantine-Tabs-tab:hover	{
+  background-color: #F5EFBB;
+}
+
+.mantine-Tabs-panel {
+    background-color: #F5EFBB;
+    padding: 10px;
+}
 
 #client{
   background-color: white;
