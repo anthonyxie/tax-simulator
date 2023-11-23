@@ -11,7 +11,7 @@
 
 * {
   color: black;
-  font-family: "Inika";
+  font-family: Inika, serif;
 }
 
 body{
@@ -35,17 +35,42 @@ body{
   flex-direction: row;
 }
 
-#tabbedMenu{ /* styling is actually in line for this one*/
+#header1{ 
+  color: #E4C696;
+  font-size: xx-large;
+  font-family: InikaBold;
+  display: flex;
+}
+
+.tabbedMenu{ /* styling is actually in line for this one*/
   background-color: "#F5EFBB";
+  height: 50%;
+  margin-bottom: "1%";
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #client{
   background-color: white;
   margin-bottom: 1%;
   padding: 10px;
+  display: flex;
 }
+
 #clientName{
   font-size: large;
+  text-align: center;
+  width: 100%;
 }
-
-
+#clientNums{
+  text-align: right;
+  justify-content: flex-end;
+  flex: 1;
+}
+#clientInfo{
+  width: 100%;
+  display: flex;
+  padding-left: 10px;
+}
+#clientDetails{
+}

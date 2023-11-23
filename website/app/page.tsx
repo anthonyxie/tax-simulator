@@ -10,6 +10,7 @@ import { ActionIcon, Button, Tabs } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import './stylesheet.css';
+import { Image } from '@mantine/core';
 import clientImg from './resources/richClient.png';
 export default function HomePage() {
   interface Stock {
@@ -64,18 +65,26 @@ export default function HomePage() {
     <>
     <div>
 
-      <h1>Y0 Portfolio</h1>
+      <text id="header1">Y0 Portfolio</text>
 
       <div className="flexRow" id="client">
-        <div>
-          <img src="./resources/richClient.png" alt="rich client img i forgot how to make it work :/" />
-        </div>
-        
-        <div className='flexCol'>
+          <Image radius="md" h={200} fit="contain" src={clientImg} fallbackSrc="https://placehold.co/600x400?text=Placeholder" />
+        {/* ^takes half and \/ takes half */}
+        <div className='flexCol' id="clientInfo">
           <text id="clientName">Jane Client Doe</text>
-          <text>Net worth: {netWorth}</text>
-          <text>Yearly income: {yearlyIncome}</text>
-          <text>Projected Taxes: {taxAmount}</text>
+          <div className='flexRow' id="clientDetails">
+            <div className='flexCol'>
+              <text>Net worth: </text>
+              <text>Yearly income: </text>
+              <text>Projected Taxes: </text>
+            </div>
+            <div className='flexCol' id="clientNums">
+              <text>{netWorth}</text>
+              <text>{yearlyIncome}</text>
+              <text>{taxAmount}</text>
+            </div>
+          </div>
+          
         </div>
         
       </div>
@@ -88,7 +97,7 @@ export default function HomePage() {
         paddingRight: "10px",
       }}>
           <Tabs defaultValue="Properties" color='blue'>
-          <Tabs.List>
+          <Tabs.List grow>
             <Tabs.Tab value="Properties">
               Properties
             </Tabs.Tab>
