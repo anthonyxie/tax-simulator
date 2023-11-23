@@ -83,20 +83,25 @@ body{
   flex: 1;
   display: flex;
   background-color: lightblue;
-  align-items: center;
+}
+img {
+  max-width: 100%;
+  max-height:100%;
 }
 #clientImage {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  display: flex;
 }
 #clientInfo{
-  flex: 1;
+  flex: 2;
   width: 100%;
   display: flex;
   padding-left: 10px;
 }
 #clientName{
-  font-size: large;
+  font-size: x-large;
   text-align: center;
   width: 100%;
   font-family: InikaBold, serif;

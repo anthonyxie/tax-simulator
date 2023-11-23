@@ -10,9 +10,7 @@ import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@manti
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
-import { Image } from '@mantine/core';
 import clientImg from '../../public/richClient.png';
-import NextImage from 'next/image';
 import { Stock, Asset, Property, listOfStocks } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 
@@ -66,7 +64,7 @@ export default function HomePage() {
 
       <div className="flexRow" id="client">
         <div id="rightHalf">
-            <div><Image component={NextImage} id="clientImage" src={clientImg} alt="Brown haired young woman with money"/></div>
+          <img id="clientImage" src={"/richClient.png"} alt="Brown haired young woman with money"/>
         </div>
         {/* ^takes half and \/ takes half */}
         <div className='flexCol' id="clientInfo">
