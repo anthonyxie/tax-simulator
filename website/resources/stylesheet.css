@@ -108,3 +108,33 @@ body{
 #clientDetails{
   display: flex;
 }
+
+#narrativeBackground{
+  align-items: center;
+  justify-content: center;
+}
+#narrativeWrapper{
+  background-color: whitesmoke;
+  border: 2px solid #333;
+  margin-top: 18vh;
+  margin-bottom: 5vh;
+  width: 45%;
+  height: fit-content;
+  padding: 2%;
+}
+#narrativeText{
+  margin: 0;
+  font-size: 18px;
+  text-align: 'left';
+}
+#continueButton{
+  padding: 10px 20px;
+  font-size: '16px';
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s;
+}

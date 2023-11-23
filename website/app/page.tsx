@@ -34,7 +34,8 @@ export default function StartPage() {
     </div>
     <div id="overlay">
       <h1>Tax Hero</h1>
-      <Link id="startLink" href="/portfolio">START</Link>
+        <Link id="startLink" href="/portfolio">START</Link>
+        <Link id="startLink" href="/narrative">NARRATIVE</Link>
     </div>
     </>
   );
