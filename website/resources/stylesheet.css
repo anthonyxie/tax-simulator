@@ -60,7 +60,6 @@ body{
 .mantine-Tabs-tabLabel{
   font-family: InikaBold, serif;
 }
-
 .mantine-Tabs-panel {
     background-color: #F5EFBB;
     padding: 10px;
@@ -71,13 +70,19 @@ body{
   margin-bottom: 1%;
   padding: 10px;
   display: flex;
-  max-height: 30%;
+  max-height: 30vh;
+  overflow: hidden;
 }
+
 #rightHalf{
   flex: 1;
   display: flex;
   background-color: lightblue;
   align-items: center;
+}
+#clientImage {
+  width: 100%;
+  height: 100%;
 }
 #clientInfo{
   flex: 1;
@@ -85,7 +90,6 @@ body{
   display: flex;
   padding-left: 10px;
 }
-
 #clientName{
   font-size: large;
   text-align: center;
@@ -97,6 +101,7 @@ body{
   justify-content: flex-end;
   flex: 1;
 }
+
 #clientNums text{
   font-family: InikaBold, serif;
 }
