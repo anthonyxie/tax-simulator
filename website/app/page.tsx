@@ -6,8 +6,9 @@ import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
 import { SliderInput } from '@/components/SliderInput/SliderInput';
 import { CSSProperties, useEffect, useState } from 'react';
 import StocksList from '@/components/Accordion/StocksList';
-import { ActionIcon, Button } from '@mantine/core';
+import { ActionIcon, Button, Tabs } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
+import StockList from '@/components/StockList/StockList';
 
 
 
@@ -91,22 +92,46 @@ export default function HomePage() {
       <text>Projected Taxes: {taxAmount}</text>
       <div style={spacer2}></div>
       <div>
-        <text>Properties: </text>
-        <div style={divStyle2}>
-          <ActionIcon
-          variant="gradient"
-          size="xl"
-          aria-label="Gradient action icon"
-          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
-        >
-        +
-          </ActionIcon>
-        </div>
-      </div>
-      <div>
-        <text>Stocks: </text>
-        {stocksList.map((theStock, index) => (<StockItem stock={theStock} key={index}></StockItem>))}
+          <Tabs defaultValue="Properties">
+          <Tabs.List>
+            <Tabs.Tab value="Properties">
+              Properties
+            </Tabs.Tab>
+            <Tabs.Tab value="Assets">
+              Assets
+            </Tabs.Tab>
+            <Tabs.Tab value="Bank Holdings">
+              Bank Holdings
+            </Tabs.Tab>
+            <Tabs.Tab value="Stocks">
+              Stocks
+            </Tabs.Tab>
+            <Tabs.Tab value="Donations">
+              Donations
+            </Tabs.Tab>
+          </Tabs.List>
 
+          <Tabs.Panel value="Properties">
+            properties
+          </Tabs.Panel>
+
+          <Tabs.Panel value="Assets">
+            assets
+          </Tabs.Panel>
+
+          <Tabs.Panel value="Bank Holdings">
+            banks
+          </Tabs.Panel>
+
+          <Tabs.Panel value="Stocks">
+            <StockList stocksList={stocksList}/>
+          </Tabs.Panel>
+
+          <Tabs.Panel value="Donations">
+            donations
+          </Tabs.Panel>
+
+        </Tabs>
       </div>
       <div style={spacer2}></div>
 
