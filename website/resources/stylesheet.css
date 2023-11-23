@@ -71,9 +71,13 @@ body{
   margin-bottom: 1%;
   padding: 10px;
   display: flex;
+  max-height: 30%;
 }
 #rightHalf{
   flex: 1;
+  display: flex;
+  background-color: lightblue;
+  align-items: center;
 }
 #clientInfo{
   flex: 1;

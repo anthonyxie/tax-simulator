@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Inika";
+  src: local("Inika-Regular"),
+    url("../resources/fonts/Inika-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "InikaBold";
+  src: local("Inika-Bold"),
+    url("../resources/fonts/Inika-Bold.ttf") format("truetype");
+}
+
+* {
+  color: black;
+  font-family: Inika, serif;
+}
+
+body{
+  background-color: #6F6058;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100%;
+  max-width: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  justify-content: space-between;
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+h1{
+  text-align: center;
+  font-family: InikaBold, serif;  
+  line-height: 1em;
+}
