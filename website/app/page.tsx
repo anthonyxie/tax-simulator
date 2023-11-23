@@ -68,7 +68,9 @@ export default function HomePage() {
       <text id="header1">Y0 Portfolio</text>
 
       <div className="flexRow" id="client">
-          <Image radius="md" h={200} fit="contain" src={clientImg} fallbackSrc="https://placehold.co/600x400?text=Placeholder" />
+        <div id="rightHalf">
+          <Image radius="md" fit="contain" src={clientImg} fallbackSrc="https://placehold.co/600x400?text=Placeholder" />
+        </div>
         {/* ^takes half and \/ takes half */}
         <div className='flexCol' id="clientInfo">
           <text id="clientName">Jane Client Doe</text>

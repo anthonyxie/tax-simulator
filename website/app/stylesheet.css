@@ -56,6 +56,15 @@ body{
   padding: 10px;
   display: flex;
 }
+#rightHalf{
+  flex: 1;
+}
+#clientInfo{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  padding-left: 10px;
+}
 
 #clientName{
   font-size: large;
@@ -67,11 +76,7 @@ body{
   justify-content: flex-end;
   flex: 1;
 }
-#clientInfo{
-  width: 100%;
-  display: flex;
-  padding-left: 10px;
-  padding-right: 10px;
-}
+
 #clientDetails{
+  display: flex;
 }
