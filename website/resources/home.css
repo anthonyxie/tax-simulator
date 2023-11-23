@@ -67,6 +67,9 @@ body{
   align-items: flex-end;
 }
 
+#startLink:hover {
+  color: #F5EFBB;
+}
 
 
 #bottomImgsCalc {
