@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Inika";
   src: local("Inika-Regular"),
-    url("./resources/fonts/Inika-Regular.ttf") format("truetype");
+    url("../resources/fonts/Inika-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "InikaBold";
   src: local("Inika-Bold"),
-    url("./resources/fonts/Inika-Bold.ttf") format("truetype");
+    url("../resources/fonts/Inika-Bold.ttf") format("truetype");
 }
 
 * {

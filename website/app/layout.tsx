@@ -33,7 +33,7 @@ const theme = createTheme({
 
 export const metadata = {
   title: 'Tax Hero',
-  description: 'I am using Mantine with Next.js!',
+  description: 'a game about how the rich avoid taxes',
 };
 
 export default function RootLayout({ children }: { children: any }) {

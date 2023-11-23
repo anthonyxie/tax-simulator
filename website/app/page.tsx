@@ -11,13 +11,15 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import './stylesheet.css';
 import { Image } from '@mantine/core';
-import clientImg from './resources/richClient.png';
+import clientImg from '../resources/richClient.png'
+
 export default function HomePage() {
+ 
   interface Stock {
     ticker: string,
     price: number;
   }
-  
+ 
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
   const [stocks, setStocks] = useState({});
@@ -58,13 +60,9 @@ export default function HomePage() {
     setTaxAmount(yearlyIncome * 0.4);
   }, [yearlyIncome, stocks, properties])
 
-
-  
-
   return (
     <>
     <div>
-
       <text id="header1">Y0 Portfolio</text>
 
       <div className="flexRow" id="client">
