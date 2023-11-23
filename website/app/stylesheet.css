@@ -53,6 +53,9 @@ body{
 .mantine-Tabs-tab:hover	{
   background-color: #F5EFBB;
 }
+.mantine-Tabs-tab[data-active="true"] {
+  background-color: #F5EFBB; 
+}
 
 .mantine-Tabs-panel {
     background-color: #F5EFBB;
