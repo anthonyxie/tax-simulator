@@ -96,7 +96,7 @@ export default function HomePage() {
       </div>
       
       <div id='tabbedMenu'>
-          <Tabs defaultValue="Properties" color='taupe' >
+          <Tabs defaultValue="Properties" color='yellow' >
           <Tabs.List grow>
             <Tabs.Tab value="Properties">
               Properties

@@ -1,6 +1,6 @@
 'use client';
 import { Button, Divider } from "@mantine/core";
-import "../../resources/panelstyle.css";
+import "../../resources/stylesheet.css";
 export default function StockItem({stock}) {
     return (
         <div className="stockItemDiv">

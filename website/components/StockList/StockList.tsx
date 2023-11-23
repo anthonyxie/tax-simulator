@@ -5,7 +5,7 @@ import StockItem from "../StockItem/StockItem";
 export default function StockList({stocksList}) {
     return (
         <div>
-            <text>Stocks</text>
+            <text className="panelHeader">Stocks</text>
             <div id="stocksHeader">
                 <text>Ticker</text>
                 <text>Value</text>
