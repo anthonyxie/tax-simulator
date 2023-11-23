@@ -57,6 +57,10 @@ body{
   background-color: #F5EFBB; 
 }
 
+.mantine-Tabs-tabLabel{
+  font-family: InikaBold, serif;
+}
+
 .mantine-Tabs-panel {
     background-color: #F5EFBB;
     padding: 10px;
@@ -82,11 +86,15 @@ body{
   font-size: large;
   text-align: center;
   width: 100%;
+  font-family: InikaBold, serif;
 }
 #clientNums{
   text-align: right;
   justify-content: flex-end;
   flex: 1;
+}
+#clientNums text{
+  font-family: InikaBold, serif;
 }
 
 #clientDetails{
