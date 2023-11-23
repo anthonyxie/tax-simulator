@@ -93,7 +93,6 @@ export default function HomePage() {
       
       <div style={{
         backgroundColor: '#F5EFBB',
-        height: "50%",
         marginBottom: "1%",
         paddingLeft: "10px",
         paddingRight: "10px",

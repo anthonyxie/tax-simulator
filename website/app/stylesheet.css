@@ -42,13 +42,6 @@ body{
   display: flex;
 }
 
-.tabbedMenu{ /* styling is actually in line for this one*/
-  background-color: "#F5EFBB";
-  height: 50%;
-  margin-bottom: "1%";
-  padding-left: 10px;
-  padding-right: 10px;
-}
 
 #client{
   background-color: white;
