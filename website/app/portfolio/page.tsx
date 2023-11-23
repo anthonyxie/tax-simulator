@@ -16,8 +16,6 @@ import RiskBar from '@/components/RiskBar/RiskBar';
 
 export default function HomePage() {
  
-
- 
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
   const [stocks, setStocks] = useState<any>({});
@@ -59,7 +57,7 @@ export default function HomePage() {
 
   return (
     <>
-    <div>
+    <div id="portfolioDiv">
       <text id="header1">Y0 Portfolio</text>
 
       <div className="flexRow" id="client">
