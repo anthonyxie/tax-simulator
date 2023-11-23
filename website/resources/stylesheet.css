@@ -24,6 +24,12 @@ body{
   margin-left: 5%;
   justify-content: space-between;
 }
+.flexColAligned{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 
 .flexCol{
   display: flex;
@@ -99,6 +105,9 @@ body{
   text-align: right;
   justify-content: flex-end;
   flex: 1;
+}
+.riskBars{
+  width: 80%;
 }
 
 #clientNums text{

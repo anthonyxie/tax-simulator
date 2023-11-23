@@ -6,33 +6,27 @@ import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
 import { SliderInput } from '@/components/SliderInput/SliderInput';
 import { CSSProperties, useEffect, useState } from 'react';
 import StocksList from '@/components/Accordion/StocksList';
-import { ActionIcon, Button, Tabs } from '@mantine/core';
+import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import { Image } from '@mantine/core';
 import clientImg from '../../public/richClient.png';
 import NextImage from 'next/image';
+import { Stock, Asset, Property, listOfStocks } from '@/models/stock';
+import RiskBar from '@/components/RiskBar/RiskBar';
 
 export default function HomePage() {
  
-  interface Stock {
-    ticker: string,
-    price: number;
-  }
+
  
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
-  const [stocks, setStocks] = useState({});
-  const stocksList = [
-    { ticker: "BOOP", price: 100 },
-    { ticker: "ZAPZ", price: 200 },
-    { ticker: "BIZZ", price: 300 },
-    { ticker: "YOYO", price: 400 },
-    { ticker: "FLIP", price: 500 },
-  ];
+  const [stocks, setStocks] = useState<any>({});
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
+  const [risk, setRisk] = useState(20);
+  const [reportedIncome, setReportedIncome] = useState(100000)
   
   function incrementYear(event: { preventDefault: () => void; }): any {
     event.preventDefault();
@@ -52,9 +46,13 @@ export default function HomePage() {
   function stockToBeAdded(addedStock: Stock): any {
     let tick = addedStock.ticker;
     let newStocks = stocks;
-    let prevNetWorth = netWorth;
-    setNetWorth(prevNetWorth + addedStock.price);
-    
+    if (tick in newStocks) {
+      newStocks[tick] += 1;
+    }
+    else {
+      newStocks[tick] = 1;
+    }
+    setStocks(newStocks);
   }
 
   useEffect(() => {
@@ -83,6 +81,17 @@ export default function HomePage() {
               <text>{netWorth}</text>
               <text>{yearlyIncome}</text>
               <text>{taxAmount}</text>
+            </div>
+          </div>
+          <div className="flexColAligned">
+            <div className="riskBars">
+                <text>Taxed Income:</text>
+                  <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount}/>
+                <text>Risk:</text>
+                <Progress.Root size={20}>
+                    <Progress.Section value={risk} color="red">
+                    </Progress.Section>
+                </Progress.Root>
             </div>
           </div>
           
@@ -124,7 +133,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Stocks">
-            <StockList stocksList={stocksList}/>
+            <StockList stocksList={listOfStocks}/>
           </Tabs.Panel>
 
           <Tabs.Panel value="Donations">
@@ -133,7 +142,14 @@ export default function HomePage() {
 
         </Tabs>
       </div>
-
+      <NumberInput
+      label={"How much income would you like to report?"}
+      placeholder={"Write down how much income you're reporting"}
+      min={0}
+      step={yearlyIncome / 20}
+      max={yearlyIncome}
+      defaultValue={yearlyIncome}
+      />
       <Button variant="filled" onClick={incrementYear} >Increment Year</Button> space 
       <Button variant="filled" onClick={resetAllValues} >Reset All Values</Button>
     </div>
