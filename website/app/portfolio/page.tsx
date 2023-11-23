@@ -11,8 +11,9 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import clientImg from '../../public/richClient.png';
-import { Stock, Asset, Property, listOfStocks } from '@/models/stock';
+import { Stock, Asset, Property, listOfStocks, listOfDonations } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
+import DonationList from '@/components/DonationList/DonationList';
 
 export default function HomePage() {
  
@@ -133,22 +134,23 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donations">
-            donations
+            <DonationList donationList={listOfDonations}/>
           </Tabs.Panel>
 
         </Tabs>
       </div>
+      
       <div className="reportIncome">
-      <NumberInput
-      label={"How much income would you like to report?"}
-      placeholder={"Write down how much income you're reporting"}
-      min={0}
-      step={yearlyIncome / 20}
-      max={yearlyIncome}
-      defaultValue={yearlyIncome}
-      value={reportedIncome}
-      onChange={(value) => setReportedIncome(Number(value))}
-      />
+        <NumberInput
+          label={"How much income would you like to report?"}
+          placeholder={"Write down how much income you're reporting"}
+          min={0}
+          step={yearlyIncome / 20}
+          max={yearlyIncome}
+          defaultValue={yearlyIncome}
+          value={reportedIncome}
+          onChange={(value) => setReportedIncome(Number(value))}
+          />
       </div>
       <div className="flexRow">
         <Button variant="filled" onClick={incrementYear} >Increment Year</Button> 

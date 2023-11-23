@@ -59,11 +59,8 @@ img {
   align-self: center;
 }
 
-.riskBars{
-  width: 80%;
-}
 .reportIncome{
-  width: 50%;
+  width: 100%;
   margin-top: 30px;
   margin-bottom: 10px;
   display: flex;
@@ -107,13 +104,14 @@ img {
   justify-content: flex-end;
   flex: 1;
 }
-
 #clientNums text{
   font-family: InikaBold, serif;
 }
-
 #clientDetails{
   display: flex;
+}
+.riskBars{
+  width: 80%;
 }
 
 /* Portfolio - TABBED MENU */
