@@ -1,8 +1,12 @@
 'use client';
 
+import { Stock } from "@/models/stock";
 import StockItem from "../StockItem/StockItem";
 
-export default function StockList({stocksList}) {
+interface StockListProps {
+    stocksList: Stock[]
+}
+export default function StockList({stocksList}: StockListProps) {
     return (
         <div>
             <text className="panelHeader">Stocks</text>

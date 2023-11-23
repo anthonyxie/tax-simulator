@@ -5,7 +5,6 @@ import { GridLayout } from '@/components/GridLayout/GridLayout';
 import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
 import { SliderInput } from '@/components/SliderInput/SliderInput';
 import { CSSProperties, useEffect, useState } from 'react';
-import StocksList from '@/components/Accordion/StocksList';
 import { ActionIcon, Button, Image } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';

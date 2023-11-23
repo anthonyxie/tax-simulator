@@ -1,7 +1,12 @@
 'use client';
 import { Button, Divider } from "@mantine/core";
 import "../../resources/stylesheet.css";
-export default function StockItem({stock}) {
+import { Stock } from "@/models/stock";
+
+interface StockItemProps {
+    stock: Stock
+}
+export default function StockItem({stock}: StockItemProps) {
     return (
         <div className="stockItemDiv">
             <Divider variant="dotted" id="stockDivider" my="sm" label={stock.ticker} labelPosition="left" color="taupe" />

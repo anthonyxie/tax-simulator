@@ -1,11 +1,13 @@
 export interface Stock {
     ticker: string,
-    price: number
+    price: number,
+    amount: number
 }
 
 export interface Asset {
     name: string,
-    price: number
+    price: number,
+    
 }
 
 export interface Property {
@@ -15,9 +17,10 @@ export interface Property {
 
 export interface Art {
     name: string,
-    appraised: boolean,
     prices: number[],
-    price?: number
+    priceIndex?: number,
+    appraised: boolean,
+    donated?: boolean
 }
 
 export interface Donation {
@@ -26,11 +29,11 @@ export interface Donation {
 }
 
 export const listOfStocks = [
-    { ticker: "ONE", price: 100 },
-    { ticker: "TWO", price: 200 },
-    { ticker: "THREE", price: 300 },
-    { ticker: "FOUR", price: 400 },
-    { ticker: "FIVE", price: 500 },
+    { ticker: "dogcoin", price: 1000, amount: 100 },
+    { ticker: "anthonycoin", price: 200, amount: 500 },
+    { ticker: "coincoin", price: 300, amount: 600},
+    { ticker: "FOUR", price: 400, amount: 500 },
+    { ticker: "FIVE", price: 500, amount: 500 },
   ];
 
   export const listOfDonations = [
@@ -39,3 +42,11 @@ export const listOfStocks = [
     { charity: "ONE", price: 100 },
     { charity: "ONE", price: 100 },
   ];
+
+
+
+export const listOfArts = [
+    {name: "Nepo Child Artwork", appraised: false, prices: [5000, 60000, 100000]},
+    {name: "Narry Stight by Paclo Pibasso", appraised: false, prices: [50000, 60000, 70000]},
+    {name: "Picture Of A Dog", appraised: false, prices: [100, 200, 200000]}
+]

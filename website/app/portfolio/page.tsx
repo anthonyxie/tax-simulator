@@ -5,7 +5,6 @@ import { GridLayout } from '@/components/GridLayout/GridLayout';
 import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
 import { SliderInput } from '@/components/SliderInput/SliderInput';
 import { CSSProperties, useEffect, useState } from 'react';
-import StocksList from '@/components/Accordion/StocksList';
 import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
@@ -13,17 +12,18 @@ import '../../resources/stylesheet.css';
 import clientImg from '../../public/richClient.png';
 import { Stock, Asset, Property, listOfStocks, listOfDonations } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
+import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
 
 export default function HomePage() {
  
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
-  const [stocks, setStocks] = useState<any>({});
+  const [stocks, setStocks] = useState<any>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
-  const [reportedIncome, setReportedIncome] = useState<number | undefined>(100000)
+  const [reportedIncome, setReportedIncome] = useState<number>(100000)
   
   function incrementYear(event: { preventDefault: () => void; }): any {
     event.preventDefault();
@@ -38,18 +38,6 @@ export default function HomePage() {
     event.preventDefault();
     setNetWorth(0);
     setYearlyIncome(100000);
-  }
-
-  function stockToBeAdded(addedStock: Stock): any {
-    let tick = addedStock.ticker;
-    let newStocks = stocks;
-    if (tick in newStocks) {
-      newStocks[tick] += 1;
-    }
-    else {
-      newStocks[tick] = 1;
-    }
-    setStocks(newStocks);
   }
 
   useEffect(() => {
@@ -134,7 +122,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donations">
-            <DonationList donationList={listOfDonations}/>
+            donations
           </Tabs.Panel>
 
         </Tabs>
@@ -153,8 +141,7 @@ export default function HomePage() {
           />
       </div>
       <div className="flexRow">
-        <Button variant="filled" onClick={incrementYear} >Increment Year</Button> 
-        <Button variant="filled" onClick={resetAllValues} >Reset All Values</Button>
+        <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
       </div>
     </div>
     </>
