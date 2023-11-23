@@ -22,7 +22,6 @@ body{
   max-width: 100%;
   margin-right: 5%;
   margin-left: 5%;
-  justify-content: space-around;
 }
 
 #portfolioDiv{
@@ -36,7 +35,6 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .flexCol{
@@ -58,6 +56,7 @@ body{
 
 #tabbedMenu{
   height: 100%;
+  margin-bottom: 10px;
 }
 .mantine-Tabs-root	{
   height: 100%;
@@ -83,7 +82,7 @@ body{
 
 #client{
   background-color: white;
-  margin-bottom: 1%;
+  margin-bottom: 10px;
   padding: 10px;
   display: flex;
   max-height: 30vh;
@@ -102,7 +101,7 @@ img {
 #clientImage {
   object-fit: contain;
   display: flex;
-  align-self: flex-end;
+  align-self: last baseline;
 }
 #clientInfo{
   flex: 2;
@@ -128,6 +127,7 @@ img {
   width: 50%;
   margin-top: 30px;
   margin-bottom: 10px;
+  display: flex;
 }
 
 #clientNums text{
@@ -137,6 +137,8 @@ img {
 #clientDetails{
   display: flex;
 }
+
+/* Narrative */
 
 #narrativeBackground{
   align-items: center;

@@ -148,8 +148,10 @@ export default function HomePage() {
       defaultValue={yearlyIncome}
       />
       </div>
-      <Button variant="filled" onClick={incrementYear} >Increment Year</Button> space 
-      <Button variant="filled" onClick={resetAllValues} >Reset All Values</Button>
+      <div className="flexRow">
+        <Button variant="filled" onClick={incrementYear} >Increment Year</Button> 
+        <Button variant="filled" onClick={resetAllValues} >Reset All Values</Button>
+      </div>
     </div>
     </>
   );
