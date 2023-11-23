@@ -71,6 +71,7 @@ body{
   width: 100%;
   display: flex;
   padding-left: 10px;
+  padding-right: 10px;
 }
 #clientDetails{
 }
