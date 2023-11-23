@@ -22,7 +22,7 @@ export default function HomePage() {
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
-  const [reportedIncome, setReportedIncome] = useState(100000)
+  const [reportedIncome, setReportedIncome] = useState<number | undefined>(100000)
   
   function incrementYear(event: { preventDefault: () => void; }): any {
     event.preventDefault();
@@ -52,8 +52,8 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    setTaxAmount(yearlyIncome * 0.4);
-  }, [yearlyIncome, stocks, properties])
+    setTaxAmount(reportedIncome * 0.4);
+  }, [reportedIncome, stocks, properties])
 
   return (
     <>
@@ -146,6 +146,8 @@ export default function HomePage() {
       step={yearlyIncome / 20}
       max={yearlyIncome}
       defaultValue={yearlyIncome}
+      value={reportedIncome}
+      onChange={(value) => setReportedIncome(Number(value))}
       />
       </div>
       <div className="flexRow">
