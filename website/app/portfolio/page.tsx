@@ -142,6 +142,7 @@ export default function HomePage() {
 
         </Tabs>
       </div>
+      <div className="reportIncome">
       <NumberInput
       label={"How much income would you like to report?"}
       placeholder={"Write down how much income you're reporting"}
@@ -150,6 +151,7 @@ export default function HomePage() {
       max={yearlyIncome}
       defaultValue={yearlyIncome}
       />
+      </div>
       <Button variant="filled" onClick={incrementYear} >Increment Year</Button> space 
       <Button variant="filled" onClick={resetAllValues} >Reset All Values</Button>
     </div>

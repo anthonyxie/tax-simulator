@@ -109,6 +109,9 @@ body{
 .riskBars{
   width: 80%;
 }
+.reportIncome{
+  width: 40%;
+}
 
 #clientNums text{
   font-family: InikaBold, serif;
