@@ -14,6 +14,7 @@ import { Stock, Asset, Property, listOfStocks, listOfDonations, listOfArts } fro
 import RiskBar from '@/components/RiskBar/RiskBar';
 import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
+import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
 
 export default function HomePage() {
  
@@ -109,7 +110,8 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donable Assets">
-            <ArtList artsList={listOfArts}/>
+            {/* <ArtList artsList={listOfArts}/> */}
+            <ArtCarousel artsList={listOfArts} />
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
