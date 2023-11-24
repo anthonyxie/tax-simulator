@@ -7,11 +7,20 @@ interface ArtListProps {
 }
 export default function ArtCarousel({artsList}: ArtListProps) {
     return (
-        <div>
+        <div className="flexCol" id="artDiv">
             <text className="panelHeader">Art</text>
-            { <Carousel slideSize="70%" height={200} slideGap="sm" controlSize={25} loop withIndicators>
-                <Carousel.Slide>1</Carousel.Slide>
-              </Carousel> }
-         </div>
+            <Carousel id="artCar" slideSize="100%" height={200} slideGap="sm" controlSize={25} loop withIndicators>
+                <Carousel.Slide className="flexRow" id="artSlide">
+                    <div id="artImg">
+                        <img src="/assetsImgs/vase.png" alt="asset img" />
+                    </div>
+                    <div className="flexCol" id="artInfo">
+                        <text>NAME OF PIECE</text>
+                        <text>NAME OF ARTIST</text>
+                        <text>YEAR</text>
+                    </div>
+                </Carousel.Slide>
+            </Carousel>
+        </div>
     );
 }
