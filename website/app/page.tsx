@@ -1,29 +1,20 @@
-"use client";
-import { Welcome } from '../components/Welcome/Welcome';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
-import { GridLayout } from '@/components/GridLayout/GridLayout';
-import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
-import { SliderInput } from '@/components/SliderInput/SliderInput';
-import { CSSProperties, useEffect, useState } from 'react';
-import { ActionIcon, Button, Image } from '@mantine/core';
-import StockItem from '@/components/StockItem/StockItem';
-import StockList from '@/components/StockList/StockList';
+'use client';
+
 import '../resources/home.css';
 import Link from 'next/link';
 import React from 'react';
 
 export default function StartPage() {
-
   return (
     <>
-    <div id='homeDiv'>
+    <div id="homeDiv">
 
       <div id="heading">
-        <br></br>
-      </div>      
+        <br />
+      </div>
       <div id="bottomImgs">
-        <div id="bottomImgsCalc"><img src={"/homeImgs/calculator.png"} alt="calculator with 377g on it"/> </div>
-        <div id="bottomImgsThing"><img src={"/homeImgs/thing.png"} alt="paper thingy?"/> </div>
+        <div id="bottomImgsCalc"><img src="/homeImgs/calculator.png" alt="calculator with 377g on it" /> </div>
+        <div id="bottomImgsThing"><img src="/homeImgs/thing.png" alt="paper thingy?" /> </div>
       </div>
 
     </div>

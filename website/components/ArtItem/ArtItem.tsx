@@ -1,4 +1,5 @@
 "use client";
+
 import { Art } from "@/models/stock";
 import { Button, Divider } from "@mantine/core";
 import "../../resources/stylesheet.css";
