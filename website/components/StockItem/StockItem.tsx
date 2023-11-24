@@ -8,8 +8,8 @@ interface StockItemProps {
 }
 export default function StockItem({stock}: StockItemProps) {
     return (
-        <div className="stockItemDiv">
-            <Divider variant="dotted" id="stockDivider" my="sm" label={stock.ticker} labelPosition="left" color="taupe" />
+        <div className="listItemDiv" id="stockItemDiv">
+            <Divider variant="dotted" id="listItemDivider" my="sm" label={stock.ticker} labelPosition="left" color="taupe" />
             <text>$</text>
             <text>{stock.price}</text>
             <Button variant="filled" color="green">Buy 1</Button>

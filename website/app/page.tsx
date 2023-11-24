@@ -10,10 +10,6 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../resources/home.css';
 import Link from 'next/link';
-import NextImage from 'next/image';
-import calc from '../public/homeImgs/calculator.png'
-import paper from '../public/homeImgs/papers.png'
-import thing from '../public/homeImgs/thing.png'
 import React from 'react';
 
 export default function StartPage() {

@@ -122,27 +122,28 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donations">
-            donations
+            <DonationList donationList={listOfDonations}/>
           </Tabs.Panel>
 
         </Tabs>
       </div>
       
-      <div className="reportIncome">
-        <NumberInput
-          label={"How much income would you like to report?"}
-          placeholder={"Write down how much income you're reporting"}
-          min={0}
-          step={yearlyIncome / 20}
-          max={yearlyIncome}
-          defaultValue={yearlyIncome}
-          value={reportedIncome}
-          onChange={(value) => setReportedIncome(Number(value))}
-          />
+      <div className='flexRow' id="reportIncome">
+          <NumberInput
+            label={"How much income would you like to report?"}
+            placeholder={"Write down how much income you're reporting"}
+            min={0}
+            step={yearlyIncome / 20}
+            max={yearlyIncome}
+            defaultValue={yearlyIncome}
+            value={reportedIncome}
+            prefix='$'
+            decimalScale={2}
+            onChange={(value) => setReportedIncome(Number(value))}
+            />
+          <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
       </div>
-      <div className="flexRow">
-        <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
-      </div>
+      
     </div>
     </>
   );
