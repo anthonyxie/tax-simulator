@@ -10,7 +10,7 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import clientImg from '../../public/richClient.png';
-import { Stock, Asset, Property, listOfStocks, listOfDonations } from '@/models/stock';
+import { Stock, Asset, Property, listOfStocks, listOfDonations, listOfArts } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
@@ -90,8 +90,8 @@ export default function HomePage() {
             <Tabs.Tab value="Properties">
               Properties
             </Tabs.Tab>
-            <Tabs.Tab value="Assets">
-              Assets
+            <Tabs.Tab value="Donable Assets">
+              Donable Assets
             </Tabs.Tab>
             <Tabs.Tab value="Bank Holdings">
               Bank Holdings
@@ -99,8 +99,8 @@ export default function HomePage() {
             <Tabs.Tab value="Stocks">
               Stocks
             </Tabs.Tab>
-            <Tabs.Tab value="Donations">
-              Donations
+            <Tabs.Tab value="Charity Donations">
+              Charity Donations
             </Tabs.Tab>
           </Tabs.List>
 
@@ -109,8 +109,8 @@ export default function HomePage() {
             and stuff fbdjskfbkjsdfb nkjdnfjkdsfjksdf jkdnfs jkdf dsf skj hf dsjfsdjf bhdfb jws dfjsdbf hsd fsdbfsdbf sduh sfdjbf sd s
           </Tabs.Panel>
 
-          <Tabs.Panel value="Assets">
-            assets
+          <Tabs.Panel value="Donable Assets">
+            <ArtList artsList={listOfArts}/>
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
@@ -121,29 +121,28 @@ export default function HomePage() {
             <StockList stocksList={listOfStocks}/>
           </Tabs.Panel>
 
-          <Tabs.Panel value="Donations">
+          <Tabs.Panel value="Charity Donations">
             <DonationList donationList={listOfDonations}/>
           </Tabs.Panel>
 
         </Tabs>
       </div>
       
-      <div className='flexRow' id="reportIncome">
-          <NumberInput
-            label={"How much income would you like to report?"}
-            placeholder={"Write down how much income you're reporting"}
-            min={0}
-            step={yearlyIncome / 20}
-            max={yearlyIncome}
-            defaultValue={yearlyIncome}
-            value={reportedIncome}
-            prefix='$'
-            decimalScale={2}
-            onChange={(value) => setReportedIncome(Number(value))}
-            />
-          <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
+      <div className="reportIncome">
+        <NumberInput
+          label={"How much income would you like to report?"}
+          placeholder={"Write down how much income you're reporting"}
+          min={0}
+          step={yearlyIncome / 20}
+          max={yearlyIncome}
+          defaultValue={yearlyIncome}
+          value={reportedIncome}
+          onChange={(value) => setReportedIncome(Number(value))}
+          />
       </div>
-      
+      <div className="flexRow">
+        <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
+      </div>
     </div>
     </>
   );
