@@ -122,7 +122,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donations">
-            <DonationList donationList={listOfDonations}/>
+            donations
           </Tabs.Panel>
 
         </Tabs>

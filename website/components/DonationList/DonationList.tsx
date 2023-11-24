@@ -1,11 +1,7 @@
 'use client';
 
-import { Donation } from "@/models/stock";
 import DonationItem from "../DonationItem/DonationItem";
-interface DonationListProps {
-    donationList: Donation[]
-}
-export default function DonationList({donationList}: DonationListProps) {
+export default function DonationList({donationList}) {
     return (
         <div>
             <text className="panelHeader">Donations</text>
