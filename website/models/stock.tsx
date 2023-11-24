@@ -25,7 +25,7 @@ export interface Art {
 
 export interface Donation {
     charity: string,
-    price: number
+    price: number,
 }
 
 export const listOfStocks = [
