@@ -68,6 +68,10 @@ img {
 }
 #reportIncome Button {
   flex: .5;
+  align-self: flex-end;
+}
+#reportBttnTxt:hover {
+  color: green;
 }
 
 /* Portfolio - CLIENT INFO BAR */

@@ -136,9 +136,11 @@ export default function HomePage() {
           max={yearlyIncome}
           defaultValue={yearlyIncome}
           value={reportedIncome}
+          prefix='$'
+          decimalScale={2}
           onChange={(value) => setReportedIncome(Number(value))}
           />
-          <Button id="reportButton" variant="filled" onClick={incrementYear} >File Taxes!</Button>
+          <Button id="reportButton" variant="filled" onClick={incrementYear} ><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
     </>
