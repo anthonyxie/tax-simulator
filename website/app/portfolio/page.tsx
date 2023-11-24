@@ -106,7 +106,6 @@ export default function HomePage() {
 
           <Tabs.Panel value="Properties">
             properties
-            and stuff fbdjskfbkjsdfb nkjdnfjkdsfjksdf jkdnfs jkdf dsf skj hf dsjfsdjf bhdfb jws dfjsdbf hsd fsdbfsdbf sduh sfdjbf sd s
           </Tabs.Panel>
 
           <Tabs.Panel value="Donable Assets">
@@ -128,7 +127,7 @@ export default function HomePage() {
         </Tabs>
       </div>
       
-      <div className="reportIncome">
+      <div className='flexRow' id="reportIncome">
         <NumberInput
           label={"How much income would you like to report?"}
           placeholder={"Write down how much income you're reporting"}
@@ -139,9 +138,7 @@ export default function HomePage() {
           value={reportedIncome}
           onChange={(value) => setReportedIncome(Number(value))}
           />
-      </div>
-      <div className="flexRow">
-        <Button variant="filled" onClick={incrementYear} >File Taxes!</Button>
+          <Button id="reportButton" variant="filled" onClick={incrementYear} >File Taxes!</Button>
       </div>
     </div>
     </>

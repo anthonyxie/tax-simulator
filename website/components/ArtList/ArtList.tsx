@@ -7,7 +7,7 @@ interface ArtListProps {
 export default function ArtList({artsList}: ArtListProps) {
     return (
         <div>
-            <text>Art: </text>
+            <text className="panelHeader">Art</text>
             {artsList.map((art, index) => (<ArtItem art={art} key={index}></ArtItem>))}
          </div>
     );

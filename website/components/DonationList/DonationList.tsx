@@ -1,7 +1,7 @@
 'use client';
-
 import { Donation } from "@/models/stock";
 import DonationItem from "../DonationItem/DonationItem";
+
 interface DonationListProps {
     donationList: Donation[]
 }

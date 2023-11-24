@@ -60,16 +60,14 @@ img {
 }
 
 #reportIncome{
-  width: 100%;
   margin-top: 30px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#reportIncome NumberInput {
-  flex: 1;
-  width: 100%;
+#reportIncome Button {
+  flex: .5;
 }
 
 /* Portfolio - CLIENT INFO BAR */
@@ -173,6 +171,7 @@ img {
   font-family: InikaBold, serif;
   display: flex;
 }
+
 /* STOCKS */
 #stockItemDiv Button{
   margin-left: 10px;
@@ -180,7 +179,6 @@ img {
 #stockItemDiv Button:hover{
   margin-left: 10px;
 }
-
 #stocksHeader{
   display: flex;
   width: 100%;
