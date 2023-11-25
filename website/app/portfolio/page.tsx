@@ -21,14 +21,14 @@ import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
 export default function HomePage() {
  
   const [netWorth, setNetWorth] = useState(0);
-  const [yearlyIncome, setYearlyIncome] = useState(100000);
+  const [yearlyIncome, setYearlyIncome] = useState(1000000);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts)
-  const [reportedIncome, setReportedIncome] = useState<number>(100000)
+  const [reportedIncome, setReportedIncome] = useState<number>(1000000)
   const [liquidFunds, setLiquidFunds] = useState(0);
 
   const liquidFundsGoal = 450000;

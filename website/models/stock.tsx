@@ -20,7 +20,6 @@ export interface Art {
     prices: number[],
     priceIndex?: number,
     appraised: boolean,
-    donated?: boolean
 }
 
 export interface Donation {

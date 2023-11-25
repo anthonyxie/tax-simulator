@@ -19,26 +19,23 @@ export default function ArtItem({art, index, editArt, donateArt}: ArtItemProps) 
     const [evaluator, setEvaluator] = useState<string | null>(listOfEvaluators[0].name);
     
     useEffect(() => {
-        let i = 0
+        let i = 0;
         listOfEvaluators.forEach((account, index) => {
             if (account.name == evaluator) {
                 i = index;
             }
         });
         setEvalIndex(i);
-    }, [evaluator])
+    }, [evaluator]);
+
     function appraiseArt() {
         open();
-        // let newArt = art;
-        // newArt.appraised = true;
-        // newArt.priceIndex = 1;
-
     }
 
     function submitAppraisal() {
-        let newArt = art;
+        let newArt = {...art};
         newArt.appraised = true;
-        newArt.priceIndex = evalIndex;
+        newArt.priceIndex = listOfEvaluators[evalIndex].index;
         editArt(newArt, index);
         close();
     }
