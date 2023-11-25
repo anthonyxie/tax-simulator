@@ -70,3 +70,9 @@ export const listOfCountries = [
     { country: "Bahamas", risk: "high", taxes: "very low"},
     { country: "UAE", risk: "medium", taxes: "medium"},
 ]
+
+export const listOfEvaluators = [
+    { name: "Risky McRiskPants", index: 2},
+    { name: "Realistic Evaluator", index: 0},
+    { name: "Medium Burger with Fries Evaluator", index: 1}
+]

@@ -60,6 +60,19 @@ export default function HomePage() {
     }
   }
 
+  function donateArt(index: number): any {
+    let artsList = arts.slice();
+    let oldArt = artsList[index]
+    if (oldArt.priceIndex) {
+      let oldPrice = oldArt.prices[oldArt.priceIndex]
+      let newtaxAmount = taxAmount;
+      newtaxAmount -= oldPrice * 0.3
+      artsList.splice(index, 1);
+      setTaxAmount(newtaxAmount);
+      setArts(artsList);
+    }
+  }
+
   function resetAllValues(event: { preventDefault: () => void; }): any {
     event.preventDefault();
     setNetWorth(0);
@@ -151,7 +164,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donable Assets">
-            {<ArtList artsList={arts} editArt={editArt}/>}
+            {<ArtList donateArt={donateArt} artsList={arts} editArt={editArt}/>}
             {/*<ArtCarousel artsList={listOfArts} />*/}
           </Tabs.Panel>
 
