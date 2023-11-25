@@ -4,17 +4,19 @@ import { Stock } from "@/models/stock";
 import StockItem from "../StockItem/StockItem";
 
 interface StockListProps {
-    stocksList: Stock[]
+    stocksList: Stock[],
+    sellStock?: any,
 }
-export default function StockList({stocksList}: StockListProps) {
+export default function StockList({stocksList, sellStock}: StockListProps) {
     return (
         <div>
             <text className="panelHeader">Stocks</text>
             <div id="stocksHeader">
                 <text>Ticker</text>
+                <text>Amount Owned</text>
                 <text>Value</text>
             </div>
-            {stocksList.map((theStock, index) => (<StockItem stock={theStock} key={index}></StockItem>))}
+            {stocksList.map((theStock, index) => (<StockItem sellStock={sellStock} index={index} stock={theStock} key={index}></StockItem>))}
          </div>
     );
 }

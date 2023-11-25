@@ -22,7 +22,7 @@ export default function HomePage() {
  
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
-  const [stocks, setStocks] = useState<any>(listOfStocks);
+  const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
@@ -40,6 +40,19 @@ export default function HomePage() {
     let poggers = joemama + yearlyIncome;
     setYearlyIncome(yearlyIncome * 1.1);
     setNetWorth(poggers);
+  }
+
+  function sellStock(index: number, amountSold: number): any {
+    console.log("stock sold");
+    let stockList = stocks.slice();
+    let soldStock = stockList[index];
+    if (soldStock.amount >= amountSold) {
+      soldStock.amount -= amountSold;
+    }
+    let newFundAmount = liquidFunds;
+    stockList[index] = soldStock;
+    setStocks(stockList);
+    setLiquidFunds(newFundAmount + amountSold * soldStock.price);
   }
 
   function resetAllValues(event: { preventDefault: () => void; }): any {
@@ -96,6 +109,11 @@ export default function HomePage() {
                     <Progress.Section value={risk} color="red">
                     </Progress.Section>
                 </Progress.Root>
+                <text>Liquid Funds:</text>
+                <Progress.Root size={20}>
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="red">
+                    </Progress.Section>
+                </Progress.Root>
             </div>
           </div>
           
@@ -137,7 +155,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Stocks">
-            <StockList stocksList={listOfStocks}/>
+            <StockList sellStock={sellStock} stocksList={listOfStocks}/>
           </Tabs.Panel>
 
           <Tabs.Panel value="Charity Donations">
