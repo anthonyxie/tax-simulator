@@ -13,7 +13,7 @@ export default function ArtCarousel({artsList}: ArtListProps) {
             <text className="panelHeader">Art</text>
             <Carousel id="artCar" slideSize="100%" height={200} slideGap="sm" controlSize={25} loop withIndicators>
                 {artsList.map((art, index) => (
-                    <Carousel.Slide className="flexRow" id="artSlide">
+                    <Carousel.Slide key={index} className="flexRow" id="artSlide">
                         <div id="artImg">
                             <img src="/assetsImgs/vase.png" alt="asset img" />
                         </div>

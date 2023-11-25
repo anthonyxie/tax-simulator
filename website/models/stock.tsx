@@ -61,3 +61,12 @@ export const listOfAccounts = [
     { name: "Silicon Valley Bank", amount: 20000000, APY: 0.01, country: 'U.S.' },
     { name: "CapitalTwo", amount: 4732012, APY: 0.043, country: 'U.S.' },
 ]
+
+export const listOfCountries = [
+    //REPLACE TAXES WITH SOME NUMERICAL CALCS
+    { country: "U.S.", risk: "none", taxes: "high"},
+    { country: "Hong Kong", risk: "medium", taxes: "very low"},
+    { country: "Switzerland", risk: "medium", taxes: "low"},
+    { country: "Bahamas", risk: "high", taxes: "very low"},
+    { country: "UAE", risk: "medium", taxes: "medium"},
+]

@@ -29,7 +29,10 @@ export default function HomePage() {
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts)
   const [reportedIncome, setReportedIncome] = useState<number>(100000)
-  
+  const [liquidFunds, setLiquidFunds] = useState(0);
+
+  const liquidFundsGoal = 450000;
+
   function incrementYear(event: { preventDefault: () => void; }): any {
     event.preventDefault();
 
@@ -126,7 +129,7 @@ export default function HomePage() {
 
           <Tabs.Panel value="Donable Assets">
             {<ArtList artsList={arts} editArt={editArt}/>}
-            {/*<ArtCarousel artsList={listOfArts} /> */}
+            {/*<ArtCarousel artsList={listOfArts} />*/}
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
