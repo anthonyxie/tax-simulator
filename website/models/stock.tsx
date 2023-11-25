@@ -32,6 +32,7 @@ export interface BankAccount {
     name: string,
     amount: number,
     APY: number,
+    country: string,
 }
 
 export const listOfStocks = [
@@ -56,7 +57,7 @@ export const listOfArts = [
 ]
 
 export const listOfAccounts = [
-    { name: "Bank of America", amount: 1000000, APY: 0.01 },
-    { name: "Silicon Valley Bank", amount: 20000000, APY: 0.01},
-    { name: "CapitalTwo", amount: 4732012, APY: 0.043}
+    { name: "Bank of America", amount: 1000000, APY: 0.01, country: 'U.S.'},
+    { name: "Silicon Valley Bank", amount: 20000000, APY: 0.01, country: 'U.S.' },
+    { name: "CapitalTwo", amount: 4732012, APY: 0.043, country: 'U.S.' },
 ]

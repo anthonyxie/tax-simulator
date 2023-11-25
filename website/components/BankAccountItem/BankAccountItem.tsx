@@ -12,7 +12,8 @@ export default function BankAccountItem({ account }: BankAccountItemProps) {
         <div className="listItemDiv" id="bankAccountItemDiv">
             <div style={{ width: '25%' }}><text>{account.name}</text></div>
             <div style={{ width: '25%' }}><text>${account.amount}</text></div>
-            <div style={{width: '25%'}}><text>{account.APY}%</text></div>
+            <div style={{ width: '25%' }}><text>{account.APY}%</text></div>
+            <div style={{ width: '25%' }}><text>{account.country}</text></div>
             {/* need to add feature to create offshore accounts */}
         </div>
     )
