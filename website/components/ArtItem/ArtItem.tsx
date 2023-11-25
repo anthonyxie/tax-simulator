@@ -1,8 +1,9 @@
 "use client";
 
 import { Art } from "@/models/stock";
-import { Button, Divider } from "@mantine/core";
+import { Button, Divider, Modal } from "@mantine/core";
 import "../../resources/stylesheet.css";
+import { useDisclosure } from "@mantine/hooks";
 
 interface ArtItemProps {
     art: Art,
@@ -11,16 +12,22 @@ interface ArtItemProps {
 }
 
 export default function ArtItem({art, index, editArt}: ArtItemProps) {
+    const [opened, { open, close }] = useDisclosure(false);
+    
 
     function appraiseArt() {
-        let newArt = art;
-        newArt.appraised = true;
-        newArt.priceIndex = 1;
-        editArt(newArt, index);
+        open();
+        // let newArt = art;
+        // newArt.appraised = true;
+        // newArt.priceIndex = 1;
+        // editArt(newArt, index);
     }
     
     return (
         <div className="listItemDiv" id="artItemDiv">
+            <Modal opened={opened} onClose={close} centered>
+
+            </Modal>
             <text>{art.name}</text>
             {art.priceIndex && <text>{art.prices[art.priceIndex]}</text>}
             {!art.appraised ? <Button variant="filled" color="taupe" size="compact-md" onClick={appraiseArt}>Appraise Art</Button> : <Button variant="filled" color="taupe">Donate Art</Button>}          

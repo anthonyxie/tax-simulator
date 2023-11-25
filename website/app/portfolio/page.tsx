@@ -48,11 +48,16 @@ export default function HomePage() {
     let soldStock = stockList[index];
     if (soldStock.amount >= amountSold) {
       soldStock.amount -= amountSold;
+      let newFundAmount = liquidFunds;
+      let profit = amountSold * soldStock.price
+      newFundAmount += profit
+      stockList[index] = soldStock;
+      let newtaxAmount = taxAmount;
+      newtaxAmount += profit * 0.1
+      setTaxAmount(newtaxAmount);
+      setStocks(stockList);
+      setLiquidFunds(newFundAmount);
     }
-    let newFundAmount = liquidFunds;
-    stockList[index] = soldStock;
-    setStocks(stockList);
-    setLiquidFunds(newFundAmount + amountSold * soldStock.price);
   }
 
   function resetAllValues(event: { preventDefault: () => void; }): any {
@@ -70,7 +75,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setTaxAmount(reportedIncome * 0.4);
-  }, [reportedIncome, stocks, properties]);
+  }, [reportedIncome]);
 
   useEffect(() => {
     console.log(arts);
@@ -111,7 +116,7 @@ export default function HomePage() {
                 </Progress.Root>
                 <text>Liquid Funds:</text>
                 <Progress.Root size={20}>
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="red">
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
                     </Progress.Section>
                 </Progress.Root>
             </div>
