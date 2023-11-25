@@ -11,10 +11,11 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import clientImg from '../../public/richClient.png';
-import { Stock, Asset, Property, listOfStocks, listOfDonations, listOfArts, Art } from '@/models/stock';
+import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, Art } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
+import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
 
 export default function HomePage() {
@@ -26,6 +27,7 @@ export default function HomePage() {
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
   const [arts, setArts] = useState<Art[]>(listOfArts);
+  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts)
   const [reportedIncome, setReportedIncome] = useState<number>(100000)
   
   function incrementYear(event: { preventDefault: () => void; }): any {
@@ -128,7 +130,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
-            banks
+            {<BankAccountList accountsList={accounts}/>}
           </Tabs.Panel>
 
           <Tabs.Panel value="Stocks">

@@ -199,7 +199,6 @@ img {
 #donationItemDiv Button:hover{
   margin-left: 10px;
 }
-
 #donationHeader{
   display: flex;
   width: 100%;
@@ -248,9 +247,19 @@ img {
 #artInfo{
 }
 
+/* DONATIONS */
+#bankAccountItemDiv {
+  padding-right: 25%;
+}
+#bankAccountHeader {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 25%;
+}
 
 /* Narrative */
-
 #narrativeBackground{
   align-items: center;
   justify-content: center;
