@@ -11,7 +11,7 @@ import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import clientImg from '../../public/richClient.png';
-import { Stock, Asset, Property, listOfStocks, listOfDonations, listOfArts } from '@/models/stock';
+import { Stock, Asset, Property, listOfStocks, listOfDonations, listOfArts, Art } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
@@ -25,6 +25,7 @@ export default function HomePage() {
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
+  const [arts, setArts] = useState<Art[]>(listOfArts);
   const [reportedIncome, setReportedIncome] = useState<number>(100000)
   
   function incrementYear(event: { preventDefault: () => void; }): any {
@@ -42,9 +43,20 @@ export default function HomePage() {
     setYearlyIncome(100000);
   }
 
+  function editArt(art: Art, index: number): any {
+    console.log("wow");
+    let artList = arts.slice();
+    artList[index] = art;
+    setArts(artList);
+  }
+
   useEffect(() => {
     setTaxAmount(reportedIncome * 0.4);
-  }, [reportedIncome, stocks, properties])
+  }, [reportedIncome, stocks, properties]);
+
+  useEffect(() => {
+    console.log(arts);
+  }, [arts])
 
   return (
     <>
@@ -111,8 +123,8 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donable Assets">
-            {/* <ArtList artsList={listOfArts}/> */}
-            <ArtCarousel artsList={listOfArts} />
+            {<ArtList artsList={arts} editArt={editArt}/>}
+            {/*<ArtCarousel artsList={listOfArts} /> */}
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
