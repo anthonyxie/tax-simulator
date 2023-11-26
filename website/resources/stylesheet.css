@@ -224,27 +224,36 @@ img {
 /* ART ASSETS */
 #artDiv{
   height: 100%;
-}
-#artCar{
+  flex-direction: column;
   display: flex;
-  flex: 1;
-  background-color: pink;
+  background-color: #4CAF50;
 }
-#artSlide{
+#artCarousel{
   padding: 10px;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 150px;
-  background-color: #4CAF50;
+  background-color: pink;
+}
+#artCarouselDiv{
+  background-color: paleturquoise;
+  height: 100%;
+  display: flex;
+  flex: 1;
 }
 #artItemDiv{
+  /* background-color: wheat; */
   display: flex;
-  flex-direction: row;
+  flex: 1;
 }
 #artImg{
-  background-color: aqua;
+  /* background-color: aqua; */
+  display: flex;
   flex: 1;
+}
+#artImg img{
+  /* object-fit: fill; */
 }
 #artInfo{
   flex: 1;

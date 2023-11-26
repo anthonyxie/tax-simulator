@@ -60,7 +60,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt }: ArtListPro
   };
 
   return (
-    <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
+    <Box id="artDiv" sx={{ maxWidth: '100%', flexGrow: 1 }}>
       <Paper
         square
         elevation={0}
@@ -75,13 +75,14 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt }: ArtListPro
         <Typography>{images[activeStep].label}</Typography>
       </Paper>
       <AutoPlaySwipeableViews
+        id="artCarousel"
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
         {artsList.map((art, index) => (
-          <div key={index}>
+          <div key={index} id="artCarouselDiv">
             {Math.abs(activeStep - index) <= 2 ? (
               // eslint-disable-next-line max-len
               <ArtAssetItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} />
