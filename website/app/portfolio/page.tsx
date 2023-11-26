@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
+import { CSSProperties, useEffect, useState } from 'react';
+import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
 import { Welcome } from '../../components/Welcome/Welcome';
 import { ColorSchemeToggle } from '../../components/ColorSchemeToggle/ColorSchemeToggle';
 import { GridLayout } from '@/components/GridLayout/GridLayout';
 import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
 import { SliderInput } from '@/components/SliderInput/SliderInput';
-import { CSSProperties, useEffect, useState } from 'react';
-import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
 import StockItem from '@/components/StockItem/StockItem';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
@@ -19,7 +19,6 @@ import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
 
 export default function HomePage() {
- 
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(100000);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
@@ -27,8 +26,8 @@ export default function HomePage() {
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(20);
   const [arts, setArts] = useState<Art[]>(listOfArts);
-  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts)
-  const [reportedIncome, setReportedIncome] = useState<number>(100000)
+  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
+  const [reportedIncome, setReportedIncome] = useState<number>(100000);
   const [liquidFunds, setLiquidFunds] = useState(0);
 
   const liquidFundsGoal = 450000;
@@ -36,24 +35,24 @@ export default function HomePage() {
   function incrementYear(event: { preventDefault: () => void; }): any {
     event.preventDefault();
 
-    let joemama = netWorth;
-    let poggers = joemama + yearlyIncome;
+    const joemama = netWorth;
+    const poggers = joemama + yearlyIncome;
     setYearlyIncome(yearlyIncome * 1.1);
     setNetWorth(poggers);
   }
 
   function sellStock(index: number, amountSold: number): any {
-    console.log("stock sold");
-    let stockList = stocks.slice();
-    let soldStock = stockList[index];
+    console.log('stock sold');
+    const stockList = stocks.slice();
+    const soldStock = stockList[index];
     if (soldStock.amount >= amountSold) {
       soldStock.amount -= amountSold;
       let newFundAmount = liquidFunds;
-      let profit = amountSold * soldStock.price
-      newFundAmount += profit
+      const profit = amountSold * soldStock.price;
+      newFundAmount += profit;
       stockList[index] = soldStock;
       let newtaxAmount = taxAmount;
-      newtaxAmount += profit * 0.1
+      newtaxAmount += profit * 0.1;
       setTaxAmount(newtaxAmount);
       setStocks(stockList);
       setLiquidFunds(newFundAmount);
@@ -61,12 +60,12 @@ export default function HomePage() {
   }
 
   function donateArt(index: number): any {
-    let artsList = arts.slice();
-    let oldArt = artsList[index]
+    const artsList = arts.slice();
+    const oldArt = artsList[index];
     if (oldArt.priceIndex) {
-      let oldPrice = oldArt.prices[oldArt.priceIndex]
+      const oldPrice = oldArt.prices[oldArt.priceIndex];
       let newtaxAmount = taxAmount;
-      newtaxAmount -= oldPrice * 0.3
+      newtaxAmount -= oldPrice * 0.3;
       artsList.splice(index, 1);
       setTaxAmount(newtaxAmount);
       setArts(artsList);
@@ -80,8 +79,8 @@ export default function HomePage() {
   }
 
   function editArt(art: Art, index: number): any {
-    console.log("wow");
-    let artList = arts.slice();
+    console.log('wow');
+    const artList = arts.slice();
     artList[index] = art;
     setArts(artList);
   }
@@ -92,7 +91,7 @@ export default function HomePage() {
 
   useEffect(() => {
     console.log(arts);
-  }, [arts])
+  }, [arts]);
 
   return (
     <>
@@ -101,18 +100,18 @@ export default function HomePage() {
 
       <div className="flexRow" id="client">
         <div id="rightHalf">
-          <img id="clientImage" src={"/richClient.png"} alt="Brown haired young woman with money"/>
+          <img id="clientImage" src="/richClient.png" alt="Brown haired young woman with money" />
         </div>
         {/* ^takes half and \/ takes half */}
-        <div className='flexCol' id="clientInfo">
+        <div className="flexCol" id="clientInfo">
           <text id="clientName">Jane Client Doe</text>
-          <div className='flexRow' id="clientDetails">
-            <div className='flexCol'>
+          <div className="flexRow" id="clientDetails">
+            <div className="flexCol">
               <text>Net worth: </text>
               <text>Yearly income: </text>
               <text>Projected Taxes: </text>
             </div>
-            <div className='flexCol' id="clientNums">
+            <div className="flexCol" id="clientNums">
               <text>{netWorth}</text>
               <text>{yearlyIncome}</text>
               <text>{taxAmount}</text>
@@ -121,26 +120,23 @@ export default function HomePage() {
           <div className="flexColAligned">
             <div className="riskBars">
                 <text>Taxed Income:</text>
-                  <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount}/>
+                  <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount} />
                 <text>Risk:</text>
                 <Progress.Root size={20}>
-                    <Progress.Section value={risk} color="red">
-                    </Progress.Section>
+                    <Progress.Section value={risk} color="red" />
                 </Progress.Root>
                 <text>Liquid Funds:</text>
                 <Progress.Root size={20}>
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
-                    </Progress.Section>
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue" />
                 </Progress.Root>
             </div>
           </div>
-          
         </div>
-        
+
       </div>
-      
-      <div id='tabbedMenu'>
-          <Tabs defaultValue="Properties" color='yellow' >
+
+      <div id="tabbedMenu">
+          <Tabs defaultValue="Properties" color="yellow">
           <Tabs.List grow>
             <Tabs.Tab value="Properties">
               Properties
@@ -164,39 +160,39 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Donable Assets">
-            {<ArtList donateArt={donateArt} artsList={arts} editArt={editArt}/>}
+            <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} />
             {/*<ArtCarousel artsList={listOfArts} />*/}
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
-            {<BankAccountList accountsList={listOfAccounts}/>}
+            <BankAccountList accountsList={listOfAccounts} />
           </Tabs.Panel>
 
           <Tabs.Panel value="Stocks">
-            <StockList sellStock={sellStock} stocksList={listOfStocks}/>
+            <StockList sellStock={sellStock} stocksList={listOfStocks} />
           </Tabs.Panel>
 
           <Tabs.Panel value="Charity Donations">
-            <DonationList donationList={listOfDonations}/>
+            <DonationList donationList={listOfDonations} />
           </Tabs.Panel>
 
-        </Tabs>
+          </Tabs>
       </div>
-      
-      <div className='flexRow' id="reportIncome">
+
+      <div className="flexRow" id="reportIncome">
         <NumberInput
-          label={"How much income would you like to report?"}
+          label="How much income would you like to report?"
           placeholder={"Write down how much income you're reporting"}
           min={0}
           step={yearlyIncome / 20}
           max={yearlyIncome}
           defaultValue={yearlyIncome}
           value={reportedIncome}
-          prefix='$'
+          prefix="$"
           decimalScale={2}
           onChange={(value) => setReportedIncome(Number(value))}
-          />
-          <Button id="reportButton" variant="filled" onClick={incrementYear} ><text id="reportBttnTxt">File Taxes!</text></Button>
+        />
+          <Button id="reportButton" variant="filled" onClick={incrementYear}><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
     </>

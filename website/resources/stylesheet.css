@@ -173,6 +173,7 @@ img {
   font-size: 1.2rem;
   font-family: InikaBold, serif;
   display: flex;
+  align-items: flex-end;
 }
 
 /* STOCKS */

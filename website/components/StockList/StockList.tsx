@@ -1,13 +1,13 @@
 'use client';
 
-import { Stock } from "@/models/stock";
-import StockItem from "../StockItem/StockItem";
+import { Stock } from '@/models/stock';
+import StockItem from '../StockItem/StockItem';
 
 interface StockListProps {
     stocksList: Stock[],
     sellStock?: any,
 }
-export default function StockList({stocksList, sellStock}: StockListProps) {
+export default function StockList({ stocksList, sellStock }: StockListProps) {
     return (
         <div>
             <text className="panelHeader">Stocks</text>
@@ -16,7 +16,9 @@ export default function StockList({stocksList, sellStock}: StockListProps) {
                 <text>Amount Owned</text>
                 <text>Value</text>
             </div>
-            {stocksList.map((theStock, index) => (<StockItem sellStock={sellStock} index={index} stock={theStock} key={index}></StockItem>))}
-         </div>
+            {stocksList.map((theStock, index) => (
+                <StockItem sellStock={sellStock} index={index} stock={theStock} key={index} />
+            ))}
+        </div>
     );
 }
