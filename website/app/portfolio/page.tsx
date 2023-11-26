@@ -17,6 +17,7 @@ import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
+import ArtAssets from '@/components/ArtAssets/ArtAssets';
 
 export default function HomePage() {
   const [netWorth, setNetWorth] = useState(0);
@@ -171,7 +172,8 @@ export default function HomePage() {
 
               <Tabs.Panel value="Donable Assets">
                 {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
-                <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} />
+                {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
+                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
