@@ -164,6 +164,9 @@ export default function HomePage() {
             <Tabs.Tab value="Charity Donations">
               Charity Donations
             </Tabs.Tab>
+            <Tabs.Tab value="Reporting Income">
+              Income Reporting
+            </Tabs.Tab>
           </Tabs.List>
 
           <Tabs.Panel value="Properties">
@@ -187,22 +190,25 @@ export default function HomePage() {
             <DonationList donationList={listOfDonations}/>
           </Tabs.Panel>
 
+          <Tabs.Panel value="Reporting Income">
+            <NumberInput
+            label={"How much income would you like to report?"}
+            placeholder={"Write down how much income you're reporting"}
+            min={0}
+            step={yearlyIncome / 20}
+            max={yearlyIncome}
+            defaultValue={yearlyIncome}
+            value={reportedIncome}
+            prefix='$'
+            decimalScale={2}
+            onChange={(value) => setReportedIncome(Number(value))}
+            />
+          </Tabs.Panel>
+
         </Tabs>
       </div>
       
       <div className='flexRow' id="reportIncome">
-        <NumberInput
-          label={"How much income would you like to report?"}
-          placeholder={"Write down how much income you're reporting"}
-          min={0}
-          step={yearlyIncome / 20}
-          max={yearlyIncome}
-          defaultValue={yearlyIncome}
-          value={reportedIncome}
-          prefix='$'
-          decimalScale={2}
-          onChange={(value) => setReportedIncome(Number(value))}
-          />
           <Button id="reportButton" variant="filled" onClick={incrementYear} ><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
