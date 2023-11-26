@@ -1646,6 +1646,13 @@
   resolved "https://registry.npmjs.org/@mantine/hooks/-/hooks-7.2.2.tgz"
   integrity sha512-7CFSVP2aQHrBwLLAVf0q5dgj+6QTZmhLTNcuc3pE1du+HLFUdyVS6vvQC6kieZXxOd6UzwFGBlN4G+aDx95XeA==
 
+"@material-ui/types@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/@material-ui/types/-/types-4.1.1.tgz"
+  integrity sha512-AN+GZNXytX9yxGi0JOfxHrRTbhFybjUJ05rnsBVjcB+16e466Z0Xe5IxawuOayVZgTBNDxmPKo5j4V6OnMtaSQ==
+  dependencies:
+    "@types/react" "*"
+
 "@mdx-js/react@^2.1.5":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@mdx-js/react/-/react-2.3.0.tgz"
@@ -3272,6 +3279,22 @@
   version "18.2.15"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.15.tgz"
   integrity sha512-HWMdW+7r7MR5+PZqJF6YFNSCtjz1T0dsvo/f1BV6HkV+6erD/nA7wd9NM00KVG83zf2nJ7uATPO9ttdIPvi3gg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-swipeable-views-utils@^0.13.7":
+  version "0.13.7"
+  resolved "https://registry.npmjs.org/@types/react-swipeable-views-utils/-/react-swipeable-views-utils-0.13.7.tgz"
+  integrity sha512-ED8pf8dq3S79uWtP8EnSdrg7dUCrxyL9Uapq1dSA2mz+H83SjS8vsqmlFWmmBQoTuEHsQp5Ru9fxxsofQ+bI9Q==
+  dependencies:
+    "@material-ui/types" "^4.0.0"
+    "@types/react" "*"
+    "@types/react-swipeable-views" "*"
+
+"@types/react-swipeable-views@*", "@types/react-swipeable-views@^0.13.5":
+  version "0.13.5"
+  resolved "https://registry.npmjs.org/@types/react-swipeable-views/-/react-swipeable-views-0.13.5.tgz"
+  integrity sha512-ni6WjO7gBq2xB2Y/ZiRdQOgjGOxIik5ow2s7xKieDq8DxsXTdV46jJslSBVK2yoIJHf6mG3uqNTwxwgzbXRRzg==
   dependencies:
     "@types/react" "*"
 

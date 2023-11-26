@@ -225,38 +225,38 @@ img {
 #artDiv{
   height: 100%;
   width: 100%;
-  border: red 10px solid;
   flex-direction: column;
   display: flex;
 }
 #artCarousel{
   display: flex;
   flex: 1;
-  border: orange 10px solid;
 }
 #artCarouselDiv{
   height: 100%;
+  width: 85vw;
   display: flex;
-  flex: 1;
-  border: yellow 10px solid;
+  /* border: yellow 10px solid; */
 }
 #artItemDiv{
-  border: green 10px solid;
-  display: flex;
+  /* border: green 10px solid; */
   flex: 1;
   width: 100%;
 }
 #artImg{
-  border: blue 10px solid;
+  /* border: blue 10px solid; */
   display: flex;
   flex: 1;
+  justify-content: right;
+  padding: 10px;
 }
 #artImg img{
   /* object-fit: fill; */
 }
 #artInfo{
-  flex: 1;
-  border: purple 10px solid;
+  flex: 2;
+    justify-content: left;
+  /* border: purple 10px solid; */
 }
 
 

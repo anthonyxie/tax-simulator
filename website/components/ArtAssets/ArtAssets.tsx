@@ -7,7 +7,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import ArtAssetItem from '../ArtAssetItem/ArtAssetItem';
+import ArtItem from '../ArtItem/ArtItem';
 import { Art } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
@@ -66,7 +66,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt }: ArtListPro
           <div key={index} id="artCarouselDiv">
             {Math.abs(activeStep - index) <= 2 ? (
               // eslint-disable-next-line max-len
-              <ArtAssetItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} />
+              <ArtItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} />
             ) : null}
           </div>
         ))}
