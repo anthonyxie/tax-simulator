@@ -224,31 +224,30 @@ img {
 /* ART ASSETS */
 #artDiv{
   height: 100%;
+  width: 100%;
+  border: red 10px solid;
   flex-direction: column;
   display: flex;
-  background-color: #4CAF50;
 }
 #artCarousel{
-  padding: 10px;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 150px;
-  background-color: pink;
+  flex: 1;
+  border: orange 10px solid;
 }
 #artCarouselDiv{
-  background-color: paleturquoise;
   height: 100%;
   display: flex;
   flex: 1;
+  border: yellow 10px solid;
 }
 #artItemDiv{
-  /* background-color: wheat; */
+  border: green 10px solid;
   display: flex;
   flex: 1;
+  width: 100%;
 }
 #artImg{
-  /* background-color: aqua; */
+  border: blue 10px solid;
   display: flex;
   flex: 1;
 }
@@ -257,7 +256,7 @@ img {
 }
 #artInfo{
   flex: 1;
-  background-color: white;
+  border: purple 10px solid;
 }
 
 
