@@ -86,6 +86,13 @@ export default function HomePage() {
     setArts(artList);
   }
 
+  function addAccount(newAccount: BankAccount, divertedAccount: BankAccount, divertedIndex: number): any {
+    let newAccounts = accounts.slice();
+    newAccounts[divertedIndex] = divertedAccount;
+    newAccounts.push(newAccount);
+    setAccounts(newAccounts);
+  }
+
   useEffect(() => {
     setTaxAmount(reportedIncome * 0.4);
   }, [reportedIncome]);
@@ -169,7 +176,7 @@ export default function HomePage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="Bank Holdings">
-            {<BankAccountList accountsList={listOfAccounts}/>}
+            {<BankAccountList addAccount={addAccount} accountsList={accounts}/>}
           </Tabs.Panel>
 
           <Tabs.Panel value="Stocks">

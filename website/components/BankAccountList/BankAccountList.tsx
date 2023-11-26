@@ -4,12 +4,14 @@ import { Button, Divider, Modal, NumberInput, Select } from "@mantine/core";
 import "../../resources/stylesheet.css";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
+import { create } from "domain";
 
 interface AccountListProps {
     accountsList: BankAccount[]
+    addAccount: any
 }
 
-export default function BankAccountList({ accountsList }: AccountListProps) {
+export default function BankAccountList({ accountsList, addAccount }: AccountListProps) {
     const [opened, { open, close }] = useDisclosure(false);
     const [divertedAccount, setDivertedAccount] = useState<string | null>("");
     const [usedAccountIndex, setUsedAccountIndex] = useState(0);
@@ -29,6 +31,20 @@ export default function BankAccountList({ accountsList }: AccountListProps) {
     useEffect(() => {
         console.log(divertedAccount);
     }, [divertedAccount]);
+
+    function createAccount() {
+        let newAccount = {
+            name: "idk",
+            country: divertedCountry, 
+            amount: amountMoved,
+            APY: 0.05
+        }
+        let divertedAccount = {...accountsList[usedAccountIndex]}
+        divertedAccount.amount -= amountMoved;
+        let uaIndex = usedAccountIndex;
+        addAccount(newAccount, divertedAccount, uaIndex);
+        close();
+    }
 
     return (
         <div>
@@ -64,7 +80,7 @@ export default function BankAccountList({ accountsList }: AccountListProps) {
                 onChange={(value) => setDivertedCountry(value)}
             />
 
-            <Button>Create New Holdings Account</Button>
+            <Button onClick={createAccount}>Create New Holdings Account</Button>
             </Modal>
             <text className="panelHeader">Accounts</text>
             <div id="bankAccountHeader">
