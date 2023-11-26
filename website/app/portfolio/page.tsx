@@ -30,6 +30,7 @@ export default function HomePage() {
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
   const [reportedIncome, setReportedIncome] = useState<number>(1000000);
   const [liquidFunds, setLiquidFunds] = useState(0);
+  const [taxWriteOff, setTaxWriteOff] = useState(0);
 
   const liquidFundsGoal = 450000;
 

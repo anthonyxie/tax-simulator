@@ -24,7 +24,7 @@ export interface Art {
 
 export interface Donation {
     charity: string,
-    price: number,
+    description: string,
 }
 
 export interface BankAccount {
@@ -43,10 +43,18 @@ export const listOfStocks = [
 ];
 
 export const listOfDonations = [
-    { charity: "ONE", price: 100 },
-    { charity: "TWO", price: 200 },
-    { charity: "ONE", price: 100 },
-    { charity: "ONE", price: 100 },
+    {
+        charity: "Care Haven Foundation",
+        description: "Care Haven Foundation aims to provide shelter and support to homeless individuals and families. Through partnerships with local communities, they strive to offer safe environments, access to basic necessities, and long-term rehabilitation programs to help people rebuild their lives."
+    },
+    {
+        charity: "Green Earth Initiative",
+        description: "Green Earth Initiative focuses on environmental conservation and sustainability. They organize tree planting campaigns, clean-up drives, and awareness programs to educate communities about the importance of protecting the planet. They also collaborate with local governments to promote eco-friendly policies."
+    },
+    {
+        charity: "Brighter Futures",
+        description: "Brighter Futures is committed to providing quality education for underprivileged children. They strive to build schools and learning centers in disadvantaged areas while offering scholarships, mentorship programs, and resources to ensure equal opportunities for all children, regardless of their background."
+    }
 ];
 
 export const listOfArts = [
