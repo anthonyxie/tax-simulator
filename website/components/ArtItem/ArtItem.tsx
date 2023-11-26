@@ -10,10 +10,11 @@ interface ArtItemProps {
     art: Art,
     index: Number,
     editArt?: any,
-    donateArt: any
+    donateArt: any,
+    sellArt: any
 }
 
-export default function ArtItem({ art, index, editArt, donateArt }: ArtItemProps) {
+export default function ArtItem({ art, index, editArt, donateArt, sellArt }: ArtItemProps) {
     const [opened, { open, close }] = useDisclosure(false);
     const [evalIndex, setEvalIndex] = useState<number>(0);
     const [evaluator, setEvaluator] = useState<string | null>(listOfEvaluators[0].name);
@@ -49,7 +50,10 @@ export default function ArtItem({ art, index, editArt, donateArt }: ArtItemProps
     function donation() {
         donateArt(index);
     }
-
+    
+    function sell() {
+        sellArt(index);
+    }
     return (
         <div className="flexRow" id="artItemDiv">
             <Modal opened={opened} onClose={close} centered>
@@ -67,7 +71,13 @@ export default function ArtItem({ art, index, editArt, donateArt }: ArtItemProps
             <div className="flexCol" id="artInfo">
                 <text>{art.name}</text>
                 {art.appraised && <text>{String(art.prices[art.priceIndex])}</text>}
-                {!art.appraised ? <Button variant="filled" color="taupe" size="compact-md" onClick={appraiseArt}>Appraise Art</Button> : <Button variant="filled" color="taupe" onClick={donation}>Donate Art</Button>}
+                {!art.appraised ? 
+                <Button variant="filled" color="taupe" size="compact-md" onClick={appraiseArt}>Appraise Art</Button>
+                 : 
+                 <div>
+                    <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>
+                    <Button variant="filled" color="taupe" onClick={donation}>Donate Art</Button>
+                </div>}
             </div>
         </div>
     );
