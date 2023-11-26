@@ -162,6 +162,7 @@ img {
   justify-content: space-between;
   width: 100%;
   font-size: 1.5rem;
+  align-items: center;
 }
 .listItemDiv text{
   font-family: InikaBold;

@@ -85,6 +85,7 @@ export default function HomePage() {
     setArts(artList);
   }
 
+  // eslint-disable-next-line max-len
   function addAccount(newAccount: BankAccount, divertedAccount: BankAccount, divertedIndex: number): any {
     const newAccounts = accounts.slice();
     newAccounts[divertedIndex] = divertedAccount;
