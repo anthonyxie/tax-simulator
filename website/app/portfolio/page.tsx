@@ -187,9 +187,13 @@ export default function HomePage() {
           <div className="riskBars">
                 <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount} />
                 <Progress.Root size={20}>
+                    { risk < 0.10 ? (
+                    <Progress.Label>Risk</Progress.Label>
+                  ) : (
                     <Progress.Section value={risk} color="red">
-                      <Progress.Label><text id="barTxt">Risk</text></Progress.Label>
+                      <Progress.Label>Risk</Progress.Label>
                     </Progress.Section>
+                  )}
                 </Progress.Root>
                 {/* need conditional to make label appear properly */}
                 <Progress.Root size={20}>
