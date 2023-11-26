@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
 import { Welcome } from '../../components/Welcome/Welcome';
 import { ColorSchemeToggle } from '../../components/ColorSchemeToggle/ColorSchemeToggle';
