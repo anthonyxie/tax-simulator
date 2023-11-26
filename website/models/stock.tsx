@@ -50,7 +50,7 @@ export const listOfDonations = [
 ];
 
 export const listOfArts = [
-    {name: "Nepo Child Artwork", appraised: false, prices: [5000, 60000, 100000]},
+    {name: "Nepo Child Artwork", appraised: false, prices:  [10000, 60000, 100000]},
     {name: "Narry Stight by Paclo Pibasso", appraised: false, prices: [50000, 60000, 70000]},
     {name: "Picture Of A Dog", appraised: false, prices: [100, 200, 200000]}
 ]

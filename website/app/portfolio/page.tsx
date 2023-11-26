@@ -143,61 +143,64 @@ export default function HomePage() {
 
       <div id="tabbedMenu">
           <Tabs defaultValue="Properties" color="yellow">
-            <Tabs.List grow>
-              <Tabs.Tab value="Properties">
-                Properties
-              </Tabs.Tab>
-              <Tabs.Tab value="Donable Assets">
-                Donable Assets
-              </Tabs.Tab>
-              <Tabs.Tab value="Bank Holdings">
-                Bank Holdings
-              </Tabs.Tab>
-              <Tabs.Tab value="Stocks">
-                Stocks
-              </Tabs.Tab>
-              <Tabs.Tab value="Charity Donations">
-                Charity Donations
-              </Tabs.Tab>
-            </Tabs.List>
+              <Tabs.List grow>
+                <Tabs.Tab value="Properties">
+                  Properties
+                </Tabs.Tab>
+                <Tabs.Tab value="Donable Assets">
+                  Donable Assets
+                </Tabs.Tab>
+                <Tabs.Tab value="Bank Holdings">
+                  Bank Holdings
+                </Tabs.Tab>
+                <Tabs.Tab value="Stocks">
+                  Stocks
+                </Tabs.Tab>
+                <Tabs.Tab value="Charity Donations">
+                  Charity Donations
+                </Tabs.Tab>
+              </Tabs.List>
 
-            <Tabs.Panel value="Properties">
-              properties
-            </Tabs.Panel>
+              <Tabs.Panel value="Properties">
+                properties
+              </Tabs.Panel>
 
-            <Tabs.Panel value="Donable Assets">
-              <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} />
-              {/*<ArtCarousel artsList={listOfArts} />*/}
-            </Tabs.Panel>
+              <Tabs.Panel value="Donable Assets">
+                <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} />
+                {/*<ArtCarousel artsList={listOfArts} />*/}
+              </Tabs.Panel>
 
-            <Tabs.Panel value="Bank Holdings">
-              <BankAccountList addAccount={addAccount} accountsList={accounts} />
-            </Tabs.Panel>
+              <Tabs.Panel value="Bank Holdings">
+                <BankAccountList addAccount={addAccount} accountsList={accounts} />
+              </Tabs.Panel>
 
-            <Tabs.Panel value="Stocks">
-              <StockList sellStock={sellStock} stocksList={listOfStocks} />
-            </Tabs.Panel>
+              <Tabs.Panel value="Stocks">
+                <StockList sellStock={sellStock} stocksList={listOfStocks} />
+              </Tabs.Panel>
 
-            <Tabs.Panel value="Charity Donations">
-              <DonationList donationList={listOfDonations} />
+              <Tabs.Panel value="Charity Donations">
+                <DonationList donationList={listOfDonations} />
+              </Tabs.Panel>
+
+            <Tabs.Panel value="Reporting Income">
+              <NumberInput
+                label="How much income would you like to report?"
+                placeholder={"Write down how much income you're reporting"}
+                min={0}
+                step={yearlyIncome / 20}
+                max={yearlyIncome}
+                defaultValue={yearlyIncome}
+                value={reportedIncome}
+                prefix="$"
+                decimalScale={2}
+                onChange={(value) => setReportedIncome(Number(value))}
+              />
             </Tabs.Panel>
 
           </Tabs>
       </div>
 
       <div className="flexRow" id="reportIncome">
-        <NumberInput
-          label="How much income would you like to report?"
-          placeholder={"Write down how much income you're reporting"}
-          min={0}
-          step={yearlyIncome / 20}
-          max={yearlyIncome}
-          defaultValue={yearlyIncome}
-          value={reportedIncome}
-          prefix="$"
-          decimalScale={2}
-          onChange={(value) => setReportedIncome(Number(value))}
-        />
           <Button id="reportButton" variant="filled" onClick={incrementYear}><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
