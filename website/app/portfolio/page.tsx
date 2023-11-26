@@ -1,22 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ActionIcon, Button, NumberInput, Progress, Tabs, Tooltip } from '@mantine/core';
-import { Welcome } from '../../components/Welcome/Welcome';
-import { ColorSchemeToggle } from '../../components/ColorSchemeToggle/ColorSchemeToggle';
-import { GridLayout } from '@/components/GridLayout/GridLayout';
-import { FloatingLabelInput } from '@/components/FloatingLabel/FloatingLabel';
-import { SliderInput } from '@/components/SliderInput/SliderInput';
-import StockItem from '@/components/StockItem/StockItem';
+import { Button, NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
-import clientImg from '../../public/richClient.png';
 import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, Art } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
-import ArtList from '@/components/ArtList/ArtList';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
-import ArtCarousel from '@/components/ArtCarousel/ArtCarousel';
 import ArtAssets from '@/components/ArtAssets/ArtAssets';
 
 export default function HomePage() {
@@ -113,32 +104,54 @@ export default function HomePage() {
         </div>
         {/* ^takes half and \/ takes half */}
         <div className="flexCol" id="clientInfo">
-          <text id="clientName">Jane Client Doe</text>
-          <div className="flexRow" id="clientDetails">
-            <div className="flexCol">
-              <text>Net worth: </text>
-              <text>Yearly income: </text>
-              <text>Projected Taxes: </text>
+
+          <div className="flexRow" id="cInfoDiv">
+            <div className="flexCol" id="cInfoDivTxt">
+              <text id="clientName">Jane Client Doe</text>
+
+              <div className="flexRow" id="clientDetails">
+                <div className="flexCol">
+                  <text>Yearly income: </text>
+                  <text>Projected Taxes: </text>
+                </div>
+
+                <div className="flexCol" id="clientNums">
+                  <text>${yearlyIncome}</text>
+                  <text>${taxAmount}</text>
+                </div>
+              </div>
+
             </div>
-            <div className="flexCol" id="clientNums">
-              <text>{netWorth}</text>
-              <text>{yearlyIncome}</text>
-              <text>{taxAmount}</text>
+
+            <div id="ringDiv">
+              <RingProgress
+                label={<Text size="xs" ta="center">Tax Breakdown</Text>}
+                sections={[
+                  { value: 40, color: 'blue' },
+                  { value: 30, color: 'orange' },
+                  { value: 30, color: 'grape' },
+                ]}
+              />
             </div>
           </div>
-          <div className="flexColAligned">
-            <div className="riskBars">
-                <text>Taxed Income:</text>
-                  <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount} />
-                <text>Risk:</text>
+
+          <div className="riskBars">
+                <RiskBar incomeAmount={yearlyIncome} taxAmount={taxAmount} />
                 <Progress.Root size={20}>
-                    <Progress.Section value={risk} color="red" />
+                    <Progress.Section value={risk} color="red">
+                      <Progress.Label><text id="barTxt">Risk</text></Progress.Label>
+                    </Progress.Section>
                 </Progress.Root>
-                <text>Liquid Funds:</text>
+                {/* need conditional to make label appear properly */}
                 <Progress.Root size={20}>
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue" />
+                  { liquidFunds / liquidFundsGoal < 0.12 ? (
+                    <Progress.Label>Liquid Funds</Progress.Label>
+                  ) : (
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue" >
+                      <Progress.Label>Liquid Funds</Progress.Label>
+                    </Progress.Section>
+                  )}
                 </Progress.Root>
-            </div>
           </div>
         </div>
       </div>
@@ -171,8 +184,6 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
-                {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
                 <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} />
               </Tabs.Panel>
 

@@ -109,6 +109,14 @@ img {
   width: 100%;
   font-family: InikaBold, serif;
 }
+#barTxt{
+  color: #000;
+}
+.mantine-Progress-label	{
+  visibility: visible;
+  color: #000;
+
+}
 #clientNums{
   text-align: right;
   justify-content: flex-end;
@@ -121,9 +129,27 @@ img {
   display: flex;
 }
 .riskBars{
-  width: 80%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.riskBars > * + * {
+  margin-top: 10px;
 }
 
+#ringDiv{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+#cInfoDiv{
+  display: flex;
+}
+#cInfoDivTxt{
+  flex: 2;
+}
 /* Portfolio - TABBED MENU */
 #tabbedMenu{
   flex: 1;
