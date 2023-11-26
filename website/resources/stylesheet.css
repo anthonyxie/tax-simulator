@@ -64,15 +64,14 @@ img {
 }
 
 #reportIncome{
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 2%;
   display: flex;
+  flex: .3;
   align-items: center;
   justify-content: space-between;
 }
 #reportIncome Button {
   flex: .5;
-  align-self: flex-end;
 }
 #reportBttnTxt:hover {
   color: green;
@@ -126,9 +125,8 @@ img {
 }
 
 /* Portfolio - TABBED MENU */
-
 #tabbedMenu{
-  height: 100%;
+  flex: 1;
   margin-bottom: 10px;
 }
 .mantine-Tabs-root	{
@@ -234,23 +232,24 @@ img {
 }
 #artSlide{
   background-color: green;
+  flex-direction: column;
+  border: 2px solid red;
   display: flex;
-  flex: 1;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  justify-self: center;
-  height: 100%;
   width: 100%;
-
+  height: 100%;
 }
 #artImg{
-  display: flex;
-  width: 100%;
-  height: 100%;
   background-color: aqua;
+  flex: 1;
 }
 #artInfo{
+  flex: 1;
+  background-color: white;
+}
+#innerSlide{
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 /* DONATIONS */

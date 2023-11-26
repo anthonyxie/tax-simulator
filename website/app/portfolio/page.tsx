@@ -170,8 +170,8 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} />
-                {/*<ArtCarousel artsList={listOfArts} />*/}
+                {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
+                <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
