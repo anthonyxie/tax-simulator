@@ -18,7 +18,7 @@ export default function ArtCarousel({ artsList, editArt, donateArt }: ArtListPro
     ));
 
     return (
-        <div className="flexCol" id="artDiv">
+        <div>
             <text className="panelHeader">Art</text>
             <Carousel id="artCar" withIndicators>
             {slides}
