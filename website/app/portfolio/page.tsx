@@ -159,6 +159,9 @@ export default function HomePage() {
                 <Tabs.Tab value="Charity Donations">
                   Charity Donations
                 </Tabs.Tab>
+                <Tabs.Tab value="Reporting Income">
+                  Income Reporting
+                </Tabs.Tab>
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
