@@ -32,8 +32,9 @@ interface ArtListProps {
   artsList: Art[]
   editArt: any
   donateArt: any
+  sellArt: any
 }
-function SwipeableTextMobileStepper({ artsList, editArt, donateArt }: ArtListProps) {
+function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: ArtListProps) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
@@ -66,7 +67,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt }: ArtListPro
           <div key={index} id="artCarouselDiv">
             {Math.abs(activeStep - index) <= 2 ? (
               // eslint-disable-next-line max-len
-              <ArtItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} />
+              <ArtItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} sellArt={sellArt} />
             ) : null}
           </div>
         ))}

@@ -16,11 +16,13 @@ export default function HomePage() {
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
-  const [risk, setRisk] = useState(20);
+  const [risk, setRisk] = useState(0);
+  const [reportingRisk, setReportingRisk] = useState(0);
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
   const [reportedIncome, setReportedIncome] = useState<number>(1000000);
   const [liquidFunds, setLiquidFunds] = useState(0);
+  const [taxWriteOff, setTaxWriteOff] = useState(0);
 
   const liquidFundsGoal = 450000;
 
@@ -54,12 +56,31 @@ export default function HomePage() {
   function donateArt(index: number): any {
     const artsList = arts.slice();
     const oldArt = artsList[index];
-    if (oldArt.priceIndex) {
+    if (oldArt.appraised) {
       const oldPrice = oldArt.prices[oldArt.priceIndex];
       let newtaxAmount = taxAmount;
       newtaxAmount -= oldPrice * 0.3;
       artsList.splice(index, 1);
       setTaxAmount(newtaxAmount);
+      setArts(artsList);
+    }
+  }
+
+  function sellArt(index: number): any {
+    const artsList = arts.slice();
+    const oldArt = artsList[index];
+    console.log("whaaaaa");
+    if (oldArt.appraised) {
+      const oldPrice = oldArt.prices[oldArt.priceIndex];
+      let newliquidFunds = liquidFunds;
+      newliquidFunds += oldPrice;
+
+      let newtaxAmount = taxAmount;
+      newtaxAmount += oldPrice * 0.15;
+
+      artsList.splice(index, 1);
+      setTaxAmount(newtaxAmount);
+      setLiquidFunds(newliquidFunds);
       setArts(artsList);
     }
   }
@@ -88,6 +109,34 @@ export default function HomePage() {
   useEffect(() => {
     setTaxAmount(reportedIncome * 0.4);
   }, [reportedIncome]);
+
+  useEffect(() => {
+    let riskTotal = 0;
+    [reportingRisk].map((value) => {
+      riskTotal += value;
+    })
+    setRisk(riskTotal);
+  }, [reportingRisk])
+
+  useEffect(() => {
+    let amountOff = reportedIncome / yearlyIncome;
+    let taxRisk = 0;
+    if (amountOff < 1) {
+      taxRisk += 15;
+      if (amountOff < 0.2) {
+        taxRisk += 75;
+      } else if (amountOff < 0.4) {
+          taxRisk += 65;
+      } else if (amountOff < 0.6) {
+          taxRisk += 55;
+      } else if (amountOff < 0.8) {
+          taxRisk += 35;
+      } else if (amountOff < 0.9) {
+          taxRisk += 20;
+      }
+    }
+    setReportingRisk(taxRisk);
+  }, [reportedIncome])
 
   useEffect(() => {
     console.log(arts);
@@ -184,7 +233,9 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} />
+                {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
+                {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
+                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt}/>
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
