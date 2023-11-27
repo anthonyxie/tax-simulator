@@ -35,7 +35,6 @@ export default function HomePage() {
   const [reportedIncome, setReportedIncome] = useState<number>(871340);
   const [liquidFunds, setLiquidFunds] = useState(0);
 
-
   const [taxWriteOffs, setTaxWriteOffs] = useState(0);
 
   const [loanAmount, setLoanAmount] = useState(0);

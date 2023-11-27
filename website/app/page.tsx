@@ -4,7 +4,7 @@ import '../resources/home.css';
 import Link from 'next/link';
 import React from 'react';
 
-export default function StartPage() { 
+export default function StartPage() {
   return (
     <>
     <div id="homeDiv">
