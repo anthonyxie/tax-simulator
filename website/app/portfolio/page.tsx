@@ -28,15 +28,18 @@ export default function HomePage() {
   const [properties, setProperties] = useState<Property[]>(listOfProperties);
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
+  const [bankReportingRisk, setBankReportingRisk] = useState(0);
+  const [donatingRisk, setDonationRisk] = useState(0);
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
   const [reportedIncome, setReportedIncome] = useState<number>(871340);
   const [liquidFunds, setLiquidFunds] = useState(0);
 
+
   const [taxWriteOffs, setTaxWriteOffs] = useState(0);
 
   const [loanAmount, setLoanAmount] = useState(0);
-  const [loanCollateral, setLoanCollateral] = useState(0);
+  const [loanCollateral, setLoanCollateral] = useState([]);
 
   const liquidFundsGoal = 450000;
   const initialTaxAmount = 40000;
@@ -85,8 +88,24 @@ export default function HomePage() {
     const oldArt = artsList[index];
     if (oldArt.appraised) {
       let oldPrice = oldArt.prices[oldArt.priceIndex];
+      let priceIndex = oldArt.priceIndex;
       let newtaxAmount = taxWriteOffs;
       newtaxAmount += oldPrice * 0.4;
+
+      let donoRisk = 0;
+      if (priceIndex == 0) {
+        donoRisk = 0;
+      }
+      else if (priceIndex == 1) {
+        donoRisk = 2;
+      }
+      else if (priceIndex == 2) {
+        donoRisk = 5
+      }
+
+      let donationRisk = donatingRisk + donoRisk;
+      console.log(donationRisk + donoRisk);
+      setDonationRisk(donationRisk + donoRisk);
       console.log(newtaxAmount);
       artsList.splice(index, 1);
 
@@ -176,11 +195,11 @@ export default function HomePage() {
 
   useEffect(() => {
     let riskTotal = 0;
-    [reportingRisk].map((value) => {
+    [reportingRisk, donatingRisk, bankReportingRisk].map((value) => {
       riskTotal += value;
     });
     setRisk(riskTotal);
-  }, [reportingRisk]);
+  }, [reportingRisk, donatingRisk, bankReportingRisk]);
 
   useEffect(() => {
     const amountOff = reportedIncome / yearlySalary;
@@ -201,6 +220,26 @@ export default function HomePage() {
     }
     setReportingRisk(taxRisk);
   }, [reportedIncome]);
+
+  useEffect(() => {
+    const amountOff = reportedBankIncome / bankIncome;
+    let taxRisk = 0;
+    if (amountOff < 1) {
+      taxRisk += 5;
+      if (amountOff < 0.2) {
+        taxRisk += 30;
+      } else if (amountOff < 0.4) {
+          taxRisk += 20;
+      } else if (amountOff < 0.6) {
+          taxRisk += 10;
+      } else if (amountOff < 0.8) {
+          taxRisk += 3;
+      } else if (amountOff < 0.9) {
+          taxRisk += 2;
+      }
+    }
+    setBankReportingRisk(taxRisk);
+  }, [reportedBankIncome]);
 
   useEffect(() => {
     console.log(arts);
