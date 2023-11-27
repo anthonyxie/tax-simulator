@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Button, NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
@@ -32,6 +33,7 @@ export default function HomePage() {
   const [loanAmount, setLoanAmount] = useState(0);
 
   const liquidFundsGoal = 450000;
+  const initialTaxAmount = 40000;
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -322,7 +324,7 @@ export default function HomePage() {
       </div>
 
       <div className="flexRow" id="reportIncome">
-          <Button id="reportButton" variant="filled"><text id="reportBttnTxt">File Taxes!</text></Button>
+          <Button variant='filled' id="reportButton"><Link href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link></Button>
       </div>
     </div>
     </>
