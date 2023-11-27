@@ -296,6 +296,7 @@ img {
   flex: 1;
   justify-content: right;
   padding: 10px;
+  max-height: 400px;
 }
 #artImg img{
   object-fit: contain;
