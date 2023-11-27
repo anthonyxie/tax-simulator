@@ -11,7 +11,7 @@ import ArtItem from '../ArtItem/ArtItem';
 import { Art } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 interface ArtListProps {
   artsList: Art[]
@@ -42,7 +42,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
       {/* <text className="panelHeader">{artsList[activeStep].name}</text> */}
         <text className="panelHeader">Donable Assets Gallery</text>
       </div>
-      <AutoPlaySwipeableViews
+      <SwipeableViews
         id="artCarousel"
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -57,7 +57,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
             ) : null}
           </div>
         ))}
-      </AutoPlaySwipeableViews>
+      </SwipeableViews>
       <MobileStepper
         steps={maxSteps}
         position="static"
