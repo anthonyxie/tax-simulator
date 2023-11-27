@@ -45,7 +45,7 @@ function submitAppraisal() {
     const newArt = { ...art };
     newArt.appraised = true;
     newArt.priceIndex = listOfEvaluators[evalIndex].index;
-    editArt(newArt, index);
+    editArt(newArt, art.index);
 }
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -89,6 +89,7 @@ function submitAppraisal() {
                   <img src={person.imgPath} alt="evalualtor person" />
                   <text>{person.quote}</text>
                 </div>
+                <Button onClick={submitAppraisal}>Submit Appraisal</Button>
               </div>
             ) : null}
           </div>

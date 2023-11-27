@@ -20,6 +20,7 @@ export interface Property {
 
 export interface Art {
     name: string,
+    index: number,
     startPrice: number,
     artist: string,
     year: number,
@@ -87,6 +88,7 @@ export const listOfDonations = [
 
 export const listOfArts = [
     { name: 'Nepo Child Artwork',
+        index: 0,
         artist: 'Anthony',
         year: '2023',
         startPrice: 10,
@@ -94,6 +96,7 @@ export const listOfArts = [
         appraised: false,
         prices: [10000, 60000, 100000] },
     { name: 'Narry Stight by Paclo Pibasso',
+        index: 1,
         startPrice: 15,
         artist: 'Ore',
         year: '2023',
@@ -101,6 +104,7 @@ export const listOfArts = [
         appraised: false,
         prices: [50000, 60000, 70000] },
     { name: 'Picture Of A Dog',
+        index: 2,
         artist: 'Ting',
         startPrice: 20,
         year: '2023',

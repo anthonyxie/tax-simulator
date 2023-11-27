@@ -1,8 +1,8 @@
 'use client';
 
 import '../../resources/stylesheet.css';
-// import { useDisclosure } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
+import { Button } from '@mantine/core';
 import Evaluators from '../Evaluators/Evaluators';
 import { Art, listOfEvaluators } from '@/models/stock';
 
