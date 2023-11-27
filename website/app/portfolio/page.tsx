@@ -454,7 +454,7 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Loans">
-                  <Loan makeLoan={makeLoan} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
+                  <Loan makeLoan={makeLoan} totalLoan={loanTotals} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
               </Tabs.Panel>
 
             <Tabs.Panel value="Reporting Salary">

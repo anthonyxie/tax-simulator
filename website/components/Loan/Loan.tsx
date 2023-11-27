@@ -11,8 +11,9 @@ interface loanProps {
     setCollateral: any,
     stockList: Stock[],
     makeLoan: any,
+    totalLoan: any,
 }
-export default function Loan({loanAmount, setLoanAmount, setCollateral, stockList, makeLoan}: loanProps)  {
+export default function Loan({loanAmount, setLoanAmount, setCollateral, stockList, makeLoan, totalLoan}: loanProps)  {
     const [disabledIndexes, setDisableIndexes] = useState<number[]>([]);
     const [collatVal, setCollatVal] = useState<number>(0);
 
@@ -63,6 +64,8 @@ export default function Loan({loanAmount, setLoanAmount, setCollateral, stockLis
                 <CollateralItem key={index} stock={stock} index={index} setDisabled={setDisabled}/>
             ))}
             <text>Collateral value: {collatVal}</text>
+            <br></br>
+            <text>Total Amount Loaned: {totalLoan}</text>
             <br></br>
             <Button onClick={loan} disabled={loanAmount == 0}>Apply for Loan</Button>
         </div>
