@@ -248,6 +248,19 @@ img {
 }
 
 /* ART ASSETS */
+.MuiMobileStepper-root{
+  background-color: #F5EFBB;
+  color: #000;
+}
+.MuiMobileStepper-dotActive{
+  background-color: #39B1B0;
+}
+#mobileStepTxt:disabled{
+  color: grey;
+}
+#mobileStepTxt:hover{
+  color: #39B1B0;
+}
 #artDiv{
   height: 100%;
   width: 100%;
@@ -283,6 +296,12 @@ img {
   flex: 2;
     justify-content: left;
   /* border: purple 10px solid; */
+}
+#artInfo{
+  font-size: large;
+}
+#artName{
+  font-size: x-large;
 }
 
 

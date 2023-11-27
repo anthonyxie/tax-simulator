@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
 import ArtItem from '../ArtItem/ArtItem';
 import { Art } from '@/models/stock';
 import '../../resources/stylesheet.css';
@@ -68,7 +67,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            Next
+            <text id="mobileStepTxt">Next</text>
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -83,7 +82,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
+            <text id="mobileStepTxt">Back</text>
           </Button>
         }
       />

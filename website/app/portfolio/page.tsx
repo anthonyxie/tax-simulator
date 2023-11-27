@@ -16,6 +16,9 @@ export default function HomePage() {
   const [yearlyIncome, setYearlyIncome] = useState(1000000);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
+  const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
+  const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
+  const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);
   const [properties, setProperties] = useState<Property[]>(listOfProperties);
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
@@ -23,18 +26,11 @@ export default function HomePage() {
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
   const [reportedIncome, setReportedIncome] = useState<number>(1000000);
   const [liquidFunds, setLiquidFunds] = useState(0);
+
   const [taxWriteOff, setTaxWriteOff] = useState(0);
+  const [loanAmount, setLoanAmount] = useState(0);
 
   const liquidFundsGoal = 450000;
-
-  function incrementYear(event: { preventDefault: () => void; }): any {
-    event.preventDefault();
-
-    const joemama = netWorth;
-    const poggers = joemama + yearlyIncome;
-    setYearlyIncome(yearlyIncome * 1.1);
-    setNetWorth(poggers);
-  }
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -46,9 +42,11 @@ export default function HomePage() {
       const profit = amountSold * soldStock.price;
       newFundAmount += profit;
       stockList[index] = soldStock;
-      let newtaxAmount = taxAmount;
+
+      let newtaxAmount = capitalGainsTaxAmount;
       newtaxAmount += profit * 0.1;
-      setTaxAmount(newtaxAmount);
+      setCapitalGainsTaxAmount(newtaxAmount);
+
       setStocks(stockList);
       setLiquidFunds(newFundAmount);
     }
@@ -59,10 +57,11 @@ export default function HomePage() {
     const oldArt = artsList[index];
     if (oldArt.appraised) {
       const oldPrice = oldArt.prices[oldArt.priceIndex];
-      let newtaxAmount = taxAmount;
+      let newtaxAmount = incomeTaxAmount;
       newtaxAmount -= oldPrice * 0.3;
       artsList.splice(index, 1);
-      setTaxAmount(newtaxAmount);
+
+      setIncomeTaxAmount(newtaxAmount);
       setArts(artsList);
     }
   }
@@ -70,7 +69,7 @@ export default function HomePage() {
   function sellArt(index: number): any {
     const artsList = arts.slice();
     const oldArt = artsList[index];
-    console.log("whaaaaa");
+    console.log('whaaaaa');
     if (oldArt.appraised) {
       const oldPrice = oldArt.prices[oldArt.priceIndex];
       let newliquidFunds = liquidFunds;
@@ -108,19 +107,27 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    setTaxAmount(reportedIncome * 0.4);
+    setIncomeTaxAmount(reportedIncome * 0.4);
   }, [reportedIncome]);
+
+  useEffect(() => {
+    let taxTotal = 0;
+    [incomeTaxAmount].map((value) => {
+      taxTotal += value;
+    });
+    setTaxAmount(taxTotal);
+  }, [incomeTaxAmount]);
 
   useEffect(() => {
     let riskTotal = 0;
     [reportingRisk].map((value) => {
       riskTotal += value;
-    })
+    });
     setRisk(riskTotal);
-  }, [reportingRisk])
+  }, [reportingRisk]);
 
   useEffect(() => {
-    let amountOff = reportedIncome / yearlyIncome;
+    const amountOff = reportedIncome / yearlyIncome;
     let taxRisk = 0;
     if (amountOff < 1) {
       taxRisk += 15;
@@ -137,7 +144,7 @@ export default function HomePage() {
       }
     }
     setReportingRisk(taxRisk);
-  }, [reportedIncome])
+  }, [reportedIncome]);
 
   useEffect(() => {
     console.log(arts);
@@ -173,13 +180,14 @@ export default function HomePage() {
 
             </div>
 
+            {/* TO-DO: put real value variable in the value section and in the tooltip */}
             <div id="ringDiv">
               <RingProgress
                 label={<Text size="xs" ta="center">Tax Breakdown</Text>}
                 sections={[
-                  { value: 40, color: 'blue' },
-                  { value: 30, color: 'orange' },
-                  { value: 30, color: 'grape' },
+                  { tooltip: 'Income Tax', value: 40, color: 'blue' },
+                  { tooltip: 'Capital Gains Tax', value: 30, color: 'orange' },
+                  { tooltip: 'Property Tax', value: 30, color: 'grape' },
                 ]}
               />
             </div>
@@ -201,7 +209,7 @@ export default function HomePage() {
                   { liquidFunds / liquidFundsGoal < 0.12 ? (
                     <Progress.Label>Liquid Funds</Progress.Label>
                   ) : (
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue" >
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
                       <Progress.Label>Liquid Funds</Progress.Label>
                     </Progress.Section>
                   )}
@@ -231,6 +239,9 @@ export default function HomePage() {
                 <Tabs.Tab value="Reporting Income">
                   Income Reporting
                 </Tabs.Tab>
+                <Tabs.Tab value="Loans">
+                  Loans
+                </Tabs.Tab>
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
@@ -240,7 +251,7 @@ export default function HomePage() {
               <Tabs.Panel value="Donable Assets">
                 {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
                 {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
-                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt}/>
+                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
@@ -254,6 +265,8 @@ export default function HomePage() {
               <Tabs.Panel value="Charity Donations">
                 <DonationList donationList={listOfDonations} />
               </Tabs.Panel>
+
+              <Tabs.Panel value="Loans" />
 
             <Tabs.Panel value="Reporting Income">
               <NumberInput
@@ -274,7 +287,7 @@ export default function HomePage() {
       </div>
 
       <div className="flexRow" id="reportIncome">
-          <Button id="reportButton" variant="filled" onClick={incrementYear}><text id="reportBttnTxt">File Taxes!</text></Button>
+          <Button id="reportButton" variant="filled"><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
     </>

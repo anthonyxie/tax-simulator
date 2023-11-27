@@ -11,7 +11,11 @@ export interface Asset {
 
 export interface Property {
     name: string,
-    price: number
+    imgPath: string,
+    location: string,
+    value: number,
+    area: number,
+    description: string
 }
 
 export interface Art {
@@ -35,15 +39,6 @@ export interface BankAccount {
     country: string,
 }
 
-export interface Property {
-    name: string,
-    imgPath: string,
-    location: string,
-    value: number,
-    area: number,
-    description: string
-}
-
 export const listOfStocks = [
     { ticker: 'dogcoin', price: 1000, amount: 100 },
     { ticker: 'anthonycoin', price: 200, amount: 500 },
@@ -62,24 +57,34 @@ export const listOfDonations = [
         description: 'Green Earth Initiative focuses on environmental conservation and sustainability. They organize tree planting campaigns, clean-up drives, and awareness programs to educate communities about the importance of protecting the planet. They also collaborate with local governments to promote eco-friendly policies.',
     },
     {
-        charity: 'Brighter Futures',
-        description: 'Brighter Futures is committed to providing quality education for underprivileged children. They strive to build schools and learning centers in disadvantaged areas while offering scholarships, mentorship programs, and resources to ensure equal opportunities for all children, regardless of their background.',
+        charity: "Brighter Futures",
+        description: "Brighter Futures is committed to providing quality education for underprivileged children. They strive to build schools and learning centers in disadvantaged areas while offering scholarships, mentorship programs, and resources to ensure equal opportunities for all children, regardless of their background."
     },
+    {
+        charity: "Tropical Penguin Preservation Society",
+        description: "The Tropical Penguin Preservation Society (TPPS) is dedicated to the preservation and protection of the tropical penguin population, as featured in the hit movie Penguins of Madagascar. Their mission is to raise public awareness and educate people about the issues plaguing these penguins and to offer resources to support their wellbeing."
+    }
 ];
 
 export const listOfArts = [
     { name: 'Nepo Child Artwork',
+        artist: 'Anthony',
+        year: '2023',
         startPrice: 10,
         imgPath: '/assetsImgs/vase.png',
         appraised: false,
         prices: [10000, 60000, 100000] },
     { name: 'Narry Stight by Paclo Pibasso',
         startPrice: 15,
+        artist: 'Ore',
+        year: '2023',
         imgPath: '/assetsImgs/monet.png',
         appraised: false,
         prices: [50000, 60000, 70000] },
     { name: 'Picture Of A Dog',
+        artist: 'Ting',
         startPrice: 20,
+        year: '2023',
         imgPath: '/assetsImgs/bunny.png',
         appraised: false,
         prices: [100, 200, 200000] },
