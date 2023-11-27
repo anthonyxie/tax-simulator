@@ -4,18 +4,19 @@ import { useEffect, useState } from 'react';
 import { Button, NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
-import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, Art } from '@/models/stock';
+import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, Art } from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtAssets from '@/components/ArtAssets/ArtAssets';
+import PropertyList from '@/components/PropertyList/PropertyList';
 
 export default function HomePage() {
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(1000000);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
-  const [properties, setProperties] = useState({});
+  const [properties, setProperties] = useState<Property[]>(listOfProperties);
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
   const [arts, setArts] = useState<Art[]>(listOfArts);
@@ -233,7 +234,7 @@ export default function HomePage() {
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
-                properties
+              <PropertyList propertiesList={properties} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">

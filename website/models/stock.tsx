@@ -35,6 +35,15 @@ export interface BankAccount {
     country: string,
 }
 
+export interface Property {
+    name: string,
+    imgPath: string,
+    location: string,
+    value: number,
+    area: number,
+    description: string
+}
+
 export const listOfStocks = [
     { ticker: 'dogcoin', price: 1000, amount: 100 },
     { ticker: 'anthonycoin', price: 200, amount: 500 },
@@ -96,3 +105,9 @@ export const listOfEvaluators = [
     { name: 'Realistic Evaluator', index: 0 },
     { name: 'Medium Burger with Fries Evaluator', index: 1 },
 ];
+
+export const listOfProperties = [
+    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'hahaha' },
+    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
+    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' }
+]
