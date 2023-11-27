@@ -15,6 +15,9 @@ export default function HomePage() {
   const [yearlyIncome, setYearlyIncome] = useState(1000000);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
+  const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
+  const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
+  const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);  
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
@@ -22,18 +25,13 @@ export default function HomePage() {
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
   const [reportedIncome, setReportedIncome] = useState<number>(1000000);
   const [liquidFunds, setLiquidFunds] = useState(0);
+
   const [taxWriteOff, setTaxWriteOff] = useState(0);
+  const [loanAmount, setLoanAmount] = useState(0);
 
   const liquidFundsGoal = 450000;
 
-  function incrementYear(event: { preventDefault: () => void; }): any {
-    event.preventDefault();
 
-    const joemama = netWorth;
-    const poggers = joemama + yearlyIncome;
-    setYearlyIncome(yearlyIncome * 1.1);
-    setNetWorth(poggers);
-  }
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -45,9 +43,11 @@ export default function HomePage() {
       const profit = amountSold * soldStock.price;
       newFundAmount += profit;
       stockList[index] = soldStock;
-      let newtaxAmount = taxAmount;
+
+      let newtaxAmount = capitalGainsTaxAmount;
       newtaxAmount += profit * 0.1;
-      setTaxAmount(newtaxAmount);
+      setCapitalGainsTaxAmount(newtaxAmount);
+
       setStocks(stockList);
       setLiquidFunds(newFundAmount);
     }
@@ -58,10 +58,11 @@ export default function HomePage() {
     const oldArt = artsList[index];
     if (oldArt.appraised) {
       const oldPrice = oldArt.prices[oldArt.priceIndex];
-      let newtaxAmount = taxAmount;
+      let newtaxAmount = incomeTaxAmount;
       newtaxAmount -= oldPrice * 0.3;
       artsList.splice(index, 1);
-      setTaxAmount(newtaxAmount);
+      
+      setIncomeTaxAmount(newtaxAmount);
       setArts(artsList);
     }
   }
@@ -107,8 +108,16 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    setTaxAmount(reportedIncome * 0.4);
+    setIncomeTaxAmount(reportedIncome * 0.4);
   }, [reportedIncome]);
+
+  useEffect(() => {
+    let taxTotal = 0;
+    [incomeTaxAmount].map((value) => {
+      taxTotal += value;
+    })
+    setTaxAmount(taxTotal);
+  }, [incomeTaxAmount])
 
   useEffect(() => {
     let riskTotal = 0;
@@ -231,6 +240,9 @@ export default function HomePage() {
                 <Tabs.Tab value="Reporting Income">
                   Income Reporting
                 </Tabs.Tab>
+                <Tabs.Tab value="Loans">
+                  Loans
+                </Tabs.Tab>
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
@@ -255,6 +267,10 @@ export default function HomePage() {
                 <DonationList donationList={listOfDonations} />
               </Tabs.Panel>
 
+              <Tabs.Panel value="Loans">
+                  
+              </Tabs.Panel>
+
             <Tabs.Panel value="Reporting Income">
               <NumberInput
                 label="How much income would you like to report?"
@@ -274,7 +290,7 @@ export default function HomePage() {
       </div>
 
       <div className="flexRow" id="reportIncome">
-          <Button id="reportButton" variant="filled" onClick={incrementYear}><text id="reportBttnTxt">File Taxes!</text></Button>
+          <Button id="reportButton" variant="filled"><text id="reportBttnTxt">File Taxes!</text></Button>
       </div>
     </div>
     </>

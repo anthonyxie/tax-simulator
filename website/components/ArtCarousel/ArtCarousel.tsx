@@ -7,7 +7,8 @@ import ArtItem from '../ArtItem/ArtItem';
 interface ArtListProps {
     artsList: Art[]
     editArt: any
-    donateArt: any
+    donateArt: any,
+    sellArt: any,
 }
 
 export default function ArtCarousel({ artsList, editArt, donateArt }: ArtListProps) {
