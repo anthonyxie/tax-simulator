@@ -13,21 +13,6 @@ import '../../resources/stylesheet.css';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const images = [
-  {
-    label: 'Nepo Baby Artwork',
-    imgPath: '/assetsImgs/vase.png',
-  },
-  {
-    label: 'Narry Stight by Paclo Pibasso',
-    imgPath: '/assetsImgs/monet.png',
-  },
-  {
-    label: 'Picture of a dog',
-    imgPath: '/assetsImgs/bunny.png',
-  },
-];
-
 interface ArtListProps {
   artsList: Art[]
   editArt: any
@@ -37,7 +22,7 @@ interface ArtListProps {
 function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: ArtListProps) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+  const maxSteps = artsList.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -54,7 +39,8 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
   return (
     <Box id="artDiv">
       <div>
-        <text className="panelHeader">{images[activeStep].label}</text>
+      {/* <text className="panelHeader">{artsList[activeStep].name}</text> */}
+        <text className="panelHeader">Donable Assets Gallery</text>
       </div>
       <AutoPlaySwipeableViews
         id="artCarousel"

@@ -50,7 +50,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
     function donation() {
         donateArt(index);
     }
-    
+
     function sell() {
         sellArt(index);
     }
@@ -66,18 +66,25 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
                 <Button variant="filled" color="taupe" size="compact-md" onClick={submitAppraisal}>Submit Appraisal</Button>
             </Modal>
             <div id="artImg">
-                <img src={"/assetsImgs/bunny.png"} alt="art" />
+                <img src={art.imgPath} alt="art" />
             </div>
             <div className="flexCol" id="artInfo">
-                <text>{art.name}</text>
-                {art.appraised && <text>{String(art.prices[art.priceIndex])}</text>}
-                {!art.appraised ? 
+            <text>{art.name}</text>
+            {art.appraised ?
+                (
+                    <text>${String(art.prices[art.priceIndex])}</text>
+                ) : (
+                    <text>${String(art.startPrice)}</text>
+                )
+            }
+                {!art.appraised ?
                 <Button variant="filled" color="taupe" size="compact-md" onClick={appraiseArt}>Appraise Art</Button>
-                 : 
-                 <div>
+                 :
+                 <div className="flexRow">
                     <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>
                     <Button variant="filled" color="taupe" onClick={donation}>Donate Art</Button>
-                </div>}
+                 </div>
+                }
             </div>
         </div>
     );

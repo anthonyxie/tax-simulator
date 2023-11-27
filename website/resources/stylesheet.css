@@ -277,7 +277,7 @@ img {
   padding: 10px;
 }
 #artImg img{
-  /* object-fit: fill; */
+  object-fit: contain;
 }
 #artInfo{
   flex: 2;
