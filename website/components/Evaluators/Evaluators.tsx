@@ -29,7 +29,7 @@ function Evaluators({ evalList, editArt, art, index }: EvalListProps) {
     let i = 0;
     const evalName = evaluator;
     for (let j = 0; j < evalList.length; j++) {
-        if (evalList[j].name == evalName) {
+        if (evalList[j].name === evalName) {
             i = j;
         }
     }

@@ -1,6 +1,6 @@
 'use client';
 
-import { Tooltip, ActionIcon, Button } from '@mantine/core';
+import { Tooltip } from '@mantine/core';
 import { IconQuestionMark } from '@tabler/icons-react';
 
 interface HelpProps {

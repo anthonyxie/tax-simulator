@@ -3,8 +3,7 @@
 /* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, ActionIcon } from '@mantine/core';
-import { IconQuestionMark } from '@tabler/icons-react';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
@@ -106,7 +105,7 @@ export default function HomePage() {
       }
     });
     setReportedBankIncome(newbankIncome);
-  }, [accounts, reportedBankIncome])
+  }, [accounts, reportedBankIncome]);
 
   function donateArt(index: number): any {
     const artsList = arts.slice();
@@ -118,13 +117,13 @@ export default function HomePage() {
       newtaxAmount += oldPrice * 0.4;
 
       let donoRisk = 0;
-      if (priceIndex == 0) {
+      if (priceIndex === 0) {
         donoRisk = 0;
       }
-      else if (priceIndex == 1) {
+      else if (priceIndex === 1) {
         donoRisk = 2;
       }
-      else if (priceIndex == 2) {
+      else if (priceIndex === 2) {
         donoRisk = 5;
       }
 
@@ -343,7 +342,7 @@ export default function HomePage() {
 
       <div className="flexRow" id="client">
         <div id="rightHalf">
-          <img id="clientImage" src="/richClient.png" alt="Brown haired young woman with money" />
+          <Image id="clientImage" src="/richClient.png" alt="Brown haired young woman with money" />
         </div>
         {/* ^takes half and \/ takes half */}
         <div className="flexCol" id="clientInfo">

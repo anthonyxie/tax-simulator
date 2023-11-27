@@ -1,6 +1,5 @@
 'use client';
 
-import { create } from 'domain';
 import { useEffect, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Button, Modal, NumberInput, Select } from '@mantine/core';
@@ -27,7 +26,7 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
     useEffect(() => {
         let i = 0;
         accountsList.forEach((account, index) => {
-            if (account.name == divertedAccount) {
+            if (account.name === divertedAccount) {
                 i = index;
             }
         });
@@ -37,7 +36,7 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
     useEffect(() => {
         let i = 0;
         countries.forEach((account, index) => {
-            if (account.country == divertedCountry) {
+            if (account.country === divertedCountry) {
                 i = index;
             }
         });
@@ -55,12 +54,12 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
             amount: amountMoved,
             APY: 0.5,
         };
-        const divertedAccount = { ...accountsList[usedAccountIndex] };
-        divertedAccount.amount -= amountMoved;
+        const divertAccount = { ...accountsList[usedAccountIndex] };
+        divertAccount.amount -= amountMoved;
         const uaIndex = usedAccountIndex;
         const eachCountry = countries.slice();
         eachCountry.splice(divertedIndex, 1);
-        addAccount(newAccount, divertedAccount, uaIndex);
+        addAccount(newAccount, divertAccount, uaIndex);
         setCountries(eachCountry);
         close();
     }

@@ -125,10 +125,9 @@ img {
 }
 
 #clientImage {
-  object-fit: contain;
-  display: flex;
+  object-fit: cover;
   align-self: last baseline;
-  max-height: 300px;
+  height: 100%;
 }
 #clientInfo{
   flex: 3;

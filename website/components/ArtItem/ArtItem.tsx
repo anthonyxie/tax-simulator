@@ -14,6 +14,7 @@ interface ArtItemProps {
     sellArt: any
 }
 
+// eslint-disable-next-line max-len
 export default function ArtItem({ evalList, art, index, editArt, donateArt, sellArt }: ArtItemProps) {
     // const [opened, { open, close }] = useDisclosure(false);
 
