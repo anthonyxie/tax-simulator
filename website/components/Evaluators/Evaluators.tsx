@@ -74,7 +74,7 @@ function submitAppraisal() {
             {Math.abs(activeStep - index) <= 2 ? (
               <div className="flexCol" id="evalPersonDiv">
                 <div className="flexRow">
-                  <div id="artImg">
+                  <div id="appraiseImg">
                     <img src={person.imgPath} alt="evalualtor person" />
                   </div>
                   <div className="flexCol" id="appraiseDiv">

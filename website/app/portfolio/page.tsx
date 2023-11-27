@@ -217,7 +217,7 @@ export default function HomePage() {
   return (
     <>
     <div id="portfolioDiv">
-      <div>
+      <div id="headerDiv">
         <text id="header1">Y0 Portfolio</text>
       </div>
 
@@ -355,8 +355,8 @@ export default function HomePage() {
           </Tabs>
       </div>
 
-      <div className="flexRow" id="reportIncome">
-          <Button variant='filled' id="reportButton"><Link href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link></Button>
+      <div id="fileTaxesBttn">
+          <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
     </div>
     </>

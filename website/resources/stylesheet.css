@@ -63,17 +63,24 @@ img {
   align-self: center;
 }
 
-#reportIncome{
-  margin-top: 2%;
+#fileTaxesBttn{
+  background-color: #E4C696;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  align-self: center;
   display: flex;
-  flex: .3;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
-#reportIncome Button {
-  flex: .5;
+#fileTaxesBttn text {
+  color: black;
+  font-family: InikaBold, serif;
 }
-#reportBttnTxt:hover {
+#fileLink{
+  text-decoration: none;
+}
+#fileTaxesBttn text:hover {
   color: green;
 }
 
@@ -177,7 +184,6 @@ img {
 .mantine-Tabs-panel {
     background-color: #F5EFBB;
     padding: 10px;
-    height: 100%;
 }
 .panelHeader {
   font-size: x-large;
@@ -340,6 +346,11 @@ img {
 }
 #appraiseBttn:hover {
   color: #39B1B0;
+}
+#appraiseImg{
+  display: flex;
+  flex: 1;
+  justify-content: right;
 }
 
 
