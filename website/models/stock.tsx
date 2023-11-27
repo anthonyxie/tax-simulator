@@ -23,6 +23,13 @@ export interface Art {
     appraised: boolean,
 }
 
+export interface Eval {
+    name: string,
+    imgPath: string,
+    index: number[],
+    quote: string,
+}
+
 export interface Donation {
     charity: string,
     description: string,
@@ -102,7 +109,7 @@ export const listOfCountries = [
 ];
 
 export const listOfEvaluators = [
-    { name: 'Risky McRiskPants', index: 2 },
-    { name: 'Realistic Evaluator', index: 0 },
-    { name: 'Medium Burger with Fries Evaluator', index: 1 },
+    { name: 'Risky McRiskPants', imgPath: '/evalImgs/2.png', index: 2, quote: 'enter thing to say here' },
+    { name: 'Realistic Evaluator', imgPath: '/evalImgs/0.png', index: 0, quote: 'enter thing to say here' },
+    { name: 'Medium Burger with Fries Evaluator', imgPath: '/evalImgs/1.png', index: 1, quote: 'enter thing to say here' },
 ];

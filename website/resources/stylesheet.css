@@ -303,6 +303,14 @@ img {
 #artName{
   font-size: x-large;
 }
+/* ART - Evaluator */
+#evalDiv {
+}
+#evalDiv img{
+  max-height: 100px;
+  object-fit: contain;
+}
+
 
 
 /* DONATIONS */

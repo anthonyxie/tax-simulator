@@ -1,9 +1,9 @@
 'use client';
 
-import { Button, Modal, Select } from '@mantine/core';
 import '../../resources/stylesheet.css';
 import { useDisclosure } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
+import Evaluators from '../Evaluators/Evaluators';
 import { Art, listOfEvaluators } from '@/models/stock';
 
 interface ArtItemProps {
@@ -56,7 +56,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
     }
     return (
         <div className="flexRow" id="artItemDiv">
-            <Modal opened={opened} onClose={close} centered>
+            {/* <Modal opened={opened} onClose={close} centered>
                 <Select
                   value={evaluator}
                   defaultValue={listOfEvaluators[0].name}
@@ -64,7 +64,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
                   data={listOfEvaluators.map((evaluator) => evaluator.name)}
                 />
                 <Button variant="filled" color="taupe" size="compact-md" onClick={submitAppraisal}>Submit Appraisal</Button>
-            </Modal>
+            </Modal> */}
             <div id="artImg">
                 <img src={art.imgPath} alt="art" />
             </div>
@@ -81,14 +81,16 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
                         <text>valued ${String(art.startPrice)}</text>
                     )
                 }
-                    {!art.appraised ?
+
+                <Evaluators />
+                    {/* {!art.appraised ?
                     <Button variant="filled" color="taupe" size="compact-md" onClick={appraiseArt}>Appraise Art</Button>
                     :
                     <div className="flexRow">
                         <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>
                         <Button variant="filled" color="taupe" onClick={donation}>Donate Art</Button>
                     </div>
-                    }
+                    } */}
             </div>
         </div>
     );
