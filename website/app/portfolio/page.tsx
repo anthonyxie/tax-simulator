@@ -70,6 +70,7 @@ export default function HomePage() {
     }
   }
 
+
   function makeDonation(index: number, amount: number) {
     let donation = listOfDonations[index];
     if (liquidFunds >= amount) {
@@ -184,6 +185,14 @@ export default function HomePage() {
     console.log(arts);
   }, [arts]);
 
+  useEffect(() => {
+    let propTaxAmt = 0;
+    properties.map((property) => {
+      propTaxAmt += property.value * 0.01;
+    })
+    setPropertyTaxAmount(propTaxAmt);
+  }, [properties])
+
   return (
     <>
     <div id="portfolioDiv">
@@ -219,10 +228,10 @@ export default function HomePage() {
               <RingProgress
                 label={<Text size="xs" ta="center">Tax Breakdown</Text>}
                 sections={[
-                  { tooltip: 'Income Tax', value: (incomeTaxAmount / taxAmount) * 100, color: 'blue' },
-                  { tooltip: 'Capital Gains Tax', value: (capitalGainsTaxAmount / taxAmount) * 100, color: 'orange' },
-                  { tooltip: 'Property Tax', value: (propertyTaxAmount / taxAmount) * 100, color: 'grape' },
-                ]}
+                  { tooltip: `Income Tax: $${incomeTaxAmount}`, value: (incomeTaxAmount / taxAmount) * 100, color: 'blue' },
+                  { tooltip: `Capital Gains Tax: $${capitalGainsTaxAmount}`, value: (capitalGainsTaxAmount / taxAmount) * 100, color: 'orange' },
+                  { tooltip: `Property Tax: $${propertyTaxAmount}`, value: (propertyTaxAmount / taxAmount) * 100, color: 'grape' },
+                  ]}
               />
             </div>
           </div>

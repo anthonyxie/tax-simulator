@@ -49,6 +49,7 @@ export interface BankAccount {
     amount: number,
     APY: number,
     country: string,
+    taxRate: number,
 }
 
 export const listOfStocks = [
@@ -114,18 +115,18 @@ export const listOfArts = [
 ];
 
 export const listOfAccounts = [
-    { name: 'Bank of America', amount: 1000000, APY: 0.01, country: 'U.S.' },
-    { name: 'Silicon Valley Bank', amount: 20000000, APY: 0.01, country: 'U.S.' },
-    { name: 'CapitalTwo', amount: 4732012, APY: 0.043, country: 'U.S.' },
+    { name: 'Bank of America', amount: 1000000, APY: 0.5, country: 'U.S.', taxRate: 0.035 },
+    { name: 'Silicon Valley Bank', amount: 20000000, APY: 0.5, country: 'U.S.', taxRate: 0.035 },
+    { name: 'CapitalTwo', amount: 4732012, APY: 0.5, country: 'U.S.', taxRate: 0.035 },
 ];
 
 export const listOfCountries = [
     //REPLACE TAXES WITH SOME NUMERICAL CALCS
-    { country: 'U.S.', risk: 'none', taxes: 'high' },
-    { country: 'Hong Kong', risk: 'medium', taxes: 'very low' },
-    { country: 'Switzerland', risk: 'medium', taxes: 'low' },
-    { country: 'Bahamas', risk: 'high', taxes: 'very low' },
-    { country: 'UAE', risk: 'medium', taxes: 'medium' },
+    { country: 'U.S.', risk: 'none', taxes: 'high', bankNames: ["CapitalThree","Chase","Citi"] },
+    { country: 'Hong Kong', risk: 'medium', taxes: 'very low', bankNames: ["HSBC","Hang Seng","Standard Chartered"] },
+    { country: 'Switzerland', risk: 'medium', taxes: 'low', bankNames: ["UBS","Credit Suisse","Zurich Cantonal Bank"] },
+    { country: 'Bahamas', risk: 'high', taxes: 'very low', bankNames: ["Ansbacher","Bahamas Development Bank","Bank of the Bahamas"] },
+    { country: 'UAE', risk: 'medium', taxes: 'medium', bankNames: ["Emirates NBD", "Abu Dhabi Commercial Bank", "Dubai Bank"]},
 ];
 
 export const listOfEvaluators = [

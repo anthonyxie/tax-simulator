@@ -5,13 +5,14 @@ import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
-import Button from '@mui/material/Button';
+import { Button } from '@mantine/core';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import ArtItem from '../ArtItem/ArtItem';
 import { Art, listOfEvaluators } from '@/models/stock';
 import '../../resources/stylesheet.css';
+import { Link } from '@mui/material';
 
 interface EvalListProps {
   editArt?: any,
@@ -84,12 +85,20 @@ function submitAppraisal() {
           <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <div className="flexCol" id="evalPersonDiv">
-                <text>{person.name}</text>
                 <div className="flexRow">
-                  <img src={person.imgPath} alt="evalualtor person" />
-                  <text>{person.quote}</text>
+                  <div id="artImg">
+                    <img src={person.imgPath} alt="evalualtor person" />
+                  </div>
+                  <div className="flexCol" id="appraiseDiv">
+                    <div className="flexCol">
+                      <text id="evalName">{person.name}</text>
+                      <text>{person.quote}</text>
+                    </div>
+                    <div id="appraiseBttn" onClick={submitAppraisal}>
+                      Choose Me as to Appraise!
+                    </div>
+                  </div>
                 </div>
-                <Button onClick={submitAppraisal}>Submit Appraisal</Button>
               </div>
             ) : null}
           </div>
