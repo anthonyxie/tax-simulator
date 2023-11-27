@@ -39,10 +39,12 @@ export default function HomePage() {
   const [reportingRisk, setReportingRisk] = useState(0);
   const [bankReportingRisk, setBankReportingRisk] = useState(0);
   const [donatingRisk, setDonationRisk] = useState(0);
+  const [loanRisk, setLoanRisk] = useState(0);
 
   const [liquidFunds, setLiquidFunds] = useState(0);
 
   const [loanAmount, setLoanAmount] = useState(0);
+  const [loanTotals, setLoanTotals] = useState(0);
   const [loanCollateral, setLoanCollateral] = useState(0);
 
   const liquidFundsGoal = 450000;
@@ -159,6 +161,28 @@ export default function HomePage() {
   function makeLoan() {
     let newliquidFunds = liquidFunds + loanAmount;
     setLiquidFunds(newliquidFunds);
+    let oldLoan = loanTotals + loanAmount;
+    let lRisk = loanRisk;
+    if (oldLoan <= loanCollateral) {
+      lRisk += 0;
+    }
+    else if (oldLoan / loanCollateral < 0.9) {
+      lRisk += 3;
+    }
+    else if (oldLoan / loanCollateral < 0.7) {
+      lRisk += 5;
+    }
+    else if (oldLoan / loanCollateral < 0.5) {
+      lRisk += 7;
+    }
+    else if (oldLoan / loanCollateral < 0.3) {
+      lRisk += 12;
+    }
+    else if (oldLoan / loanCollateral < 0.3) {
+      lRisk += 15;
+    }
+    setLoanRisk(lRisk);
+    setLoanTotals(oldLoan);
     setLoanAmount(0);
   }
 
@@ -200,7 +224,7 @@ export default function HomePage() {
 
     setLiquidFunds(0);
     setLoanAmount(0);
-    setLoanCollateral([]);
+    setLoanCollateral(0);
 
     setTaxAmount(0);
     setIncomeTaxAmount(0);
@@ -252,11 +276,11 @@ export default function HomePage() {
 
   useEffect(() => {
     let riskTotal = 0;
-    [reportingRisk, donatingRisk, bankReportingRisk].map((value) => {
+    [reportingRisk, donatingRisk, bankReportingRisk, loanRisk].map((value) => {
       riskTotal += value;
     });
     setRisk(riskTotal);
-  }, [reportingRisk, donatingRisk, bankReportingRisk, risk]);
+  }, [reportingRisk, donatingRisk, bankReportingRisk, risk, loanRisk]);
 
   useEffect(() => {
     const amountOff = reportedIncome / yearlySalary;
