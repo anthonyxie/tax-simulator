@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
-import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries } from '@/models/portfolio0';
+import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import StockList from '@/components/StockList/StockList';
 import DonationList from '@/components/DonationList/DonationList';
@@ -18,10 +18,10 @@ import HelpIcon from '@/components/HelpIcon/HelpIcon';
 
 export default function HomePage() {
   const [netWorth, setNetWorth] = useState(0);
-  const [yearlyIncome, setYearlyIncome] = useState(1000000);
-  const [yearlySalary, setYearlySalary] = useState(871340);
+  const [yearlyIncome, setYearlyIncome] = useState(income);
+  const [yearlySalary, setYearlySalary] = useState(salary);
   const [bankIncome, setBankIncome] = useState(0);
-  const [reportedIncome, setReportedIncome] = useState<number>(871340);
+  const [reportedIncome, setReportedIncome] = useState<number>(salary);
   const [reportedBankIncome, setReportedBankIncome] = useState(0);
 
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
@@ -48,8 +48,8 @@ export default function HomePage() {
   const [loanTotals, setLoanTotals] = useState(0);
   const [loanCollateral, setLoanCollateral] = useState(0);
 
-  const liquidFundsGoal = 450000;
-  const initialTaxAmount = 479000;
+  const liquidFundsGoal = fundsGoal;
+  const initialTaxAmount = initialTaxes;
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -216,10 +216,10 @@ export default function HomePage() {
     event.preventDefault();
     // Resetting numerical states
     setNetWorth(0);
-    setYearlyIncome(1000000);
-    setYearlySalary(871340);
+    setYearlyIncome(income);
+    setYearlySalary(salary);
     setBankIncome(0);
-    setReportedIncome(871340);
+    setReportedIncome(salary);
     setReportedBankIncome(0);
 
     setLiquidFunds(0);
@@ -425,7 +425,7 @@ export default function HomePage() {
                 <Tabs.Tab value="Charity Donations" rightSection={<HelpIcon topic={helpTip.charity} />}>
                   Charity Donations
                 </Tabs.Tab>
-                <Tabs.Tab value="Salary Reporting" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
+                <Tabs.Tab value="Reporting Salary" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
                   Salary Reporting
                 </Tabs.Tab>
                 <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>

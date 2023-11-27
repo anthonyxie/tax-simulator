@@ -92,3 +92,9 @@ export const listOfProperties = [
     { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
     { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
 ];
+
+export const income = 1000000;
+export const salary = 871340;
+export const fundsGoal = 450000;
+export const initialTaxes = 479000;
+
