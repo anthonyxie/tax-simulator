@@ -18,30 +18,38 @@ export default function HomePage() {
   const [yearlyIncome, setYearlyIncome] = useState(1000000);
   const [yearlySalary, setYearlySalary] = useState(871340);
   const [bankIncome, setBankIncome] = useState(0);
+  const [reportedIncome, setReportedIncome] = useState<number>(871340);
   const [reportedBankIncome, setReportedBankIncome] = useState(0);
+
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
+  const [properties, setProperties] = useState<Property[]>(listOfProperties);
+  const [arts, setArts] = useState<Art[]>(listOfArts);
+  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
+  
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
   const [incomeTax, setIncomeTax] = useState(0);
   const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
   const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);
-  const [properties, setProperties] = useState<Property[]>(listOfProperties);
+  const [taxWriteOffs, setTaxWriteOffs] = useState(0);
+
+
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
   const [bankReportingRisk, setBankReportingRisk] = useState(0);
   const [donatingRisk, setDonationRisk] = useState(0);
-  const [arts, setArts] = useState<Art[]>(listOfArts);
-  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
-  const [reportedIncome, setReportedIncome] = useState<number>(871340);
+
+
+
   const [liquidFunds, setLiquidFunds] = useState(0);
 
-  const [taxWriteOffs, setTaxWriteOffs] = useState(0);
+
 
   const [loanAmount, setLoanAmount] = useState(0);
   const [loanCollateral, setLoanCollateral] = useState([]);
 
   const liquidFundsGoal = 450000;
-  const initialTaxAmount = 40000;
+  const initialTaxAmount = 479000;
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
