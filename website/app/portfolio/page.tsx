@@ -172,13 +172,14 @@ export default function HomePage() {
 
             </div>
 
+            {/* TO-DO: put real value variable in the value section and in the tooltip */}
             <div id="ringDiv">
               <RingProgress
                 label={<Text size="xs" ta="center">Tax Breakdown</Text>}
                 sections={[
-                  { value: 40, color: 'blue' },
-                  { value: 30, color: 'orange' },
-                  { value: 30, color: 'grape' },
+                  { tooltip: 'Income Tax', value: 40, color: 'blue' },
+                  { tooltip: 'Capital Gains Tax', value: 30, color: 'orange' },
+                  { tooltip: 'Property Tax', value: 30, color: 'grape' },
                 ]}
               />
             </div>
