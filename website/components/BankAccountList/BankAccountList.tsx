@@ -84,10 +84,13 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
             </Modal>
             <text className="panelHeader">Accounts</text>
             <div id="bankAccountHeader">
-                <div style={{ width: '25%'}}><text>Name</text></div>
-                <div style={{ width: '25%' }}><text>Amount</text></div>
-                <div style={{ width: '25%' }}><text>APY</text></div>
-                <div style={{ width: '25%' }}><text>Country</text></div>
+                <div style={{ width: '20%'}}><text>Name</text></div>
+                <div style={{ width: '20%' }}><text>Amount</text></div>
+                <div style={{ width: '20%' }}><text>Returns</text></div>
+                <div style={{ width: '20%' }}><text>Country</text></div>
+                <div style={{ width: '20%' }}><text>Tax Percentage</text></div>
+                
+
             </div>
             {accountsList.map((account, index) => (<BankAccountItem account={account} key={index}></BankAccountItem>))}
             <div style={{marginTop: '10vh'}}>
