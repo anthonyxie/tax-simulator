@@ -2,7 +2,7 @@
 
 import '../../resources/stylesheet.css';
 import { useEffect, useState } from 'react';
-import { Button } from '@mantine/core';
+import { Button, Image } from '@mantine/core';
 import Evaluators from '../Evaluators/Evaluators';
 import { Art, listOfEvaluators } from '@/models/stock';
 
@@ -28,7 +28,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
         <div className="flexRow" id="artItemDiv">
 
             <div id="artImg">
-                <img src={art.imgPath} alt="art" />
+                <Image src={art.imgPath} alt="art" fit="contain" h="auto" w="auto" />
             </div>
             <div className="flexCol" id="artInfo">
                 <text id="artName">{art.name}</text>

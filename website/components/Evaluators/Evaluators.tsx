@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
-import { Button } from '@mantine/core';
+import { Button, Image } from '@mantine/core';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
@@ -75,7 +75,7 @@ function submitAppraisal() {
               <div className="flexCol" id="evalPersonDiv">
                 <div className="flexRow">
                   <div id="appraiseImg">
-                    <img src={person.imgPath} alt="evalualtor person" />
+                    <Image src={person.imgPath} fit="contain" w="auto" h="auto" radius="md" alt="evalulator person" />
                   </div>
                   <div className="flexCol" id="appraiseDiv">
                     <div className="flexCol">
