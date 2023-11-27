@@ -23,7 +23,7 @@ export interface Art {
     index: number,
     startPrice: number,
     artist: string,
-    year: number,
+    year: string,
     imgPath: string,
     prices: number[],
     priceIndex?: number,

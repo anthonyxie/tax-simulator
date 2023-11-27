@@ -39,11 +39,7 @@ export default function HomePage() {
   const [bankReportingRisk, setBankReportingRisk] = useState(0);
   const [donatingRisk, setDonationRisk] = useState(0);
 
-
-
   const [liquidFunds, setLiquidFunds] = useState(0);
-
-
 
   const [loanAmount, setLoanAmount] = useState(0);
   const [loanCollateral, setLoanCollateral] = useState([]);
@@ -78,7 +74,7 @@ export default function HomePage() {
     });
     setBankIncome(newbankIncome);
 
-  }, [accounts])
+  }, [accounts, bankIncome])
 
   useEffect(() => {
     let newbankIncome = 0;
@@ -88,7 +84,7 @@ export default function HomePage() {
       }
     });
     setReportedBankIncome(newbankIncome);
-  }, [accounts])
+  }, [accounts, reportedBankIncome])
 
   function donateArt(index: number): any {
     const artsList = arts.slice();
@@ -175,9 +171,38 @@ export default function HomePage() {
 
   function resetAllValues(event: { preventDefault: () => void; }): any {
     event.preventDefault();
+    // Resetting numerical states
     setNetWorth(0);
-    setYearlyIncome(100000);
+    setYearlyIncome(1000000);
+    setYearlySalary(871340);
+    setBankIncome(0);
+    setReportedIncome(871340);
+    setReportedBankIncome(0);
+
+    setLiquidFunds(0);
+    setLoanAmount(0);
+    setLoanCollateral([]);
+
+    setTaxAmount(0);
+    setIncomeTaxAmount(0);
+    setIncomeTax(0);
+    setCapitalGainsTaxAmount(0);
+    setPropertyTaxAmount(0);
+    setTaxWriteOffs(0);
+
+    setRisk(0);
+    setReportingRisk(0);
+    setBankReportingRisk(0);
+    setDonationRisk(0);
+
+    // Resetting array states
+    setStocks(listOfStocks);
+    setProperties(listOfProperties);
+    setArts(listOfArts);
+    setAccounts(listOfAccounts);
   }
+
+// Other functions and JSX remain unchanged
 
   function editArt(art: Art, index: number): any {
     console.log('wow');
@@ -196,7 +221,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setIncomeTax(reportedIncome * 0.4 + reportedBankIncome * 0.4);
-  }, [reportedIncome, reportedBankIncome]);
+  }, [reportedIncome, reportedBankIncome, incomeTax]);
 
   useEffect(() => {
     let taxTotal = 0;
@@ -204,7 +229,7 @@ export default function HomePage() {
       taxTotal += value;
     });
     setTaxAmount(taxTotal);
-  }, [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount])
+  }, [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount, taxAmount])
 
   useEffect(() => {
     let riskTotal = 0;
@@ -212,7 +237,7 @@ export default function HomePage() {
       riskTotal += value;
     });
     setRisk(riskTotal);
-  }, [reportingRisk, donatingRisk, bankReportingRisk]);
+  }, [reportingRisk, donatingRisk, bankReportingRisk, risk]);
 
   useEffect(() => {
     const amountOff = reportedIncome / yearlySalary;
@@ -232,7 +257,7 @@ export default function HomePage() {
       }
     }
     setReportingRisk(taxRisk);
-  }, [reportedIncome]);
+  }, [reportedIncome, reportingRisk]);
 
   useEffect(() => {
     const amountOff = reportedBankIncome / bankIncome;
@@ -252,7 +277,7 @@ export default function HomePage() {
       }
     }
     setBankReportingRisk(taxRisk);
-  }, [reportedBankIncome]);
+  }, [reportedBankIncome, bankReportingRisk]);
 
   useEffect(() => {
     console.log(arts);
@@ -264,7 +289,7 @@ export default function HomePage() {
       propTaxAmt += property.value * 0.01;
     });
     setPropertyTaxAmount(propTaxAmt);
-  }, [properties]);
+  }, [properties, propertyTaxAmount]);
 
   return (
     <>
@@ -410,6 +435,7 @@ export default function HomePage() {
       <div id="fileTaxesBttn">
           <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
+      <Button variant="filled" onClick={resetAllValues}>Reset</Button>
     </div>
     </>
   );
