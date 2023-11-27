@@ -45,7 +45,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
                 </div>
 
                 {!art.appraised ?
-                    <Evaluators editArt={editArt} art={art} />
+                    <Evaluators index={index} editArt={editArt} art={art} />
                     :
                     <div className="flexRow">
                         <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>
