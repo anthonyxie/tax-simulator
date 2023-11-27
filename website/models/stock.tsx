@@ -1,7 +1,8 @@
 export interface Stock {
     ticker: string,
     price: number,
-    amount: number
+    amount: number,
+    disabled?: boolean
 }
 
 export interface Asset {
@@ -52,11 +53,11 @@ export interface BankAccount {
 }
 
 export const listOfStocks = [
-    { ticker: 'dogcoin', price: 1000, amount: 400 },
-    { ticker: 'anthonycoin', price: 200, amount: 500 },
-    { ticker: 'coincoin', price: 300, amount: 600 },
-    { ticker: 'FOUR', price: 400, amount: 500 },
-    { ticker: 'FIVE', price: 500, amount: 500 },
+    { ticker: 'dogcoin', price: 1000, amount: 400, disabled: false },
+    { ticker: 'anthonycoin', price: 200, amount: 500, disabled: false },
+    { ticker: 'coincoin', price: 300, amount: 600, disabled: false },
+    { ticker: 'FOUR', price: 400, amount: 500, disabled: false },
+    { ticker: 'FIVE', price: 500, amount: 500, disabled: false },
 ];
 
 export const listOfDonations = [

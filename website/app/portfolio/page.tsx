@@ -42,7 +42,7 @@ export default function HomePage() {
   const [liquidFunds, setLiquidFunds] = useState(0);
 
   const [loanAmount, setLoanAmount] = useState(0);
-  const [loanCollateral, setLoanCollateral] = useState([]);
+  const [loanCollateral, setLoanCollateral] = useState(0);
 
   const liquidFundsGoal = 450000;
   const initialTaxAmount = 479000;
@@ -50,7 +50,7 @@ export default function HomePage() {
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
     const stockList = stocks.slice();
-    const soldStock = stockList[index];
+    let soldStock = stockList[index];
     if (soldStock.amount >= amountSold) {
       soldStock.amount -= amountSold;
       let newFundAmount = liquidFunds;
@@ -65,6 +65,24 @@ export default function HomePage() {
       setStocks(stockList);
       setLiquidFunds(newFundAmount);
     }
+  }
+
+  useEffect(() => {
+    let collatTotal = 0;
+    stocks.map((stock, index) => {
+      if (stock.disabled) {
+        collatTotal += stock.amount * stock.price;
+      }
+    })
+    setLoanCollateral(collatTotal);
+  }, [stocks])
+
+  function setCollateral(indices: number[], value: boolean) {
+    let stockList = stocks.slice();
+    indices.map((ind, index) => {
+      stockList[ind].disabled = true;
+    });
+    setStocks(stockList);
   }
 
   useEffect(() => {
@@ -354,9 +372,11 @@ export default function HomePage() {
                   { liquidFunds / liquidFundsGoal < 0.12 ? (
                     <Progress.Label>Liquid Funds</Progress.Label>
                   ) : (
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
-                      <Progress.Label>Liquid Funds</Progress.Label>
-                    </Progress.Section>
+                    <Tooltip label={`Liquid Funds: $${liquidFunds}`}>
+                      <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
+                        <Progress.Label>Liquid Funds</Progress.Label>
+                      </Progress.Section>
+                    </Tooltip>
                   )}
                 </Progress.Root>
           </div>
@@ -410,7 +430,7 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Loans">
-                  <Loan makeLoan={makeLoan} setCollateral={setLoanCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
+                  <Loan makeLoan={makeLoan} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
               </Tabs.Panel>
 
             <Tabs.Panel value="Reporting Salary">
@@ -433,7 +453,7 @@ export default function HomePage() {
       </div>
 
       <div id="fileTaxesBttn">
-          <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link>
+          <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount, liquid: liquidFunds }}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
       <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>
     </div>
