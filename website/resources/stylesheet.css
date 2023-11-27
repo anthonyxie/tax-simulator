@@ -313,7 +313,7 @@ img {
 
 
 
-/* DONATIONS */
+/* BANK ACCOUNTS */
 #bankAccountItemDiv {
 }
 #bankAccountHeader {
@@ -321,6 +321,27 @@ img {
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* PROPERTIES */
+#propertyImg {
+  width: 100%;
+  height: 60%;
+  border-radius: 2%
+}
+#propertyItemDiv {
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3%;
+}
+#propertyItemDiv text {
+  font-size: 1rem;
+}
+#propertyDetails {
+  font-size: 1rem;
+  font-family: Inika;
 }
 
 /* Narrative */

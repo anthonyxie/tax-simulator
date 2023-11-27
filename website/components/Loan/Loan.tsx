@@ -25,9 +25,6 @@ export default function Loan({loanAmount, setLoanAmount, setCollateral, stockLis
             decimalScale={2}
             onChange={(value) => setLoanAmount(Number(value))}
             />
-            <Select>
-
-            </Select>
         </div>
     );
 }
