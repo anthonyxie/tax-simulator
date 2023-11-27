@@ -5,9 +5,11 @@ import { Accordion } from "@mantine/core";
 
 interface DonationListProps {
     donationList: Donation[]
+    makeDonation: any
+    liquidFunds: number
 }
 
-export default function DonationList({donationList}: DonationListProps) {
+export default function DonationList({donationList, makeDonation, liquidFunds}: DonationListProps) {
     return (
         <div>
             <text className="panelHeader">Donations</text>
@@ -16,7 +18,7 @@ export default function DonationList({donationList}: DonationListProps) {
                 <text id="rightmost">Value</text>
             </div>
             <Accordion>
-                {donationList.map((theDonation, index) => (<DonationItem donation={theDonation} key={index}></DonationItem>))}
+                {donationList.map((theDonation, index) => (<DonationItem makeDonation={makeDonation} index={index} liquidFunds={liquidFunds} donation={theDonation} key={index}></DonationItem>))}
             </Accordion>
          </div>
     );

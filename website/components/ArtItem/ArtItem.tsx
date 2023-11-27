@@ -8,7 +8,7 @@ import { Art, listOfEvaluators } from '@/models/stock';
 
 interface ArtItemProps {
     art: Art,
-    index: Number,
+    index: number,
     editArt?: any,
     donateArt: any,
     sellArt: any

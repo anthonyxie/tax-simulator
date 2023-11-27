@@ -6,11 +6,24 @@ import { IconX } from "@tabler/icons-react";
 import { useState } from "react";
 
 interface DonationItemProps {
-    donation: Donation;
+    donation: Donation
+    makeDonation: any
+    liquidFunds: number
+    index: number
 }
 
-export default function DonationItem({donation}: DonationItemProps) {
+
+
+
+export default function DonationItem({donation, makeDonation, liquidFunds, index}: DonationItemProps) {
     const [value, setValue] = useState<number>(0);
+
+    function donationButton() {
+        setValue(0);
+        makeDonation(index, value);
+    }
+
+
     return (
         <div className="listItemDiv" id="donationItemDiv">
             
@@ -19,8 +32,8 @@ export default function DonationItem({donation}: DonationItemProps) {
             <Accordion.Panel>
                 <text>{donation.description}</text>
                 <Group>
-                    <NumberInput value={value} onChange={(value) => setValue(Number(value))}></NumberInput>
-                    <Button>me when i'm donating</Button>
+                    <NumberInput max={liquidFunds} min={0} step={Math.round(liquidFunds / 20)} value={value} onChange={(value) => setValue(Number(value))}></NumberInput>
+                    <Button onClick={donationButton}>me when i'm donating</Button>
                 </Group>
             </Accordion.Panel>
             </Accordion.Item>

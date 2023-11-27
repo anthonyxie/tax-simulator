@@ -134,6 +134,12 @@ export default function HomePage() {
     }
   }
 
+  function makeLoan() {
+    let newliquidFunds = liquidFunds + loanAmount;
+    setLiquidFunds(newliquidFunds);
+    setLoanAmount(0);
+  }
+
   useEffect(() => {
     let taxTotal = 0;
     taxTotal += incomeTax;
@@ -368,11 +374,11 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Charity Donations">
-                <DonationList donationList={listOfDonations} />
+                <DonationList makeDonation={makeDonation} liquidFunds={liquidFunds} donationList={listOfDonations} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Loans">
-                  <Loan />
+                  <Loan makeLoan={makeLoan} setCollateral={setLoanCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
               </Tabs.Panel>
 
             <Tabs.Panel value="Reporting Salary">
