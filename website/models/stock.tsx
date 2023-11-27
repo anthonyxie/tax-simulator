@@ -64,7 +64,7 @@ export const helpTip = {
     assets: 'Get your artwork evaluated to donate it for more than your client\'s original purchasing price.',
     bank: 'Money sitting in the bank generates interest which is taxed as income tax. Avoid the tax by keeping the money in offshore bank accounts.',
     stocks: 'You can sell your stocks to "liquidate funds" but remember that will also be taxed! You can also use your stock as collatoral in the loans tab.',
-    charity: 'Decrease the taxes by donating money. Decrease taxes ALOT by donating money to the client\'s charity.',
+    charity: 'Decrease the taxes by donating money. By donating to the client\'s charity, they can recoup back some of the money that they donate while still having the same tax writeoff, but be careful -- this move is legally risky!',
     reportIncome: 'Income tax is based off of the income that is reported. Report less income to pay less taxes.',
-    loan: 'loan help text',
+    loan: 'Apply for loans to gain liquid funds to use for other purposes! Decrease the riskiness of your loan by placing some of your assets as collateral -- aim for a collateral amount that is close to the value of the loan itself to minimize risk!',
 };
