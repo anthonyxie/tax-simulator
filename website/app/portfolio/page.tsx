@@ -15,8 +15,12 @@ import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
+import { useSearchParams } from 'next/navigation';
 
 export default function HomePage() {
+  const searchParams = useSearchParams()
+  const round = searchParams.get('round')
+
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(income);
   const [yearlySalary, setYearlySalary] = useState(salary);
