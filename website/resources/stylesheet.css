@@ -284,6 +284,12 @@ img {
     justify-content: left;
   /* border: purple 10px solid; */
 }
+#artInfo{
+  font-size: large;
+}
+#artName{
+  font-size: x-large;
+}
 
 
 /* DONATIONS */
