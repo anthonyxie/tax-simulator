@@ -5,7 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
-import { Button, Image } from '@mantine/core';
+import { Image } from '@mantine/core';
+import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
@@ -75,8 +76,8 @@ function submitAppraisal() {
             {Math.abs(activeStep - index) <= 2 ? (
               <div className="flexCol" id="evalPersonDiv">
                 <div className="flexRow">
-                  <div id="appraiseImg">
-                    <Image src={person.imgPath} fit="contain" w="auto" h="auto" radius="md" alt="evalulator person" />
+                  <div id="appraiseImgDiv">
+                    <Image id="appraiseImg" src={person.imgPath} fit="contain" w="auto" h="auto" radius="md" alt="evalulator person" />
                   </div>
                   <div className="flexCol" id="appraiseDiv">
                     <div className="flexCol">

@@ -124,7 +124,7 @@ img {
   justify-content: flex-start;
 }
 
-#clientImage {
+#clientImg {
   object-fit: cover;
   align-self: last baseline;
   height: 100%;
@@ -381,11 +381,15 @@ img {
 #appraiseBttn:hover {
   color: #39B1B0;
 }
-#appraiseImg{
+#appraiseImgDiv{
   display: flex;
   flex: 1;
   justify-content: right;
-  max-height: 200px;
+}
+#appraiseImg {
+  object-fit: cover;
+  align-self: last baseline;
+  height: 100%;
 }
 
 

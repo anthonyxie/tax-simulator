@@ -342,7 +342,7 @@ export default function HomePage() {
 
       <div className="flexRow" id="client">
         <div id="rightHalf">
-          <Image id="clientImage" src="/richClient.png" alt="Brown haired young woman with money" />
+          <Image id="clientImg" src="/richClient.png" alt="Brown haired young woman with money" />
         </div>
         {/* ^takes half and \/ takes half */}
         <div className="flexCol" id="clientInfo">

@@ -37,7 +37,7 @@ export const listOfArts = [
     {
         name: 'Nepo Child Artwork',
         index: 0,
-        artist: 'Anthony',
+        artist: 'Opal',
         year: '2023',
         startPrice: 10,
         imgPath: '/assetsImgs/a0.png',
