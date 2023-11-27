@@ -33,6 +33,8 @@ export default function GameNarrative() {
         <div id="narrativeBackground" className="flexCol">
             <div id="narrativeWrapper">
                 <p id="narrativeText">{gameStory[storyIndex]}</p>
+                <br></br>
+                <img src='/narrativeImgs/audit.jpg' alt="text saying AUDITED" />
             </div>
             <button id="continueButton" onClick={handleContinue}>
                 Continue
