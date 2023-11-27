@@ -5,16 +5,20 @@ import Link from 'next/link';
 import { Button, NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
-import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, Art } from '@/models/stock';
+import { Stock, Asset, Property, BankAccount, listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, Art} from '@/models/stock';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtAssets from '@/components/ArtAssets/ArtAssets';
 import PropertyList from '@/components/PropertyList/PropertyList';
+import Loan from '@/components/Loan/Loan';
 
 export default function HomePage() {
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(1000000);
+  const [yearlySalary, setYearlySalary] = useState(871340);
+  const [bankIncome, setBankIncome] = useState(0);
+  const [reportedBankIncome, setReportedBankIncome] = useState(0);
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
@@ -26,11 +30,13 @@ export default function HomePage() {
   const [reportingRisk, setReportingRisk] = useState(0);
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
-  const [reportedIncome, setReportedIncome] = useState<number>(1000000);
+  const [reportedIncome, setReportedIncome] = useState<number>(871340);
   const [liquidFunds, setLiquidFunds] = useState(0);
 
   const [taxWriteOffs, setTaxWriteOffs] = useState(0);
+
   const [loanAmount, setLoanAmount] = useState(0);
+  const [loanCollateral, setLoanCollateral] = useState(0);
 
   const liquidFundsGoal = 450000;
   const initialTaxAmount = 40000;
@@ -55,6 +61,25 @@ export default function HomePage() {
     }
   }
 
+  useEffect(() => {
+    let newbankIncome = 0;
+    accounts.map((account) => {
+      newbankIncome+= Math.round(account.amount * account.APY * 0.01);
+    });
+    setBankIncome(newbankIncome);
+
+  }, [accounts])
+
+  useEffect(() => {
+    let newbankIncome = 0;
+    accounts.map((account) => {
+      if (account.country == "U.S.") {
+        newbankIncome += Math.round(account.amount * account.APY * 0.01);
+      }
+    });
+    setReportedBankIncome(newbankIncome);
+  }, [accounts])
+
   function donateArt(index: number): any {
     const artsList = arts.slice();
     const oldArt = artsList[index];
@@ -64,12 +89,11 @@ export default function HomePage() {
       newtaxAmount += oldPrice * 0.4;
       console.log(newtaxAmount);
       artsList.splice(index, 1);
-      
+
       setTaxWriteOffs(newtaxAmount);
       setArts(artsList);
     }
   }
-
 
   function makeDonation(index: number, amount: number) {
     let donation = listOfDonations[index];
@@ -78,7 +102,7 @@ export default function HomePage() {
       let newliquidFunds = liquidFunds;
       newliquidFunds -= amount * donation.returnFactor;
       setLiquidFunds(newliquidFunds);
-      
+
       //reduce tax amount
       let newtaxAmount = taxWriteOffs;
       newtaxAmount += amount * 0.4;
@@ -88,7 +112,6 @@ export default function HomePage() {
       let riskAmount = risk;
       riskAmount += amount * donation.riskFactor * 0.001;
       setRisk(riskAmount);
-      
     }
   }
 
@@ -97,9 +120,7 @@ export default function HomePage() {
     taxTotal += incomeTax;
     taxTotal -= Math.min(incomeTax * 0.4, taxWriteOffs);
     setIncomeTaxAmount(taxTotal);
-
   }, [taxWriteOffs, incomeTax]);
-
 
   function sellArt(index: number): any {
     const artsList = arts.slice();
@@ -142,8 +163,8 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    setIncomeTax(reportedIncome * 0.4);
-  }, [reportedIncome]);
+    setIncomeTax(reportedIncome * 0.4 + reportedBankIncome * 0.4);
+  }, [reportedIncome, reportedBankIncome]);
 
   useEffect(() => {
     let taxTotal = 0;
@@ -162,7 +183,7 @@ export default function HomePage() {
   }, [reportingRisk]);
 
   useEffect(() => {
-    const amountOff = reportedIncome / yearlyIncome;
+    const amountOff = reportedIncome / yearlySalary;
     let taxRisk = 0;
     if (amountOff < 1) {
       taxRisk += 15;
@@ -189,14 +210,16 @@ export default function HomePage() {
     let propTaxAmt = 0;
     properties.map((property) => {
       propTaxAmt += property.value * 0.01;
-    })
+    });
     setPropertyTaxAmount(propTaxAmt);
-  }, [properties])
+  }, [properties]);
 
   return (
     <>
     <div id="portfolioDiv">
-      <text id="header1">Y0 Portfolio</text>
+      <div>
+        <text id="header1">Y0 Portfolio</text>
+      </div>
 
       <div className="flexRow" id="client">
         <div id="rightHalf">
@@ -212,11 +235,13 @@ export default function HomePage() {
               <div className="flexRow" id="clientDetails">
                 <div className="flexCol">
                   <text>Yearly income: </text>
+                  <text>Total Reported Income: </text>
                   <text>Projected Taxes: </text>
                 </div>
 
                 <div className="flexCol" id="clientNums">
                   <text>${yearlyIncome}</text>
+                  <text>${reportedBankIncome + reportedIncome}</text>
                   <text>${taxAmount}</text>
                 </div>
               </div>
@@ -279,8 +304,8 @@ export default function HomePage() {
                 <Tabs.Tab value="Charity Donations">
                   Charity Donations
                 </Tabs.Tab>
-                <Tabs.Tab value="Reporting Income">
-                  Income Reporting
+                <Tabs.Tab value="Reporting Salary">
+                  Salary Reporting
                 </Tabs.Tab>
                 <Tabs.Tab value="Loans">
                   Loans
@@ -292,8 +317,6 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
-                {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
                 <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt} />
               </Tabs.Panel>
 
@@ -310,18 +333,18 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Loans">
-                  i'm a loan c:
+                  <Loan />
               </Tabs.Panel>
 
-            <Tabs.Panel value="Reporting Income">
+            <Tabs.Panel value="Reporting Salary">
               <NumberInput
                 allowNegative={false}
-                label="How much income would you like to report?"
-                placeholder={"Write down how much income you're reporting"}
+                label="How much of your salary would you like to report?"
+                placeholder={"Write down how much salary you're reporting"}
                 min={0}
-                step={yearlyIncome / 20}
-                max={yearlyIncome}
-                defaultValue={yearlyIncome}
+                step={yearlySalary / 20}
+                max={yearlySalary}
+                defaultValue={yearlySalary}
                 value={reportedIncome}
                 prefix="$"
                 decimalScale={2}
