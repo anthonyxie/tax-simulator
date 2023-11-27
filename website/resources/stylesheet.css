@@ -105,9 +105,10 @@ img {
   object-fit: contain;
   display: flex;
   align-self: last baseline;
+  max-height: 300px;
 }
 #clientInfo{
-  flex: 2;
+  flex: 3;
   width: 100%;
   display: flex;
   padding-left: 10px;
@@ -333,7 +334,7 @@ img {
 }
 #appraiseDiv{
   display: flex;
-  flex: 2;
+  flex: 3;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
@@ -354,6 +355,7 @@ img {
   display: flex;
   flex: 1;
   justify-content: right;
+  max-height: 200px;
 }
 
 
