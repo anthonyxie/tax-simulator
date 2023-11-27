@@ -58,3 +58,13 @@ export interface Country {
     taxes: string,
     bankNames: string[],
 }
+
+export const helpTip = {
+    property: 'property help text',
+    assets: 'asset help text',
+    bank: 'bank help text',
+    stocks: 'stocks help text',
+    charity: 'charity help text',
+    reportIncome: 'report help text',
+    loan: 'loan help text',
+};

@@ -1,19 +1,21 @@
-/* eslint-disable max-len */
 'use client';
 
+/* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
-import StockList from '@/components/StockList/StockList';
-import '../../resources/stylesheet.css';
-import { Stock, Asset, Property, BankAccount, Art } from '@/models/stock';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, ActionIcon } from '@mantine/core';
+import { IconQuestionMark } from '@tabler/icons-react';
+import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
+import StockList from '@/components/StockList/StockList';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtAssets from '@/components/ArtAssets/ArtAssets';
 import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
+import '../../resources/stylesheet.css';
+import HelpIcon from '@/components/HelpIcon/HelpIcon';
 
 export default function HomePage() {
   const [netWorth, setNetWorth] = useState(0);
@@ -27,14 +29,13 @@ export default function HomePage() {
   const [properties, setProperties] = useState<Property[]>(listOfProperties);
   const [arts, setArts] = useState<Art[]>(listOfArts);
   const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
-  
+
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
   const [incomeTax, setIncomeTax] = useState(0);
   const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
   const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);
   const [taxWriteOffs, setTaxWriteOffs] = useState(0);
-
 
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
@@ -79,7 +80,7 @@ export default function HomePage() {
       }
     })
     setLoanCollateral(collatTotal);
-  }, [stocks])
+  }, [stocks]);
 
   function setCollateral(indices: number[], value: boolean) {
     let stockList = stocks.slice();
@@ -92,16 +93,15 @@ export default function HomePage() {
   useEffect(() => {
     let newbankIncome = 0;
     accounts.map((account) => {
-      newbankIncome+= Math.round(account.amount * account.APY * 0.01);
+      newbankIncome += Math.round(account.amount * account.APY * 0.01);
     });
     setBankIncome(newbankIncome);
-
-  }, [accounts, bankIncome])
+  }, [accounts, bankIncome]);
 
   useEffect(() => {
     let newbankIncome = 0;
     accounts.map((account) => {
-      if (account.country == "U.S.") {
+      if (account.country == 'U.S.') {
         newbankIncome += Math.round(account.amount * account.APY * 0.01);
       }
     });
@@ -125,7 +125,7 @@ export default function HomePage() {
         donoRisk = 2;
       }
       else if (priceIndex == 2) {
-        donoRisk = 5
+        donoRisk = 5;
       }
 
       let donationRisk = donatingRisk + donoRisk;
@@ -255,7 +255,6 @@ export default function HomePage() {
     setArts(artList);
   }
 
-  // eslint-disable-next-line max-len
   function addAccount(newAccount: BankAccount, divertedAccount: BankAccount, divertedIndex: number): any {
     const newAccounts = accounts.slice();
     newAccounts[divertedIndex] = divertedAccount;
@@ -412,25 +411,25 @@ export default function HomePage() {
       <div id="tabbedMenu">
           <Tabs defaultValue="Properties" color="yellow">
               <Tabs.List grow>
-                <Tabs.Tab value="Properties">
+                <Tabs.Tab value="Properties" rightSection={<HelpIcon topic={helpTip.property} />}>
                   Properties
                 </Tabs.Tab>
-                <Tabs.Tab value="Donable Assets">
+                <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
                   Donable Assets
                 </Tabs.Tab>
-                <Tabs.Tab value="Bank Holdings">
+                <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={helpTip.bank} />}>
                   Bank Holdings
                 </Tabs.Tab>
-                <Tabs.Tab value="Stocks">
+                <Tabs.Tab value="Stocks" rightSection={<HelpIcon topic={helpTip.stocks} />}>
                   Stocks
                 </Tabs.Tab>
-                <Tabs.Tab value="Charity Donations">
+                <Tabs.Tab value="Charity Donations" rightSection={<HelpIcon topic={helpTip.charity} />}>
                   Charity Donations
                 </Tabs.Tab>
-                <Tabs.Tab value="Reporting Salary">
+                <Tabs.Tab value="Salary Reporting" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
                   Salary Reporting
                 </Tabs.Tab>
-                <Tabs.Tab value="Loans">
+                <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>
                   Loans
                 </Tabs.Tab>
               </Tabs.List>

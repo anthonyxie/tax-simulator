@@ -42,7 +42,7 @@ export const listOfArts = [
         startPrice: 10,
         imgPath: '/assetsImgs/a0.png',
         appraised: false,
-        prices: [10000, 60000, 100000]
+        prices: [10000, 60000, 100000],
     },
     {
         name: 'Narry Stight by Paclo Pibasso',
@@ -52,7 +52,7 @@ export const listOfArts = [
         year: '2023',
         imgPath: '/assetsImgs/a1.png',
         appraised: false,
-        prices: [50000, 60000, 70000]
+        prices: [50000, 60000, 70000],
     },
     {
         name: 'Picture Of A Dog',
@@ -62,7 +62,7 @@ export const listOfArts = [
         year: '2023',
         imgPath: '/assetsImgs/a2.png',
         appraised: false,
-        prices: [100, 200, 200000]
+        prices: [100, 200, 200000],
     },
 ];
 
