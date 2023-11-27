@@ -1,14 +1,15 @@
 'use client';
 
-import { NumberInput } from "@mantine/core";
+import { Button, NumberInput } from "@mantine/core";
 
 interface loanProps {
     loanAmount: number,
     setLoanAmount: any,
     setCollateral: any,
     stockList: any,
+    makeLoan: any,
 }
-export default function Loan({loanAmount, setLoanAmount, setCollateral, stockList}: loanProps)  {
+export default function Loan({loanAmount, setLoanAmount, setCollateral, stockList, makeLoan}: loanProps)  {
 
 
     return (
@@ -25,6 +26,7 @@ export default function Loan({loanAmount, setLoanAmount, setCollateral, stockLis
             decimalScale={2}
             onChange={(value) => setLoanAmount(Number(value))}
             />
+            <Button onClick={makeLoan}>Apply for Loan</Button>
         </div>
     );
 }

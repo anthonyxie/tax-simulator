@@ -61,10 +61,6 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
         close();
     }
 
-    function deleteAccount(index) {
-        let countryList = countries.slice();
-        countryList.splice()
-    }
 
     return (
         <div>

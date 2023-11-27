@@ -15,8 +15,9 @@ import '../../resources/stylesheet.css';
 interface EvalListProps {
   editArt?: any,
   art: Art,
+  index: number
 }
-function Evaluators({ editArt, art }: EvalListProps) {
+function Evaluators({ editArt, art, index }: EvalListProps) {
   const evalList = listOfEvaluators;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -44,7 +45,7 @@ function submitAppraisal() {
     const newArt = { ...art };
     newArt.appraised = true;
     newArt.priceIndex = listOfEvaluators[evalIndex].index;
-    editArt(newArt, art.index);
+    editArt(newArt, index);
 }
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
