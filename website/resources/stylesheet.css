@@ -96,6 +96,7 @@ img {
   align-self: center;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 #resetBttn text {
   color: black;
