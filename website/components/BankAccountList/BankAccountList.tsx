@@ -17,6 +17,8 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
     const [usedAccountIndex, setUsedAccountIndex] = useState(0);
     const [amountMoved, setAmountMoved] = useState(0);
     const [divertedCountry, setDivertedCountry] = useState<string | null>("");
+    const [divertedIndex, setDivertedIndex] = useState(0);
+    const [countries, setCountries] = useState<any[]>(listOfCountries);
 
     useEffect(() => {
         let i = 0
@@ -29,21 +31,39 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
     }, [divertedAccount]);
 
     useEffect(() => {
+        let i = 0
+        countries.forEach((account, index) => {
+            if (account.country == divertedCountry) {
+                i = index;
+            }
+        });
+        setDivertedIndex(i);
+    }, [divertedCountry]);
+
+    useEffect(() => {
         console.log(divertedAccount);
     }, [divertedAccount]);
 
     function createAccount() {
         let newAccount = {
-            name: "idk",
+            name: countries[divertedIndex].bankNames[0],
             country: divertedCountry, 
             amount: amountMoved,
-            APY: 0.05
+            APY: 0.5,
         }
         let divertedAccount = {...accountsList[usedAccountIndex]}
         divertedAccount.amount -= amountMoved;
         let uaIndex = usedAccountIndex;
+        let countryList = countries.slice();
+        countryList.splice(divertedIndex, 1);
         addAccount(newAccount, divertedAccount, uaIndex);
+        setCountries(countryList);
         close();
+    }
+
+    function deleteAccount(index) {
+        let countryList = countries.slice();
+        countryList.splice()
     }
 
     return (
@@ -73,7 +93,7 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
             <Select
                 label="Account Location"
                 placeholder="Pick value"
-                data={listOfCountries.map((country, index) => {
+                data={countries.map((country, index) => {
                     return country.country;
                 })}
                 value={divertedCountry}
@@ -84,11 +104,10 @@ export default function BankAccountList({ accountsList, addAccount }: AccountLis
             </Modal>
             <text className="panelHeader">Accounts</text>
             <div id="bankAccountHeader">
-                <div style={{ width: '20%'}}><text>Name</text></div>
-                <div style={{ width: '20%' }}><text>Amount</text></div>
-                <div style={{ width: '20%' }}><text>Returns</text></div>
-                <div style={{ width: '20%' }}><text>Country</text></div>
-                <div style={{ width: '20%' }}><text>Tax Percentage</text></div>
+                <div style={{ width: '25%'}}><text>Name</text></div>
+                <div style={{ width: '25%' }}><text>Amount</text></div>
+                <div style={{ width: '25%' }}><text>Returns</text></div>
+                <div style={{ width: '25%' }}><text>Country</text></div>
                 
 
             </div>
