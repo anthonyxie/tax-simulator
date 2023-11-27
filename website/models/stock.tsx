@@ -51,3 +51,10 @@ export interface BankAccount {
     APY: number,
     country: string
 }
+
+export interface Country {
+    country: string,
+    risk: string,
+    taxes: string,
+    bankNames: string[],
+}

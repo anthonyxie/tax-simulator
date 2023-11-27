@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -6,7 +7,7 @@ import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@manti
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import { Stock, Asset, Property, BankAccount, Art } from '@/models/stock';
-import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators } from '@/models/portfolio0';
+import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
@@ -419,7 +420,7 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
-                <BankAccountList addAccount={addAccount} accountsList={accounts} />
+                <BankAccountList countryList={listOfCountries} addAccount={addAccount} accountsList={accounts} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Stocks">
