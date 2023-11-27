@@ -4,9 +4,9 @@ import '../../resources/stylesheet.css';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function GameNarrative({ round }) {
+export default function GameNarrative() {
     const router = useRouter();
-    const [roundIndex, setRoundIndex] = useState(round);
+    const [roundIndex, setRoundIndex] = useState();
     const [storyIndex, setStoryIndex] = useState(0);
     const [gameStory, setGameStory] = useState([
         `You are 27 years old. In the five years since you graduated, you’ve been an accountant for a small local bank, an insurance company, and your city government.\n 
