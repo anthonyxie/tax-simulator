@@ -10,7 +10,7 @@ interface DonationItemProps {
 }
 
 export default function DonationItem({donation}: DonationItemProps) {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState<number>(0);
     return (
         <div className="listItemDiv" id="donationItemDiv">
             
@@ -19,7 +19,7 @@ export default function DonationItem({donation}: DonationItemProps) {
             <Accordion.Panel>
                 <text>{donation.description}</text>
                 <Group>
-                    <NumberInput></NumberInput>
+                    <NumberInput value={value} onChange={(value) => setValue(Number(value))}></NumberInput>
                     <Button>me when i'm donating</Button>
                 </Group>
             </Accordion.Panel>
