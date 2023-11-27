@@ -17,7 +17,7 @@ export default function HomePage() {
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
   const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
-  const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);  
+  const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);
   const [properties, setProperties] = useState({});
   const [risk, setRisk] = useState(0);
   const [reportingRisk, setReportingRisk] = useState(0);
@@ -30,8 +30,6 @@ export default function HomePage() {
   const [loanAmount, setLoanAmount] = useState(0);
 
   const liquidFundsGoal = 450000;
-
-
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -61,7 +59,7 @@ export default function HomePage() {
       let newtaxAmount = incomeTaxAmount;
       newtaxAmount -= oldPrice * 0.3;
       artsList.splice(index, 1);
-      
+
       setIncomeTaxAmount(newtaxAmount);
       setArts(artsList);
     }
@@ -70,7 +68,7 @@ export default function HomePage() {
   function sellArt(index: number): any {
     const artsList = arts.slice();
     const oldArt = artsList[index];
-    console.log("whaaaaa");
+    console.log('whaaaaa');
     if (oldArt.appraised) {
       const oldPrice = oldArt.prices[oldArt.priceIndex];
       let newliquidFunds = liquidFunds;
@@ -115,20 +113,20 @@ export default function HomePage() {
     let taxTotal = 0;
     [incomeTaxAmount].map((value) => {
       taxTotal += value;
-    })
+    });
     setTaxAmount(taxTotal);
-  }, [incomeTaxAmount])
+  }, [incomeTaxAmount]);
 
   useEffect(() => {
     let riskTotal = 0;
     [reportingRisk].map((value) => {
       riskTotal += value;
-    })
+    });
     setRisk(riskTotal);
-  }, [reportingRisk])
+  }, [reportingRisk]);
 
   useEffect(() => {
-    let amountOff = reportedIncome / yearlyIncome;
+    const amountOff = reportedIncome / yearlyIncome;
     let taxRisk = 0;
     if (amountOff < 1) {
       taxRisk += 15;
@@ -145,7 +143,7 @@ export default function HomePage() {
       }
     }
     setReportingRisk(taxRisk);
-  }, [reportedIncome])
+  }, [reportedIncome]);
 
   useEffect(() => {
     console.log(arts);
@@ -210,7 +208,7 @@ export default function HomePage() {
                   { liquidFunds / liquidFundsGoal < 0.12 ? (
                     <Progress.Label>Liquid Funds</Progress.Label>
                   ) : (
-                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue" >
+                    <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
                       <Progress.Label>Liquid Funds</Progress.Label>
                     </Progress.Section>
                   )}
@@ -252,7 +250,7 @@ export default function HomePage() {
               <Tabs.Panel value="Donable Assets">
                 {/* <ArtList donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
                 {/* <ArtCarousel donateArt={donateArt} artsList={arts} editArt={editArt} /> */}
-                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt}/>
+                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
@@ -267,9 +265,7 @@ export default function HomePage() {
                 <DonationList donationList={listOfDonations} />
               </Tabs.Panel>
 
-              <Tabs.Panel value="Loans">
-                  
-              </Tabs.Panel>
+              <Tabs.Panel value="Loans" />
 
             <Tabs.Panel value="Reporting Income">
               <NumberInput

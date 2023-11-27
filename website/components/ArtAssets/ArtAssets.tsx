@@ -67,7 +67,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            Next
+            <text id="mobileStepTxt">Next</text>
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -82,7 +82,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
+            <text id="mobileStepTxt">Back</text>
           </Button>
         }
       />
