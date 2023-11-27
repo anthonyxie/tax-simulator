@@ -313,6 +313,7 @@ img {
   background-color: #39B1B0;
   border-radius: 5px;
   height: 100%;
+  flex-wrap: wrap;
 }
 #evalName{
   text-align: center;
@@ -320,6 +321,7 @@ img {
 }
 #appraiseDiv{
   display: flex;
+  flex: 2;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
