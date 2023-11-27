@@ -14,8 +14,8 @@ export interface Property {
     imgPath: string,
     location: string,
     value: number,
-    area: number,
-    description: string
+    area?: number,
+    description?: string
 }
 
 export interface Art {
