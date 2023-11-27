@@ -86,6 +86,28 @@ img {
   color: green;
 }
 
+#resetBttn {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+#resetBttn text {
+  color: black;
+  font-family: InikaBold, serif;
+}
+#fileLink {
+  text-decoration: none;
+}
+#resetBttn text:hover {
+  color: green;
+}
+
 /* Portfolio - CLIENT INFO BAR */
 #client{
   background-color: white;

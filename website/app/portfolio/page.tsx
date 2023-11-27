@@ -435,7 +435,7 @@ export default function HomePage() {
       <div id="fileTaxesBttn">
           <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount }}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
-      <Button variant="filled" onClick={resetAllValues}>Reset</Button>
+      <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>
     </div>
     </>
   );
