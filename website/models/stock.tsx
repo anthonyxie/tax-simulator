@@ -21,6 +21,8 @@ export interface Property {
 export interface Art {
     name: string,
     startPrice: number,
+    artist: string,
+    year: number,
     imgPath: string,
     prices: number[],
     priceIndex?: number,

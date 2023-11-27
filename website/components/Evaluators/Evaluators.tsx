@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
@@ -9,18 +10,43 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import ArtItem from '../ArtItem/ArtItem';
-import { listOfEvaluators } from '@/models/stock';
+import { Art, listOfEvaluators } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
 interface EvalListProps {
-  evalList: Eval[]
+  editArt?: any,
+  art: Art,
 }
-function Evaluators() {
+function Evaluators({ editArt, art }: EvalListProps) {
   const evalList = listOfEvaluators;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = evalList.length;
+  const [evalIndex, setEvalIndex] = useState<number>(0);
+  const [evaluator, setEvaluator] = useState<string | null>(listOfEvaluators[0].name);
 
+  useEffect(() => {
+    let i = 0;
+    const evalName = evaluator;
+    for (let j = 0; j < listOfEvaluators.length; j++) {
+        if (listOfEvaluators[j].name == evalName) {
+            i = j;
+        }
+    }
+    setEvalIndex(i);
+}, [evaluator]);
+
+useEffect(() => {
+    // console.log(evalIndex);
+    // console.log(art.prices);
+}, [evalIndex, art]);
+
+function submitAppraisal() {
+    const newArt = { ...art };
+    newArt.appraised = true;
+    newArt.priceIndex = listOfEvaluators[evalIndex].index;
+    editArt(newArt, index);
+}
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -32,6 +58,16 @@ function Evaluators() {
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
+
+  {/* <Modal opened={opened} onClose={close} centered>
+                <Select
+                  value={evaluator}
+                  defaultValue={listOfEvaluators[0].name}
+                  onChange={(value) => setEvaluator(value)}
+                  data={listOfEvaluators.map((evaluator) => evaluator.name)}
+                />
+                <Button variant="filled" color="taupe" size="compact-md" onClick={submitAppraisal}>Submit Appraisal</Button>
+            </Modal> */}
 
   return (
     <Box id="evalDiv">
