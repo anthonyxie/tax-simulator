@@ -1,6 +1,6 @@
 'use client';
 
-import { Tooltip, ActionIcon } from '@mantine/core';
+import { Tooltip, ActionIcon, Button } from '@mantine/core';
 import { IconQuestionMark } from '@tabler/icons-react';
 
 interface HelpProps {
@@ -16,9 +16,8 @@ export default function HelpIcon({ topic }: HelpProps) {
         transitionProps={{ duration: 200 }}
         label={topic}
       >
-        <ActionIcon color="taupe" variant="outline" radius="xl" size="sm" aria-label="Help">
-          <IconQuestionMark size={15} />
-        </ActionIcon>
+        {/* do not put a parent around Icon. Tooltip will only accept ONE child without anything nested between. You have been warned. Warning will be about hydrating? */}
+        <IconQuestionMark id="helpIcon" size={15} radius="xl" color="#6F6058" stroke={3} />
       </Tooltip>
     );
 }

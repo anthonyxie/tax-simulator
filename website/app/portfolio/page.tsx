@@ -412,7 +412,7 @@ export default function HomePage() {
           <Tabs defaultValue="Properties" color="yellow">
               <Tabs.List grow>
                 <Tabs.Tab value="Properties" rightSection={<HelpIcon topic={helpTip.property} />}>
-                  Properties
+                    Properties
                 </Tabs.Tab>
                 <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
                   Donable Assets
