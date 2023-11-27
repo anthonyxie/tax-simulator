@@ -425,7 +425,7 @@ export default function HomePage() {
                 <Tabs.Tab value="Charity Donations" rightSection={<HelpIcon topic={helpTip.charity} />}>
                   Charity Donations
                 </Tabs.Tab>
-                <Tabs.Tab value="Salary Reporting" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
+                <Tabs.Tab value="Reporting Salary" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
                   Salary Reporting
                 </Tabs.Tab>
                 <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>
