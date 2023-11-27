@@ -61,10 +61,10 @@ export interface Country {
 
 export const helpTip = {
     property: 'property help text',
-    assets: 'asset help text',
-    bank: 'bank help text',
-    stocks: 'stocks help text',
-    charity: 'charity help text',
-    reportIncome: 'report help text',
+    assets: 'Get your artwork evaluated to donate it for more than your client\'s original purchasing price.',
+    bank: 'Money sitting in the bank generates interest which is taxed as income tax. Avoid the tax by keeping the money in offshore bank accounts.',
+    stocks: 'You can sell your stocks to "liquidate funds" but remember that will also be taxed! You can also use your stock as collatoral in the loans tab.',
+    charity: 'Decrease the taxes by donating money. Decrease taxes ALOT by donating money to the client\'s charity.',
+    reportIncome: 'Income tax is based off of the income that is reported. Report less income to pay less taxes.',
     loan: 'loan help text',
 };
