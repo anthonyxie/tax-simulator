@@ -7,18 +7,20 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import ArtItem from '../ArtItem/ArtItem';
-import { Art } from '@/models/stock';
+import { Art, Eval } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
 // const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 interface ArtListProps {
-  artsList: Art[]
-  editArt: any
-  donateArt: any
-  sellArt: any
+  artsList: Art[],
+  evalList: Eval[],
+  editArt: any,
+  donateArt: any,
+  sellArt: any,
 }
-function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: ArtListProps) {
+// eslint-disable-next-line max-len
+function SwipeableTextMobileStepper({ artsList, evalList, editArt, donateArt, sellArt }: ArtListProps) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = artsList.length;
@@ -52,7 +54,7 @@ function SwipeableTextMobileStepper({ artsList, editArt, donateArt, sellArt }: A
           <div key={index} id="artCarouselDiv">
             {Math.abs(activeStep - index) <= 2 ? (
               // eslint-disable-next-line max-len
-              <ArtItem donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} sellArt={sellArt} />
+              <ArtItem evalList={evalList} donateArt={donateArt} editArt={editArt} art={art} index={index} key={index} sellArt={sellArt} />
             ) : null}
           </div>
         ))}

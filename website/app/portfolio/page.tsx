@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button, NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text } from '@mantine/core';
 import StockList from '@/components/StockList/StockList';
 import '../../resources/stylesheet.css';
 import { Stock, Asset, Property, BankAccount, Art } from '@/models/stock';
-import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties } from '@/models/portfolio0';
+import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import DonationList from '@/components/DonationList/DonationList';
 import BankAccountList from '@/components/BankAccountList/BankAccountList';
@@ -415,7 +415,7 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                <ArtAssets donateArt={donateArt} artsList={arts} editArt={editArt} sellArt={sellArt} />
+                <ArtAssets donateArt={donateArt} artsList={arts} evalList={listOfEvaluators} editArt={editArt} sellArt={sellArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">

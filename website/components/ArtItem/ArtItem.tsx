@@ -1,20 +1,20 @@
 'use client';
 
 import '../../resources/stylesheet.css';
-import { useEffect, useState } from 'react';
 import { Button, Image } from '@mantine/core';
 import Evaluators from '../Evaluators/Evaluators';
-import { Art, listOfEvaluators } from '@/models/stock';
+import { Art, Eval } from '@/models/stock';
 
 interface ArtItemProps {
     art: Art,
+    evalList: Eval[],
     index: number,
     editArt?: any,
     donateArt: any,
     sellArt: any
 }
 
-export default function ArtItem({ art, index, editArt, donateArt, sellArt }: ArtItemProps) {
+export default function ArtItem({ evalList, art, index, editArt, donateArt, sellArt }: ArtItemProps) {
     // const [opened, { open, close }] = useDisclosure(false);
 
     function donation() {
@@ -45,7 +45,7 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
                 </div>
 
                 {!art.appraised ?
-                    <Evaluators index={index} editArt={editArt} art={art} />
+                    <Evaluators evalList={evalList} index={index} editArt={editArt} art={art} />
                     :
                     <div className="flexRow">
                         <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>

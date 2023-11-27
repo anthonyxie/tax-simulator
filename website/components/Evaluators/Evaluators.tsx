@@ -9,27 +9,27 @@ import { Button, Image } from '@mantine/core';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import { Art, listOfEvaluators } from '@/models/stock';
+import { Art, Eval } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
 interface EvalListProps {
   editArt?: any,
+  evalList: Eval[],
   art: Art,
   index: number
 }
-function Evaluators({ editArt, art, index }: EvalListProps) {
-  const evalList = listOfEvaluators;
+function Evaluators({ evalList, editArt, art, index }: EvalListProps) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = evalList.length;
   const [evalIndex, setEvalIndex] = useState<number>(0);
-  const [evaluator, setEvaluator] = useState<string | null>(listOfEvaluators[0].name);
+  const [evaluator, setEvaluator] = useState<string | null>(evalList[0].name);
 
   useEffect(() => {
     let i = 0;
     const evalName = evaluator;
-    for (let j = 0; j < listOfEvaluators.length; j++) {
-        if (listOfEvaluators[j].name == evalName) {
+    for (let j = 0; j < evalList.length; j++) {
+        if (evalList[j].name == evalName) {
             i = j;
         }
     }
@@ -44,7 +44,7 @@ useEffect(() => {
 function submitAppraisal() {
     const newArt = { ...art };
     newArt.appraised = true;
-    newArt.priceIndex = listOfEvaluators[evalIndex].index;
+    newArt.priceIndex = evalList[evalIndex].index;
     editArt(newArt, index);
 }
   const handleNext = () => {
