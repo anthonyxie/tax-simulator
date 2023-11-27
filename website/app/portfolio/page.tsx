@@ -17,6 +17,7 @@ export default function HomePage() {
   const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
+  const [incomeTax, setIncomeTax] = useState(0);
   const [capitalGainsTaxAmount, setCapitalGainsTaxAmount] = useState(0);
   const [propertyTaxAmount, setPropertyTaxAmount] = useState(0);
   const [properties, setProperties] = useState<Property[]>(listOfProperties);
@@ -27,7 +28,7 @@ export default function HomePage() {
   const [reportedIncome, setReportedIncome] = useState<number>(1000000);
   const [liquidFunds, setLiquidFunds] = useState(0);
 
-  const [taxWriteOff, setTaxWriteOff] = useState(0);
+  const [taxWriteOffs, setTaxWriteOffs] = useState(0);
   const [loanAmount, setLoanAmount] = useState(0);
 
   const liquidFundsGoal = 450000;
@@ -56,15 +57,46 @@ export default function HomePage() {
     const artsList = arts.slice();
     const oldArt = artsList[index];
     if (oldArt.appraised) {
-      const oldPrice = oldArt.prices[oldArt.priceIndex];
-      let newtaxAmount = incomeTaxAmount;
-      newtaxAmount -= oldPrice * 0.3;
+      let oldPrice = oldArt.prices[oldArt.priceIndex];
+      let newtaxAmount = taxWriteOffs;
+      newtaxAmount += oldPrice * 0.4;
+      console.log(newtaxAmount);
       artsList.splice(index, 1);
-
-      setIncomeTaxAmount(newtaxAmount);
+      
+      setTaxWriteOffs(newtaxAmount);
       setArts(artsList);
     }
   }
+
+  function makeDonation(index: number, amount: number) {
+    let donation = listOfDonations[index];
+    if (liquidFunds >= amount) {
+      //reduce liquid funds
+      let newliquidFunds = liquidFunds;
+      newliquidFunds -= amount * donation.returnFactor;
+      setLiquidFunds(newliquidFunds);
+      
+      //reduce tax amount
+      let newtaxAmount = taxWriteOffs;
+      newtaxAmount += amount * 0.4;
+      setTaxWriteOffs(newtaxAmount);
+
+      //increase risk
+      let riskAmount = risk;
+      riskAmount += amount * donation.riskFactor * 0.001;
+      setRisk(riskAmount);
+      
+    }
+  }
+
+  useEffect(() => {
+    let taxTotal = 0;
+    taxTotal += incomeTax;
+    taxTotal -= Math.min(incomeTax * 0.4, taxWriteOffs);
+    setIncomeTaxAmount(taxTotal);
+
+  }, [taxWriteOffs, incomeTax]);
+
 
   function sellArt(index: number): any {
     const artsList = arts.slice();
@@ -107,16 +139,16 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    setIncomeTaxAmount(reportedIncome * 0.4);
+    setIncomeTax(reportedIncome * 0.4);
   }, [reportedIncome]);
 
   useEffect(() => {
     let taxTotal = 0;
-    [incomeTaxAmount].map((value) => {
+    [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount].map((value) => {
       taxTotal += value;
     });
     setTaxAmount(taxTotal);
-  }, [incomeTaxAmount]);
+  }, [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount])
 
   useEffect(() => {
     let riskTotal = 0;
@@ -185,9 +217,9 @@ export default function HomePage() {
               <RingProgress
                 label={<Text size="xs" ta="center">Tax Breakdown</Text>}
                 sections={[
-                  { tooltip: 'Income Tax', value: 40, color: 'blue' },
-                  { tooltip: 'Capital Gains Tax', value: 30, color: 'orange' },
-                  { tooltip: 'Property Tax', value: 30, color: 'grape' },
+                  { tooltip: 'Income Tax', value: (incomeTaxAmount / taxAmount) * 100, color: 'blue' },
+                  { tooltip: 'Capital Gains Tax', value: (capitalGainsTaxAmount / taxAmount) * 100, color: 'orange' },
+                  { tooltip: 'Property Tax', value: (propertyTaxAmount / taxAmount) * 100, color: 'grape' },
                 ]}
               />
             </div>
@@ -266,10 +298,13 @@ export default function HomePage() {
                 <DonationList donationList={listOfDonations} />
               </Tabs.Panel>
 
-              <Tabs.Panel value="Loans" />
+              <Tabs.Panel value="Loans">
+                  i'm a loan c:
+              </Tabs.Panel>
 
             <Tabs.Panel value="Reporting Income">
               <NumberInput
+                allowNegative={false}
                 label="How much income would you like to report?"
                 placeholder={"Write down how much income you're reporting"}
                 min={0}

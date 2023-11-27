@@ -30,6 +30,8 @@ export interface Art {
 export interface Donation {
     charity: string,
     description: string,
+    returnFactor: number,
+    riskFactor: number,
 }
 
 export interface BankAccount {
@@ -51,18 +53,26 @@ export const listOfDonations = [
     {
         charity: 'Care Haven Foundation',
         description: 'Care Haven Foundation aims to provide shelter and support to homeless individuals and families. Through partnerships with local communities, they strive to offer safe environments, access to basic necessities, and long-term rehabilitation programs to help people rebuild their lives.',
+        riskFactor: 0,
+        returnFactor: 1,
     },
     {
         charity: 'Green Earth Initiative',
         description: 'Green Earth Initiative focuses on environmental conservation and sustainability. They organize tree planting campaigns, clean-up drives, and awareness programs to educate communities about the importance of protecting the planet. They also collaborate with local governments to promote eco-friendly policies.',
+        riskFactor: 0,
+        returnFactor: 1,
     },
     {
         charity: "Brighter Futures",
-        description: "Brighter Futures is committed to providing quality education for underprivileged children. They strive to build schools and learning centers in disadvantaged areas while offering scholarships, mentorship programs, and resources to ensure equal opportunities for all children, regardless of their background."
+        description: "Brighter Futures is committed to providing quality education for underprivileged children. They strive to build schools and learning centers in disadvantaged areas while offering scholarships, mentorship programs, and resources to ensure equal opportunities for all children, regardless of their background.",
+        riskFactor: 0,
+        returnFactor: 1,
     },
     {
         charity: "Tropical Penguin Preservation Society",
-        description: "The Tropical Penguin Preservation Society (TPPS) is dedicated to the preservation and protection of the tropical penguin population, as featured in the hit movie Penguins of Madagascar. Their mission is to raise public awareness and educate people about the issues plaguing these penguins and to offer resources to support their wellbeing."
+        description: "The Tropical Penguin Preservation Society (TPPS) is dedicated to the preservation and protection of the tropical penguin population, as featured in the hit movie Penguins of Madagascar. Their mission is to raise public awareness and educate people about the issues plaguing these penguins and to offer resources to support their wellbeing.",
+        riskFactor: 0.1,
+        returnFactor: 0.9,
     }
 ];
 
