@@ -50,7 +50,7 @@ export default function HomePage() {
   const [loanCollateral, setLoanCollateral] = useState([]);
 
   const liquidFundsGoal = 450000;
-  const initialTaxAmount = 40000;
+  const initialTaxAmount = 479000;
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
