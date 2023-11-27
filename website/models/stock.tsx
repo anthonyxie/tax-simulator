@@ -1,7 +1,8 @@
 export interface Stock {
     ticker: string,
     price: number,
-    amount: number
+    amount: number,
+    disabled?: boolean
 }
 
 export interface Asset {
