@@ -262,8 +262,7 @@ img {
   color: #39B1B0;
 }
 #artDiv{
-  height: 100%;
-  width: 100%;
+  flex: 1;
   flex-direction: column;
   display: flex;
 }
@@ -293,7 +292,7 @@ img {
   object-fit: contain;
 }
 #artInfo{
-  flex: 1;
+  flex: 2;
     justify-content: left;
   /* border: purple 10px solid; */
 }
@@ -303,6 +302,10 @@ img {
 #artName{
   font-size: x-large;
 }
+#purchaseRow text{
+  padding-right: 10px;
+}
+
 /* ART - Evaluator */
 #evalDiv {
   display: flex;
@@ -333,6 +336,7 @@ img {
   border-radius: 10px;
   cursor: pointer;
   font-size: medium;
+  text-align: center;
 }
 #appraiseBttn:hover {
   color: #39B1B0;

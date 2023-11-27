@@ -64,12 +64,11 @@ export default function HomePage() {
       newtaxAmount += oldPrice * 0.4;
       console.log(newtaxAmount);
       artsList.splice(index, 1);
-      
+
       setTaxWriteOffs(newtaxAmount);
       setArts(artsList);
     }
   }
-
 
   function makeDonation(index: number, amount: number) {
     let donation = listOfDonations[index];
@@ -78,7 +77,7 @@ export default function HomePage() {
       let newliquidFunds = liquidFunds;
       newliquidFunds -= amount * donation.returnFactor;
       setLiquidFunds(newliquidFunds);
-      
+
       //reduce tax amount
       let newtaxAmount = taxWriteOffs;
       newtaxAmount += amount * 0.4;
@@ -88,7 +87,6 @@ export default function HomePage() {
       let riskAmount = risk;
       riskAmount += amount * donation.riskFactor * 0.001;
       setRisk(riskAmount);
-      
     }
   }
 
@@ -97,9 +95,7 @@ export default function HomePage() {
     taxTotal += incomeTax;
     taxTotal -= Math.min(incomeTax * 0.4, taxWriteOffs);
     setIncomeTaxAmount(taxTotal);
-
   }, [taxWriteOffs, incomeTax]);
-
 
   function sellArt(index: number): any {
     const artsList = arts.slice();
@@ -189,14 +185,16 @@ export default function HomePage() {
     let propTaxAmt = 0;
     properties.map((property) => {
       propTaxAmt += property.value * 0.01;
-    })
+    });
     setPropertyTaxAmount(propTaxAmt);
-  }, [properties])
+  }, [properties]);
 
   return (
     <>
     <div id="portfolioDiv">
-      <text id="header1">Y0 Portfolio</text>
+      <div>
+        <text id="header1">Y0 Portfolio</text>
+      </div>
 
       <div className="flexRow" id="client">
         <div id="rightHalf">

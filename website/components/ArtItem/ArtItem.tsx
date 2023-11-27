@@ -32,17 +32,17 @@ export default function ArtItem({ art, index, editArt, donateArt, sellArt }: Art
             </div>
             <div className="flexCol" id="artInfo">
                 <text id="artName">{art.name}</text>
-                <text>by {art.artist}</text>
-                <text>made {art.year}</text>
-                <text>purchased for ${art.startPrice}</text>
-
-                {art.appraised ?
-                    (
-                        <text>valued ${String(art.prices[art.priceIndex])}</text>
-                    ) : (
-                        <text>valued ${String(art.startPrice)}</text>
-                    )
-                }
+                <text>by {art.artist}, {art.year}</text>
+                <div className="flexRow" id="purchaseRow">
+                    <text>purchased for ${art.startPrice}</text>
+                    {art.appraised ?
+                        (
+                            <text>valued at ${String(art.prices[art.priceIndex])}</text>
+                        ) : (
+                            <text>valued at ${String(art.startPrice)}</text>
+                        )
+                    }
+                </div>
 
                 {!art.appraised ?
                     <Evaluators editArt={editArt} art={art} />

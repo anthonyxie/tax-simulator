@@ -9,10 +9,8 @@ import { Button } from '@mantine/core';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import ArtItem from '../ArtItem/ArtItem';
 import { Art, listOfEvaluators } from '@/models/stock';
 import '../../resources/stylesheet.css';
-import { Link } from '@mui/material';
 
 interface EvalListProps {
   editArt?: any,
@@ -59,16 +57,6 @@ function submitAppraisal() {
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
-
-  {/* <Modal opened={opened} onClose={close} centered>
-                <Select
-                  value={evaluator}
-                  defaultValue={listOfEvaluators[0].name}
-                  onChange={(value) => setEvaluator(value)}
-                  data={listOfEvaluators.map((evaluator) => evaluator.name)}
-                />
-                <Button variant="filled" color="taupe" size="compact-md" onClick={submitAppraisal}>Submit Appraisal</Button>
-            </Modal> */}
 
   return (
     <Box id="evalDiv">
