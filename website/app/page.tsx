@@ -23,6 +23,7 @@ export default function StartPage() {
       <h1>Tax Hero</h1>
       <Link id="startLink" href={{ pathname: '/portfolio', query: { round: 0 } as { round: number } }}>START</Link>
       <Link id="startLink" href={{ pathname: '/narrative', query: { round: 0 } as { round: number } }}>NARRATIVE</Link>
+      <Link id="startLink" href={{ pathname: '/guide', query: { round: 0 } as { round: number } }}>GUIDE</Link>
     </div>
     </>
   );

@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Inika";
+  src: local("Inika-Regular"),
+    url("../resources/fonts/Inika-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "InikaBold";
+  src: local("Inika-Bold"),
+    url("../resources/fonts/Inika-Bold.ttf") format("truetype");
+}
+
+* {
+  color: black;
+  font-family: Inika, serif;
+}
+
+body{
+  background-color: #6F6058;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+#homeDiv{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  width: 100%;
+  height: 100%;
+}
+
+#heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  width: 100%;
+}
+#heading h1{
+  font-size: 4rem;
+  line-height: 1rem;
+}
+
+#bottomImgs{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#startLink:hover {
+  color: #F5EFBB;
+}
+
+
+#bottomImgsCalc {
+  margin-bottom: -2%;
+}
+#bottomImgsThing {
+  margin-right: -20%;
+}
+
+img {
+  max-width: 60%;
+  max-height:60%;
+}
+
+
+h1{
+  text-align: center;
+  font-family: InikaBold, serif;  
+  line-height: 1em;
+}
+
+/***********GENERAL************/
+.flexCol{
+  display: flex;
+  flex-direction: column;
+}
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+/***********GUIDE************/
+#parentDiv{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
