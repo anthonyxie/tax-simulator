@@ -97,4 +97,3 @@ export const income = 1000000;
 export const salary = 871340;
 export const fundsGoal = 450000;
 export const initialTaxes = 479000;
-

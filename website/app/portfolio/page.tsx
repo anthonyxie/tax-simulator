@@ -370,7 +370,7 @@ export default function HomePage() {
     <>
     <div id="portfolioDiv">
       <div id="headerDiv">
-        <text id="header1">Y0 Portfolio</text>
+        <text id="header1">Client's Portfolio</text>
       </div>
 
       <div className="flexRow" id="client">
@@ -446,9 +446,9 @@ export default function HomePage() {
                 <Tabs.Tab value="Properties" rightSection={<HelpIcon topic={helpTip.property} />}>
                     Properties
                 </Tabs.Tab>
-                <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
+                {round >= 1 && <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
                   Donable Assets
-                </Tabs.Tab>
+                </Tabs.Tab>}
                 <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={helpTip.bank} />}>
                   Bank Holdings
                 </Tabs.Tab>
@@ -461,21 +461,21 @@ export default function HomePage() {
                 <Tabs.Tab value="Reporting Salary" rightSection={<HelpIcon topic={helpTip.reportIncome} />}>
                   Salary Reporting
                 </Tabs.Tab>
-                <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>
+                {round >= 3 && <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>
                   Loans
-                </Tabs.Tab>
+                </Tabs.Tab>}
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
                   <PropertyList propertiesList={properties} />
               </Tabs.Panel>
 
-              <Tabs.Panel value="Donable Assets">
-                  <ArtAssets donateArt={donateArt} artsList={arts} evalList={evaluators} editArt={editArt} sellArt={sellArt} />
-              </Tabs.Panel>
+              {round >= 1 && <Tabs.Panel value="Donable Assets">
+                <ArtAssets donateArt={donateArt} artsList={arts} evalList={evaluators} editArt={editArt} sellArt={sellArt} />
+              </Tabs.Panel>}
 
               <Tabs.Panel value="Bank Holdings">
-                <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} />
+                <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} round={round} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Stocks">
@@ -486,9 +486,9 @@ export default function HomePage() {
                 <DonationList makeDonation={makeDonation} liquidFunds={liquidFunds} donationList={donations} />
               </Tabs.Panel>
 
-              <Tabs.Panel value="Loans">
-                  <Loan makeLoan={makeLoan} totalLoan={loanTotals} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount}/>
-              </Tabs.Panel>
+              {round >= 3 && <Tabs.Panel value="Loans">
+                <Loan makeLoan={makeLoan} totalLoan={loanTotals} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount} />
+              </Tabs.Panel>}
 
             <Tabs.Panel value="Reporting Salary">
               <NumberInput

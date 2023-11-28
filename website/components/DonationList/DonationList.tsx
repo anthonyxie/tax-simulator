@@ -13,7 +13,7 @@ interface DonationListProps {
 
 export default function DonationList({ donationList, makeDonation, liquidFunds }: DonationListProps) {
     return (
-        <div className="flexCol" id="donationlistDiv">
+        <div className="flexCol">
             <text className="panelHeader">Donations</text>
             <div id="donationHeader">
                 <text>Charities your client are associated with through personal relationships:</text>
