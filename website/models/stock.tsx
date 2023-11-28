@@ -99,6 +99,7 @@ export const instructionList = [
     // second level   
     { title: 'Donable Assets', text: '*ptions* ' },
     { title: 'Loans', text: '' },
+    { title: 'The End', text: 'thanks !' },
 ];
 
 export const listOfEvaluators = [

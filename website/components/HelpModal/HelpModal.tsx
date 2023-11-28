@@ -133,6 +133,10 @@ function SwipeableTextMobileStepper() {
         <div className="flexCol">
           stage 3
         </div>
+        {/* End */}
+        <div className="flexCol">
+          thanks for reading and good luck!
+        </div>
       </SwipeableViews>
       <MobileStepper
         steps={maxSteps}
