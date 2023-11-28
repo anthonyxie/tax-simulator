@@ -78,11 +78,14 @@ export const instructionList = [
     { title: 'Welcome', text: 'Welcome to Tax Hero! In this game, you are an accoutant for a wealthy client - Elizabeth. \n You will learn how rich people evade their taxes and use those techniques on Elizabeth\'s portfolio to lower her taxes. Don\'t worry! It\'s totally legal! Well, most of it is anyway. \n' },
     { title: 'How to Win pt.1', text: 'At each level, use the given techniques to lower your client\'s taxes. Careful though! Different techniques have a different amount of risk associated with it that depends on the amount, legality, and type. Fill up the risk bar all the way and you certainly will get audited and fired! If you don\'t lower the taxes enough and play it too safe, then Elizabeth might fire you!' },
     { title: 'How to Win pt.2', text: 'Eventually, you will have to meet two goals, lower the tax and liquidate enough assets. As the game progresses, she will also demand you make a certain amount of funds "liquid" for her. To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.' },
-    { title: 'STAGE 0', text: '*insert base techniques you can use with descriptions* ' },
-    { title: 'STAGE 1', text: '*insert new techniques you can use with descriptions* ' },
-    { title: 'STAGE 2', text: '*insert new techniques you can use with descriptions* ' },
-    { title: 'STAGE 3', text: '*insert new techniques you can use with descriptions* ' },
-    { titel: '', text: '' },
+    { title: 'Tax Techiniques', text: '*s* ' },
+    { title: 'Properties', text: '*ptions* ' },
+    { title: 'Donable Assets', text: '*ptions* ' },
+    { title: 'Bank Holdings', text: '*ns* ' },
+    { title: 'Stocks', text: '*s* ' },
+    { title: 'Charity Donations', text: '*s* ' },
+    { title: 'Salary Reporting', text: '' },
+    { title: 'Loans', text: '' },
 ];
 
 export const listOfEvaluators = [

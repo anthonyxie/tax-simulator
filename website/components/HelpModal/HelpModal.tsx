@@ -68,19 +68,35 @@ function SwipeableTextMobileStepper() {
           <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to liquidate her assets.</text>
           <text>To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
         </div>
-        {/* Stage 0 */}
+        {/* Stages */}
         <div className="flexCol">
-          stage 0
+          As the game progresses, you will unlock new tax evading techniques.
         </div>
-        {/* Stage 1 */}
+        {/* Property */}
         <div className="flexCol">
           stage 1
         </div>
-        {/* Stage 2 */}
+        {/* Assets */}
         <div className="flexCol">
           stage 2
         </div>
-        {/* Stage 3 */}
+        {/* Bank */}
+        <div className="flexCol">
+          stage 3
+        </div>
+        {/* Stocks */}
+        <div className="flexCol">
+          stage 1
+        </div>
+        {/* Charity */}
+        <div className="flexCol">
+          stage 2
+        </div>
+        {/* Salary */}
+        <div className="flexCol">
+          stage 3
+        </div>
+        {/* Loans */}
         <div className="flexCol">
           stage 3
         </div>
