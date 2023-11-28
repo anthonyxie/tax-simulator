@@ -70,29 +70,35 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Stages */}
         <div className="flexCol">
-          As the game progresses, you will unlock new tax evading techniques.
+          <text>As the game progresses, you will unlock new tax evading techniques.</text>
+          <text>Level 1: Underreporting income & Charitable Donations</text>
+          <text>Level 2: Donating Assets</text>
+          <text>Level 3: Offshore Bank Accounts</text>
+          <text>Level 4: Asset-based Loans</text>
         </div>
         {/* Property */}
         <div className="flexCol">
-          stage 1
-        </div>
-        {/* Assets */}
-        <div className="flexCol">
-          stage 2
+          <text>Properties generate property tax.</text>
+          <text>There's no action needed in this tab as the properties as there only to provide the source of property tax.</text>
+          <text>They also tie into your client's journey of becoming uber-wealthy!</text>
         </div>
         {/* Bank */}
         <div className="flexCol">
-          stage 3
+          stage 2
         </div>
         {/* Stocks */}
         <div className="flexCol">
-          stage 1
+          stage 3
         </div>
         {/* Charity */}
         <div className="flexCol">
-          stage 2
+          stage 1
         </div>
         {/* Salary */}
+        <div className="flexCol">
+          stage 2
+        </div>
+        {/* Assets */}
         <div className="flexCol">
           stage 3
         </div>

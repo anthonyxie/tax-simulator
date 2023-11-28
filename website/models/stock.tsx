@@ -79,12 +79,14 @@ export const instructionList = [
     { title: 'How to Win pt.1', text: 'At each level, use the given techniques to lower your client\'s taxes. Careful though! Different techniques have a different amount of risk associated with it that depends on the amount, legality, and type. Fill up the risk bar all the way and you certainly will get audited and fired! If you don\'t lower the taxes enough and play it too safe, then Elizabeth might fire you!' },
     { title: 'How to Win pt.2', text: 'Eventually, you will have to meet two goals, lower the tax and liquidate enough assets. As the game progresses, she will also demand you make a certain amount of funds "liquid" for her. To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.' },
     { title: 'Tax Techiniques', text: '*s* ' },
+    // first level
     { title: 'Properties', text: '*ptions* ' },
-    { title: 'Donable Assets', text: '*ptions* ' },
     { title: 'Bank Holdings', text: '*ns* ' },
     { title: 'Stocks', text: '*s* ' },
     { title: 'Charity Donations', text: '*s* ' },
     { title: 'Salary Reporting', text: '' },
+    // second level   
+    { title: 'Donable Assets', text: '*ptions* ' },
     { title: 'Loans', text: '' },
 ];
 
