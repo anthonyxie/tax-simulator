@@ -36,7 +36,7 @@ export default function ArtItem({ evalList, art, index, editArt, donateArt, sell
                 <text>by {art.artist}, {art.year}</text>
                 <div className="flexRow" id="purchaseRow">
                     <text>purchased for ${art.startPrice}</text>
-                    {art.appraised ?
+                    {art.appraised && art.priceIndex ?
                         (
                             <text>valued at ${String(art.prices[art.priceIndex])}</text>
                         ) : (
