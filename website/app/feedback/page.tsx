@@ -49,23 +49,13 @@ export default function FeedbackNarrative() {
         ['You saved the world by saving Jessica/Noh Wan  ${tax} in taxes Good job!'],
     ]
 
-    const negativeDisplayText = [
-        // round 0
-        [`Y had to pay -${tax} more in taxes this year. He does not seem happy about it. He doesn't say much,
-          but the look he gives you tells you that you better do better next year. Or else.`],
-        // round 1
-        ["round 1 neg feedback"],
-        ["round 2 neg feedback"],
-        ["round 3 neg feedback"],
-    ]
-
     const neutralDisplayTest = 
         `Y didn't save any money from taxes this year. He didn't explicit say so, but you could sense him
         thinking to himself: 'Why did I even hire them in the first place?' 
         
         This is not good. You think of your aging parents, and vow to improve.`
 
-    let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : (parseInt(tax) === 0 ? neutralDisplayTest : negativeDisplayText[round]);
+    let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : neutralDisplayTest;
 
     const NextRoundLink = round < 3 ? (
         <Link id="continueButton" href={{ pathname: "/narrative", query: { round: round + 1 } }}>Next</Link>
