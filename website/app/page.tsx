@@ -9,7 +9,6 @@ export default function StartPage() {
   return (
     <>
     <div id="homeDiv">
-
       <div id="heading">
         <br />
       </div>
@@ -23,7 +22,7 @@ export default function StartPage() {
       <h1>Tax Hero</h1>
       <Link id="startLink" href={{ pathname: '/portfolio', query: { round: 0 } as { round: number } }}>START</Link>
       <Link id="startLink" href={{ pathname: '/narrative', query: { round: 0 } as { round: number } }}>NARRATIVE</Link>
-      <Link id="startLink" href={{ pathname: '/guide', query: { round: 0 } as { round: number } }}>GUIDE</Link>
+      <Link id="startLink" href="/about" onClick={() => { window.location.href = '/about'; }}>ABOUT</Link>
     </div>
     </>
   );

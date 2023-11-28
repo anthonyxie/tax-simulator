@@ -447,10 +447,9 @@ img {
 }
 #propertyImg{
   display: flex;
-  flex: 1;
   justify-content: right;
   padding: 10px;
-  max-height: 300px;
+  max-height: 200px;
 }
 #propertyImg img{
   object-fit: contain;

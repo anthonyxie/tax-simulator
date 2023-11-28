@@ -22,8 +22,8 @@ export default function PropertyItem({ property }: PropertyItemProps) {
             <div id="propertyImg" className="propertyImgDiv">
                 <Image src={property.imgPath} alt="art" fit="contain" h="auto" w="auto" />
             </div>
-            <div className="flexCol" id="artInfo">
-                <text id="artName">{property.name}</text>
+            <div className="flexCol" id="propertyInfo">
+                <text id="propertyName">{property.name}</text>
                 <text>${formatNumber(property.value)}</text>
                 <text id="propertyDetails">{property.location}</text>
                 <text id="propertyDetails">{property.description}</text>
