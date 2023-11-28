@@ -70,12 +70,23 @@ export default function FeedbackNarrative() {
         'The Next Steve Careers: Elizabeth House'.`],
     ]
 
-    const neutralDisplayTest = 
+    const neutralDisplayTest = [
         `Elizabeth didn't save any money from taxes this year. She didn't explicit say so, but you could sense her
         questioning why she hired you in the first place.
-        This is not good. You think of your aging parents, and vow to improve.`
+        This is not good. You think of your aging parents, and vow to improve.`,
+        `Elizabeth didn't save any money from taxes this year. 
+        Still, somehow she raised enough seed money to create a new biotech healthcare startup that will "revolutionize the field", she claims.
+        Meanwhile, your salary was cut by 10k.`,
+        `Elizabeth didn't save any money from taxes this year. Her company gets funding from numerous VC firms - it is now valued at 92 million dollars.
+        She has dark circles under her eyes, and mutters to herself incessantly. You still don't quite understand
+        what her company does - something to do with testing? Did you hear her say blood? Either way, you need to get it together
+        - your job is in jeopardy.`,
+        `Elizabeth didn't save any money from taxes this year. Without hesitation, you are fired. Now jobless, you walk down the street
+        and pass by a magazine stand, where you see a cover of Forbes with her face on it, printed in black and white. 
+        Below, it reads: 'The Next Steve Careers: Elizabeth House'.`
+    ] 
 
-    let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : neutralDisplayTest;
+    let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : neutralDisplayTest[round];
 
     const NextRoundLink = round < 3 ? (
         <Link id="continueButton" href={{ pathname: "/narrative", query: { round: round + 1 } }}>Next</Link>
