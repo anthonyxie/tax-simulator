@@ -65,7 +65,7 @@ export interface Instructions {
 }
 
 export const helpTip = {
-    property: 'property help text',
+    property: 'Your properties generate property tax for you. No action needed here, but you can check out the cool stuff your client owns!',
     assets: 'Get your artwork evaluated to donate it for more than your client\'s original purchasing price.',
     bank: 'Money sitting in the bank generates interest which is taxed as income tax. Avoid the tax by keeping the money in offshore bank accounts.',
     stocks: 'You can sell your stocks to "liquidate funds" but remember that will also be taxed! You can also use your stock as collatoral in the loans tab.',
