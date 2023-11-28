@@ -1,6 +1,7 @@
 'use client';
 
 import '../../resources/stylesheet.css';
+import { Divider } from '@mantine/core';
 import { BankAccount } from '@/models/stock';
 
 interface BankAccountItemProps {
@@ -10,10 +11,10 @@ interface BankAccountItemProps {
 export default function BankAccountItem({ account }: BankAccountItemProps) {
     return (
         <div className="listItemDiv" id="bankAccountItemDiv">
-            <div style={{ width: '25%' }}><text>{account.name}</text></div>
-            <div style={{ width: '25%' }}><text>${account.amount}</text></div>
-            <div style={{ width: '25%' }}><text>${Math.round(account.amount * account.APY * 0.01)}</text></div>
-            <div style={{ width: '25%' }}><text>{account.country}</text></div>
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={account.name} labelPosition="left" color="black" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={`$${account.amount}`} labelPosition="left" color="black" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={`$${String(Math.round(account.amount * account.APY * 0.01))}`} labelPosition="left" color="black" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={account.country} labelPosition="left" color="black" />
         </div>
     );
 }
