@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, ScrollArea } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
@@ -438,11 +438,15 @@ export default function HomePage() {
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
-              <PropertyList propertiesList={properties} />
+                <ScrollArea>
+                  <PropertyList propertiesList={properties} />
+                </ScrollArea>
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                <ArtAssets donateArt={donateArt} artsList={arts} evalList={listOfEvaluators} editArt={editArt} sellArt={sellArt} />
+                <ScrollArea>
+                  <ArtAssets donateArt={donateArt} artsList={arts} evalList={listOfEvaluators} editArt={editArt} sellArt={sellArt} />
+                </ScrollArea>
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
