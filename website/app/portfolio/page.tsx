@@ -18,8 +18,8 @@ import HelpIcon from '@/components/HelpIcon/HelpIcon';
 import { useSearchParams } from 'next/navigation';
 
 export default function HomePage() {
-  const searchParams = useSearchParams()
-  const round = searchParams.get('round')
+  const searchParams = useSearchParams();
+  const round: number = parseInt(searchParams.get('round') || '0', 10);
 
   const [netWorth, setNetWorth] = useState(0);
   const [yearlyIncome, setYearlyIncome] = useState(income);
@@ -481,7 +481,7 @@ export default function HomePage() {
       </div>
 
       <div id="fileTaxesBttn">
-          <Link id="fileLink" href={{ pathname: '/feedback', query: { amount: initialTaxAmount - taxAmount, liquid: liquidFunds }}}><text id="reportBttnTxt">File Taxes!</text></Link>
+          <Link id="fileLink" href={{ pathname: '/feedback', query: { round: round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds}}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
       <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>
     </div>
