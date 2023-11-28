@@ -52,7 +52,7 @@ function SwipeableTextMobileStepper() {
         ))} */}
         <div className="flexCol">
           <text>Welcome to Tax Hero! </text>
-          <text>In this game, you are an accoutant for a wealthy client - Elizabeth. </text>
+          <text>In this game, you are an accoutant for a wealthy client, Elizabeth. </text>
           <text>You will learn <b>how rich people evade their taxes</b> and use those techniques on Elizabeth's portfolio to lower her taxes. Don't worry! It's totally legal! Well, most of it is anyway.</text>
         </div>
         <div className="flexCol">
@@ -65,8 +65,8 @@ function SwipeableTextMobileStepper() {
             <text>1. lower the tax </text>
             <text>2. liquidate enough assets </text>
             <br />
-          <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to <b>liquidate</b> her assets.</text>
-          <text>To <b>liquidate</b> assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
+          <text>When Elizabeth demands you make a certain amount of funds "liquid" for her, that means she wants you to <b>liquidate</b> her assets for money.</text>
+          <text>To <b>liquidate</b> assets means to trade valuable items in for cash. This could take the form of selling stocks or art.</text>
         </div>
         {/* How to Lose - Risk, auditing and getting fired */}
         <div className="flexCol">
@@ -90,7 +90,7 @@ function SwipeableTextMobileStepper() {
         <div className="flexCol">
           <text>Properties generate property tax.</text>
           <br />
-          <text>There's no action needed in this tab as the properties as there only to provide the source of property tax.</text>
+          <text>There's no action needed in this tab. The properties are displayed only so that you understand where your client's property taxes are coming from.</text>
           <text>They also tie into your client's journey of becoming uber-wealthy!</text>
         </div>
         {/* Bank */}
@@ -107,7 +107,7 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Stocks */}
         <div className="flexCol">
-          <text>Stocks are investments into other coporations.</text>
+          <text>Stocks are investments into other corporations.</text>
           <text>If their business is doing well, the value of the stocks go up! If their business is doing bad, the value of the stock goes down!</text>
           <br />
           <text>There are two ways you can use stocks here:</text>
@@ -116,10 +116,11 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Charity */}
         <div className="flexCol">
-          <text>Charitable donations are tax deductible! That means that the money you spent donating will not be taxed.</text>
+          <text>Charitable donations are tax deductible! That means that the money you spent donating will be deducted from your taxed income.
+          </text>
           <br />
           <text>Why is it risky? Well... who is the money going to?</text>
-          <text>Donating to your client's own foundation leads to more tax cuts but more risk.</text>
+          <text>Donating to your client's own foundation gives you the same tax cuts, but you can recoup some funds from the charity under the table. Careful, as this also incurs more risk!</text>
         </div>
         {/* Salary */}
         <div className="flexCol">
@@ -129,15 +130,25 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Assets */}
         <div className="flexCol">
-          stage 3
+          <text>Assets refer to any item or resource of value owned by an individual or entity. Some examples are land, jewelry, and artwork.</text>
+          <text>You may choose to donate assets (instead of money) to charities, which would give you a tax deduction of the same value as the asset.</text>
+          <br />
+          <text>You might wonder - how is the value of art determined? Well, that depends on which appraiser you use. </text>
+          <text>You unlock the ability to donate assets in level 2.</text>
         </div>
         {/* Loans */}
         <div className="flexCol">
-          stage 3
+          <text>When the wealthy need cash, they might be reluctant to liquidate their assets that have appreciated in value, as they would get taxed on those gains (known as the Capital Gains tax). </text>
+          <br />
+          <text>Instead, they might choose to take out a loan with their assets as collateral. This means that if they cannot pay back the loan, the lender can seize those assets.
+            Because their assets are valuable, these loans often have very low interest rates. This gives them cash without the associated tax. 
+          </text>
+          <br />
+          <text>You unlock the ability to make asset-based loans in level 4.</text>
         </div>
         {/* End */}
         <div className="flexCol">
-          thanks for reading and good luck!
+          Thanks for reading and good luck!
         </div>
       </SwipeableViews>
       <MobileStepper
