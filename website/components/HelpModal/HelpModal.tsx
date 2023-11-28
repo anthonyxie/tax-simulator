@@ -84,7 +84,12 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Bank */}
         <div className="flexCol">
-          stage 2
+          <text>When you keep money in the bank, it gains interest. Interest is money that banks add to your account for keeping your money with them.</text>
+          <text>For an average person like you, getting 1% interest on your $10,000 saving account is nice, but when you are rich and get 1% on MILLIONS, that's not too shabby!</text>
+          <br />
+          <text>Interest is taxed as income. But if you keep that money in an off-shore bank account (bank account in another country), then the government wouldn't know to tax!</text>
+          <br />
+          <text>You unlock the ability to open off-shore bank accounts in level 3.</text>
         </div>
         {/* Stocks */}
         <div className="flexCol">
