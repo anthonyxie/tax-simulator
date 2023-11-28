@@ -53,8 +53,7 @@ img {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
-  max-width: 1500px;
-  align-self: center;
+  justify-content: center;
 }
 
 #header1{ 
@@ -363,8 +362,6 @@ img {
 #evalDiv {
   display: flex;
   flex-direction: column;
-  max-width: 720px;
-  width: 100%;
 }
 #evalDiv img{
   object-fit: contain;
@@ -383,10 +380,6 @@ img {
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
-  background-color: #39B1B0;
-  border: solid 10px pink;
-  border-radius: 5px;
-  padding: 10px;
 }
 #appraiseBttn {
   background-color: #6F6058;
