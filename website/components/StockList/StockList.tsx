@@ -11,10 +11,10 @@ export default function StockList({ stocksList, sellStock }: StockListProps) {
     return (
         <div>
             <text className="panelHeader">Stocks</text>
-            <div id="stocksHeader">
+            <div className="flexRow" id="stocksHeader">
                 <text>Ticker</text>
                 <text>Amount Owned</text>
-                <text>Value</text>
+                <text id="lastVal">Value</text>
             </div>
             {stocksList.map((theStock, index) => (
                 <StockItem sellStock={sellStock} index={index} stock={theStock} key={index} />

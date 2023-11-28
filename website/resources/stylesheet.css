@@ -260,9 +260,11 @@ img {
   color: white;
 }
 #stocksHeader{
-  display: flex;
-  width: 100%;
-  flex-direction: row;
+  
+}
+#lastVal {
+  justify-content: right;
+  padding-right: 110px;
 }
 #stocksHeader text{
   display: flex;
