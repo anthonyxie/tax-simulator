@@ -2,6 +2,7 @@
 
 import '../../resources/home.css';
 import React from 'react';
+import Link from 'next/link';
 
 export default function StartPage() {
     return (
@@ -19,6 +20,7 @@ export default function StartPage() {
             </div>
             <div id="overlay">
                 <h1>Game End</h1>
+                <Link id="endLink" href="/">back to home</Link>
             </div>
         </>
     );
