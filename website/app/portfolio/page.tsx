@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, Button } from '@mantine/core';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, Button, ActionIcon } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 //import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
@@ -16,6 +16,7 @@ import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
+import { IconQuestionMark } from '@tabler/icons-react';
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -68,7 +69,7 @@ export default function HomePage() {
         const module = await import(`@/models/portfolio${round}`);
         setYearlyIncome(module.income);
         setYearlySalary(module.salary);
-        setReportedIncome(module.salary)
+        setReportedIncome(module.salary);
         setArts(module.listOfArts);
         setAccounts(module.listOfAccounts);
         setStocks(module.listOfStocks);
@@ -369,8 +370,11 @@ export default function HomePage() {
   return (
     <>
     <div id="portfolioDiv">
-      <div id="headerDiv">
-        <text id="header1">Client's Portfolio</text>
+      <div className="flexRow" id="headerDiv">
+        <text id="header1">Client Portfolio</text>
+        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions">
+          <IconQuestionMark style={{ width: '70%', height: '70%' }} stroke={3} color="#E4C696" />
+        </ActionIcon>
       </div>
 
       <div className="flexRow" id="client">
