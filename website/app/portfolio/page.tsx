@@ -527,7 +527,7 @@ export default function HomePage() {
 
       <div id="fileTaxesBttn">
           {((initialTaxAmount - taxAmount) >= 0)
-            ? <Link id="fileLink" href={{ pathname: '/feedback', query: { round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds } }}><text id="reportBttnTxt">File Taxes!</text></Link>
+            ? <Link id="fileLink" href={{ pathname: '/feedback', query: { round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds, reportingRisk: reportingRisk, loanRisk: loanRisk, donatingRisk: donatingRisk, bankReportingRisk: bankReportingRisk } }}><text id="reportBttnTxt">File Taxes!</text></Link>
             : <Link id="fileLink" href={{ pathname: '/fired' }}><text id="reportBttnTxt">File Taxes!</text></Link>}
       </div>
       <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>

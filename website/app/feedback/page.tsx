@@ -15,6 +15,7 @@ export default function FeedbackNarrative() {
     const donatingRisk = Number(searchParams.get('donatingRisk'));
     const bankReportingRisk = Number(searchParams.get('bankReportingRisk'));
     const router = useRouter();
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         let random = Math.floor(Math.random() * 100) + 1;
@@ -35,6 +36,7 @@ export default function FeedbackNarrative() {
             reason = "bank";
             router.push(`/audit?round=${round}&reason=${reason}`);
         }
+        setLoaded(true);
     }, []);
 
     // ORIGINAL TEXT
@@ -93,15 +95,27 @@ export default function FeedbackNarrative() {
     ) : (
         <Link id="continueButton" href="/ending">Next</Link>
     );
-
-    return (
-        <div id="narrativeBackground" className="flexCol">
-            <div id="narrativeWrapper">
-                <p id="narrativeText">
-                    {displayText}
-                </p>
+    if (loaded) {
+        return (
+            <div id="narrativeBackground" className="flexCol">
+                <div id="narrativeWrapper">
+                    <p id="narrativeText">
+                        {displayText}
+                    </p>
+                </div>
+                {NextRoundLink}
             </div>
-            {NextRoundLink}
-        </div>
-    );
+        );
+    }
+    else {
+        return (
+            <div id="narrativeBackground" className="flexCol">
+                <div id="narrativeWrapper">
+                    <p id="narrativeText">
+                    </p>
+                </div>
+            </div>            
+        )
+    }
+
 }
