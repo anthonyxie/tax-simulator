@@ -15,6 +15,7 @@ import BankAccountList from '@/components/BankAccountList/BankAccountList';
 import ArtAssets from '@/components/ArtAssets/ArtAssets';
 import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
+import HelpModal from '@/components/HelpModal/HelpModal';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
@@ -376,9 +377,10 @@ export default function HomePage() {
       <div className="flexRow" id="headerDiv">
         <text id="header1">Client Portfolio</text>
         <Modal id="helpModal" opened={opened} onClose={close} title="Instruction Guide">
-          <text>hi</text>
+          <HelpModal />
         </Modal>
-        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={() => { window.location.href = '/instructions'; }}>
+        {/* <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={() => { window.location.href = '/instructions'; }}> */}
+        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={open}>
           <IconQuestionMark style={{ width: '70%', height: '70%' }} stroke={3} color="#E4C696" />
         </ActionIcon>
       </div>

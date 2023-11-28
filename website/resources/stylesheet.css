@@ -472,7 +472,9 @@ img {
 }
 
 /* CHARITY */
-
+#charityDescription{
+  line-height: normal;
+}
 
 /* Narrative */
 #narrativeBackground{

@@ -68,3 +68,8 @@ export const helpTip = {
     reportIncome: 'Income tax is based off of the income that is reported. Report less income to pay less taxes.',
     loan: 'Apply for loans to gain liquid funds to use for other purposes! Decrease the riskiness of your loan by placing some of your assets as collateral -- aim for a collateral amount that is close to the value of the loan itself to minimize risk!',
 };
+
+export const instructionList = [
+    'starting page',
+    'first page',
+];
