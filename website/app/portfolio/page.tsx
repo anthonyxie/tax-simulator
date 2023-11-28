@@ -18,7 +18,7 @@ import Loan from '@/components/Loan/Loan';
 import HelpModal from '@/components/HelpModal/HelpModal';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
-import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
+import { Stock, Property, BankAccount, Art, helpTip, Donation } from '@/models/stock';
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -57,7 +57,7 @@ export default function HomePage() {
 
   const [liquidFundsGoal, setLiquidFundsGoal] = useState(0);
   const [initialTaxAmount, setInitialTaxAmount] = useState(0);
-  const [donations, setDonations] = useState([]);
+  const [donations, setDonations] = useState<Donation[]>([]);
   const [countries, setCountries] = useState<[]>([]);
   const [evaluators, setEvaluators] = useState<[]>([]);
 
@@ -152,36 +152,39 @@ export default function HomePage() {
     const artsList = arts.slice();
     const oldArt = artsList[index];
     if (oldArt.appraised) {
-      const oldPrice = oldArt.prices[oldArt.priceIndex];
-      const { priceIndex } = oldArt;
-      let newtaxAmount = taxWriteOffs;
-      newtaxAmount += oldPrice * 0.4;
+      if (oldArt.priceIndex) {
+        const oldPrice = oldArt.prices[oldArt.priceIndex];
+        const { priceIndex } = oldArt;
+        let newtaxAmount = taxWriteOffs;
+        newtaxAmount += oldPrice * 0.4;
 
-      let donoRisk = 0;
-      if (priceIndex === 0) {
-        donoRisk = 0;
-      }
-      else if (priceIndex === 1) {
-        donoRisk = 4;
-      }
-      else if (priceIndex === 2) {
-        donoRisk = 10;
-      }
+        let donoRisk = 0;
+        if (priceIndex === 0) {
+          donoRisk = 0;
+        }
+        else if (priceIndex === 1) {
+          donoRisk = 4;
+        }
+        else if (priceIndex === 2) {
+          donoRisk = 10;
+        }
 
-      const donationRisk = donatingRisk + donoRisk;
-      console.log(donationRisk + donoRisk);
-      setDonationRisk(donationRisk + donoRisk);
-      console.log(newtaxAmount);
-      artsList.splice(index, 1);
+        const donationRisk = donatingRisk + donoRisk;
+        console.log(donationRisk + donoRisk);
+        setDonationRisk(donationRisk + donoRisk);
+        console.log(newtaxAmount);
+        artsList.splice(index, 1);
 
-      setTaxWriteOffs(newtaxAmount);
-      setArts(artsList);
+        setTaxWriteOffs(newtaxAmount);
+        setArts(artsList);
+      }
     }
   }
 
   function makeDonation(index: number, amount: number) {
     const donation = donations[index];
-    if (liquidFunds >= amount) {
+    let fundAmount = liquidFunds;
+    if (fundAmount >= amount) {
       //reduce liquid funds
       let newliquidFunds = liquidFunds;
       newliquidFunds -= amount * donation.returnFactor;
@@ -234,17 +237,19 @@ export default function HomePage() {
     const oldArt = artsList[index];
     console.log('whaaaaa');
     if (oldArt.appraised) {
-      const oldPrice = oldArt.prices[oldArt.priceIndex];
-      let newliquidFunds = liquidFunds;
-      newliquidFunds += oldPrice;
+      if (oldArt.priceIndex) {
+        const oldPrice = oldArt.prices[oldArt.priceIndex];
+        let newliquidFunds = liquidFunds;
+        newliquidFunds += oldPrice;
 
-      let newtaxAmount = taxAmount;
-      newtaxAmount += oldPrice * 0.15;
+        let newtaxAmount = taxAmount;
+        newtaxAmount += oldPrice * 0.15;
 
-      artsList.splice(index, 1);
-      setTaxAmount(newtaxAmount);
-      setLiquidFunds(newliquidFunds);
-      setArts(artsList);
+        artsList.splice(index, 1);
+        setTaxAmount(newtaxAmount);
+        setLiquidFunds(newliquidFunds);
+        setArts(artsList);
+      }
     }
   }
 
@@ -283,6 +288,10 @@ export default function HomePage() {
     artList[index] = art;
     setArts(artList);
   }
+
+  useEffect(() => {
+    console.log(liquidFunds);
+  }, [liquidFunds])
 
   function addAccount(newAccount: BankAccount, divertedAccount: BankAccount, divertedIndex: number): any {
     const newAccounts = accounts.slice();
