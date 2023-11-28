@@ -407,6 +407,7 @@ img {
 
 /* BANK ACCOUNTS */
 #bankAccountItemDiv {
+  margin-bottom: 10px;
 }
 #accRow{
   justify-content: space-between;
