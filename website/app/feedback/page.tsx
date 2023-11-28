@@ -14,7 +14,7 @@ export default function FeedbackNarrative() {
     const positiveDisplayText = [
         // round 0
         [`You saved Y ${tax} in taxes, and were able to acquire him ${liquidFunds} in new liquid funds. He invested all that money in a crypto presale. He sold all his shares immediately when the coin was released publicly, making a killing. All the retail investors saw the value of their coins plummet to zero soon after.
-        He used the liquid funds to buy a helicopter, and give it a custom paint job.It’s black, with bright orange flames going up the sides.
+        He used the liquid funds to buy a helicopter, and give it a custom paint job. It’s black, with bright orange flames going up the sides.
         You really love your job.`],
         // round 1
         ["round 1 pos feedback"],
@@ -32,6 +32,13 @@ export default function FeedbackNarrative() {
         ["round 3 neg feedback"],
     ]
 
+    const neutralDisplayTest = 
+        `Y didn't save any money from taxes this year. He didn't explicit say so, but you could sense him
+        thinking to himself: 'Why did I even hire them in the first place?' This is not good. You think of 
+        your age parents, and know you have to improve.`
+
+    let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : (parseInt(tax) === 0 ? neutralDisplayTest : negativeDisplayText[round]);
+
     const NextRoundLink = round < 3 ? (
         <Link id="continueButton" href={{ pathname: "/narrative", query: { round: round + 1 } }}>Next</Link>
     ) : (
@@ -42,7 +49,7 @@ export default function FeedbackNarrative() {
         <div id="narrativeBackground" className="flexCol">
             <div id="narrativeWrapper">
                 <p id="narrativeText">
-                    {(parseInt(tax) >> 0) ? positiveDisplayText[round] : negativeDisplayText}
+                    {displayText}
                 </p>
             </div>
             {NextRoundLink}
