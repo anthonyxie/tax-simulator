@@ -372,7 +372,7 @@ export default function HomePage() {
     <div id="portfolioDiv">
       <div className="flexRow" id="headerDiv">
         <text id="header1">Client Portfolio</text>
-        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Settings">
+        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions">
           <IconQuestionMark style={{ width: '70%', height: '70%' }} stroke={3} color="#E4C696" />
         </ActionIcon>
       </div>

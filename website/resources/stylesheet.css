@@ -113,7 +113,7 @@ img {
   text-decoration: none;
 }
 #resetBttn text:hover {
-  color: green;
+  color: red;
 }
 
 /* Portfolio - CLIENT INFO BAR */
