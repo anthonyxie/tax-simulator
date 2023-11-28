@@ -23,7 +23,7 @@ export default function GuidePage() {
       <div className="flexCol" id="parentDiv">
         <div className="flexRow" id="firstDiv">
             <div id="backBttn">
-              <Link href={{ pathname: '/' }}><text id="backLink">BACK</text></Link>
+              <Link id="backLink" href={{ pathname: '/' }}><text id="backLink">BACK</text></Link>
             </div>
             <div className="flexCol" id="guideHeader">
               <text>About</text>
@@ -37,7 +37,7 @@ export default function GuidePage() {
           <text>Play too risky? Get audited! Too safe? Get fired!</text>
         </div>
         <div id="lastDiv">
-          <Link href={{ pathname: '/' }}><text id="backLink">Let&apos;s lower those taxes!</text></Link>
+          <Link id="letsLink" href={{ pathname: '/' }}><text id="letsLink">Let&apos;s lower those taxes!</text></Link>
         </div>
       </div>
     </div>

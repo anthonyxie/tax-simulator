@@ -38,7 +38,7 @@ body{
   display: flex;
   width: 80%;
   height: 80%;
-  opacity: .8;
+  opacity: .95;
   background-color: #F5EFBB;
   padding: 10px;
 }
@@ -50,13 +50,18 @@ body{
 #midDiv{
   flex: 5;
   align-items: center;
+  padding: 0 25px;
+}
+#midDiv text{
+  text-align: center;
 }
 #lastDiv{
   align-self: center;
 }
 
 #backLink:hover {
-  color: orange;
+  color: #BB7369;
+  text-decoration: none;
 }
 #backBttn{
 
@@ -68,6 +73,13 @@ body{
   align-items: center;
   margin-right: 5%;
   line-height: 2rem;
+}
+#letsLink{
+  text-decoration: none;
+}
+#letsLink:hover {
+  color: #BB7369;
+  text-decoration: none;
 }
 
 /* from home */
