@@ -15,6 +15,9 @@ export default function GameNarrative() {
     const displayText = [
         // round 0
         [
+            'You are 22, It is 2020, You have a roommate, Elizabeth Casas who is building a  Quantum Computing AI startup. She is a strange woman, who you feel never really treated you like a human being. One day in a heated argument she brings up the Chinese Room thought experiment.',
+'Say you are a man in a room where upon receiving a character in chinese, you respond with another character in turn.  It is as simple as flipping a switch when the light turns on. The question is, does the man in the chinese room understand anything? No matter how perfect his system is?',
+        
             `You are 27 years old. In the five years since you graduated, you’ve been an accountant for a small local bank, an insurance company, and your city government.\n 
         You earn 60k a year, enough to get by, but not enough to help your aging parents retire.\n`,
             'But today, your luck is about to change.',
