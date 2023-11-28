@@ -9,10 +9,9 @@ import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
+import { Tooltip } from '@mantine/core';
 import { instructionList } from '@/models/stock';
 import '../../resources/stylesheet.css';
-
-// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 // eslint-disable-next-line max-len
 function SwipeableTextMobileStepper() {
@@ -54,20 +53,20 @@ function SwipeableTextMobileStepper() {
         <div className="flexCol">
           <text>Welcome to Tax Hero! </text>
           <text>In this game, you are an accoutant for a wealthy client - Elizabeth. </text>
-          <text>You will learn how rich people evade their taxes and use those techniques on Elizabeth's portfolio to lower her taxes. Don't worry! It's totally legal! Well, most of it is anyway.</text>
+          <text>You will learn <b>how rich people evade their taxes</b> and use those techniques on Elizabeth's portfolio to lower her taxes. Don't worry! It's totally legal! Well, most of it is anyway.</text>
         </div>
         <div className="flexCol">
           <text>At each level, use the given techniques to lower your client's taxes.</text>
-          <text>Careful though! Different techniques have a different amount of risk associated with it that depends on the amount, legality, and type. </text>
-          <text>Fill up the risk bar all the way and you certainly will get audited and fired! If you don't lower the taxes enough and play it too safe, then Elizabeth might fire you!</text>
+          <text>Careful though! Different techniques have a different amount of <b>risk</b> associated with it that depends on the amount, legality, and type. </text>
+          <text>Fill up the <b>risk bar</b> all the way and you certainly will get <b>audited and fired!</b> If you don't lower the taxes enough and play it too safe, then Elizabeth might fire you!</text>
         </div>
         <div className="flexCol">
           <text>Eventually, you will have to meet two goals: </text>
             <text>1. lower the tax </text>
             <text>2. liquidate enough assets </text>
             <br />
-          <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to liquidate her assets.</text>
-          <text>To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
+          <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to <b>liquidate</b> her assets.</text>
+          <text>To <b>liquidate</b> assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
         </div>
         {/* How to Lose - Risk, auditing and getting fired */}
         <div className="flexCol">
@@ -99,7 +98,10 @@ function SwipeableTextMobileStepper() {
           <text>When you keep money in the bank, it gains interest. Interest is money that banks add to your account for keeping your money with them.</text>
           <text>For an average person like you, getting 1% interest on your $10,000 saving account is nice, but when you are rich and get 1% on MILLIONS, that's not too shabby!</text>
           <br />
-          <text>Interest is taxed as income. But if you keep that money in an off-shore bank account (bank account in another country), then the government wouldn't know to tax!</text>
+          <text>Interest is taxed as income. But if you keep that money in an
+            <Tooltip withArrow label="bank account in another country"><b> off-shore bank account</b></Tooltip>
+          , then the government wouldn't know what to tax!
+          </text>
           <br />
           <text>You unlock the ability to open off-shore bank accounts in level 3.</text>
         </div>
