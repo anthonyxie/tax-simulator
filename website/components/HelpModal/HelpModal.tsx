@@ -65,12 +65,14 @@ function SwipeableTextMobileStepper() {
           <text>Eventually, you will have to meet two goals: </text>
             <text>1. lower the tax </text>
             <text>2. liquidate enough assets </text>
+            <br />
           <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to liquidate her assets.</text>
           <text>To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
         </div>
         {/* Stages */}
         <div className="flexCol">
           <text>As the game progresses, you will unlock new tax evading techniques.</text>
+          <br />
           <text>Level 1: Underreporting income & Charitable Donations</text>
           <text>Level 2: Donating Assets</text>
           <text>Level 3: Offshore Bank Accounts</text>
@@ -79,6 +81,7 @@ function SwipeableTextMobileStepper() {
         {/* Property */}
         <div className="flexCol">
           <text>Properties generate property tax.</text>
+          <br />
           <text>There's no action needed in this tab as the properties as there only to provide the source of property tax.</text>
           <text>They also tie into your client's journey of becoming uber-wealthy!</text>
         </div>
