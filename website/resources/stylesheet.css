@@ -337,17 +337,13 @@ img {
 }
 #artCarouselDiv{
   height: 100%;
-  /* width: 85vw; */
   display: flex;
-  /* border: yellow 10px solid; */
 }
 #artItemDiv{
-  /* border: green 10px solid; */
   flex: 1;
   width: 100%;
 }
 #artImg{
-  /* border: blue 10px solid; */
   display: flex;
   flex: 1;
   justify-content: right;
@@ -360,8 +356,7 @@ img {
 }
 #artInfo{
   flex: 2;
-    justify-content: left;
-  /* border: purple 10px solid; */
+  justify-content: left;
 }
 #artInfo{
   font-size: large;
@@ -474,6 +469,17 @@ img {
 /* CHARITY */
 #charityDescription{
   line-height: normal;
+}
+
+/* LOAN */
+#loanRow{
+  justify-content: space-between;
+}
+#loanRow text{
+  font-family: InikaBold, serif;
+}
+#loanBttn{
+  background-color: #BB7369;
 }
 
 /* Narrative */
