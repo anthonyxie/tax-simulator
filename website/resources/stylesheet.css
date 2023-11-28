@@ -440,8 +440,7 @@ img {
 
 /* PROPERTIES */
 #propertyItemDiv {
-  flex: 1;
-  width: 100%;
+  max-height: 200px;
 }
 #propertyDetails {
   font-size: 1rem;
@@ -453,8 +452,7 @@ img {
   padding: 10px;
   max-height: 200px;
 }
-#propertyImg img{
-  object-fit: contain;
+#propertyImg Image{
   display: flex;
 }
 #propertyInfo{

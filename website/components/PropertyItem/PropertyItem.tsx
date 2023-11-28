@@ -19,8 +19,8 @@ export default function PropertyItem({ property }: PropertyItemProps) {
     };
     return (
         <div className="flexRow" id="propertyItemDiv">
-            <div id="propertyImg" className="propertyImgDiv">
-                <Image src={property.imgPath} alt="art" fit="contain" h="auto" w="auto" />
+            <div id="propertyImg">
+                <Image src={property.imgPath} alt="property item" fit="contain" />
             </div>
             <div className="flexCol" id="propertyInfo">
                 <text id="propertyName">{property.name}</text>

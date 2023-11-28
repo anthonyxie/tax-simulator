@@ -90,11 +90,11 @@ export const listOfEvaluators = [
 export const listOfProperties = [
     { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 3300000, description: 'There’s been a basement installed, why? What could it be for.' },
     { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 6100000, description: 'Free from the watchful eye of governments and passerby, a fitting fortress of solitude' },
-    { name: 'Rolls-Royce', imgPath: '/propertyImgs/rollsroyce.jpg', location: 'Newport Beach, CA', value: 280000, description: 'The SUV, modeled on the latest innovations in the tech industry instantly draw your attention. The supercooled engine is quicker than any electric car. Jessica has spared no expense.' },
+    { name: 'Rolls-Royce', imgPath: '/propertyImgs/rollsroyce.jpg', location: 'Newport Beach, CA', value: 280000, description: 'The SUV, modeled on the latest innovations in the tech industry instantly draw your attention. The supercooled engine is quicker than any electric car. Elizabeth has spared no expense.' },
     { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 4500000, description: 'Another home just to get the ability to get more homes. Homeception' },
     { name: 'Mysterious Laboratory', imgPath: '/propertyImgs/mysteriousLab.jpg', location: 'Brasov, Romania', value: 666000, description: 'What could this possibly be for?' },
-    { name: 'Sacred Texts', imgPath: '/propertyImgs/sacredTexts.jpg', location: 'New York, NY', value: 4440000, description: 'Limited edition copies of the Bhagavad Gita, Torah, Bible, Quran, books of wiccan witchcraft and philosophers stone' },
-    { name: 'Copyrights and Patents', imgPath: '/propertyImgs/patent.jpg', location: 'Stanford, CA', value: 999235, description: ' Jessica is a genius, that is one thing that no one can deny' },
+    { name: 'Sacred Texts', imgPath: '/propertyImgs/sacredTexts.png', location: 'New York, NY', value: 4440000, description: 'Limited edition copies of the Bhagavad Gita, Torah, Bible, Quran, books of wiccan witchcraft and philosophers stone' },
+    { name: 'Copyrights and Patents', imgPath: '/propertyImgs/patent.jpg', location: 'Stanford, CA', value: 999235, description: ' Elizabeth is a genius, that is one thing that no one can deny' },
 ];
 
 export const income = 1000000;
