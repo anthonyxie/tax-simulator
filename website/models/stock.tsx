@@ -64,14 +64,24 @@ export interface Instructions {
     text: string,
 }
 
+// export const helpTip = {
+//     property: 'Your properties generate property tax for you. No action needed here, but you can check out the cool stuff your client owns!',
+//     assets: 'Get your artwork evaluated to donate it for more than your client\'s original purchasing price.',
+//     bank: 'Money sitting in the bank generates interest which is taxed as income tax. Avoid the tax by keeping the money in offshore bank accounts.',
+//     stocks: 'You can sell your stocks to "liquidate funds" but remember that will also be taxed! You can also use your stock as collatoral in the loans tab.',
+//     charity: 'Decrease the taxes by donating money. By donating to the client\'s charity, they can recoup back some of the money that they donate while still having the same tax writeoff, but be careful -- this move is legally risky!',
+//     reportIncome: 'Income tax is based off of the income that is reported. Report less income to pay less taxes.',
+//     loan: 'Apply for loans to gain liquid funds to use for other purposes! Decrease the riskiness of your loan by placing some of your assets as collateral -- aim for a collateral amount that is close to the value of the loan itself to minimize risk!',
+// };
+
 export const helpTip = {
-    property: 'Your properties generate property tax for you. No action needed here, but you can check out the cool stuff your client owns!',
-    assets: 'Get your artwork evaluated to donate it for more than your client\'s original purchasing price.',
-    bank: 'Money sitting in the bank generates interest which is taxed as income tax. Avoid the tax by keeping the money in offshore bank accounts.',
-    stocks: 'You can sell your stocks to "liquidate funds" but remember that will also be taxed! You can also use your stock as collatoral in the loans tab.',
-    charity: 'Decrease the taxes by donating money. By donating to the client\'s charity, they can recoup back some of the money that they donate while still having the same tax writeoff, but be careful -- this move is legally risky!',
-    reportIncome: 'Income tax is based off of the income that is reported. Report less income to pay less taxes.',
-    loan: 'Apply for loans to gain liquid funds to use for other purposes! Decrease the riskiness of your loan by placing some of your assets as collateral -- aim for a collateral amount that is close to the value of the loan itself to minimize risk!',
+    property: 'Your properties generate property tax. No action needed here.',
+    assets: 'Evaluate your artwork to donate it for more than it\'s original purchasing price.',
+    bank: 'Deposited money generates interest, which is taxed as income. Avoid the tax by keeping the money in offshore bank accounts.',
+    stocks: 'Sell your stocks to gain liquid funds. Remember: your gains will be taxed!',
+    charity: 'Decrease taxes by donating to charity. Donate to the client\'s own charity to recoup some funds under the table.',
+    reportIncome: 'Income tax is based off of reported income. Report less income to pay less taxes.',
+    loan: 'Apply for loans to gain liquid funds. Use assets as collatoral to decrease risk.',
 };
 
 export const instructionList = [
