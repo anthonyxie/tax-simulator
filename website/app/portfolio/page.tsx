@@ -57,7 +57,7 @@ export default function HomePage() {
 
   const [liquidFundsGoal, setLiquidFundsGoal] = useState(0);
   const [initialTaxAmount, setInitialTaxAmount] = useState(0);
-  const [donations, setDonations] = useState([])
+  const [donations, setDonations] = useState([]);
   const [countries, setCountries] = useState<[]>([]);
   const [evaluators, setEvaluators] = useState<[]>([]);
 
@@ -95,7 +95,7 @@ export default function HomePage() {
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
     const stockList = stocks.slice();
-    let soldStock = stockList[index];
+    const soldStock = stockList[index];
     if (soldStock.amount >= amountSold) {
       soldStock.amount -= amountSold;
       let newFundAmount = liquidFunds;
@@ -118,12 +118,12 @@ export default function HomePage() {
       if (stock.disabled) {
         collatTotal += stock.amount * stock.price;
       }
-    })
+    });
     setLoanCollateral(collatTotal);
   }, [stocks]);
 
   function setCollateral(indices: number[], value: boolean) {
-    let stockList = stocks.slice();
+    const stockList = stocks.slice();
     indices.map((ind, index) => {
       stockList[ind].disabled = true;
     });
@@ -152,23 +152,21 @@ export default function HomePage() {
     const artsList = arts.slice();
     const oldArt = artsList[index];
     if (oldArt.appraised) {
-      let oldPrice = oldArt.prices[oldArt.priceIndex];
-      let priceIndex = oldArt.priceIndex;
+      const oldPrice = oldArt.prices[oldArt.priceIndex];
+      const { priceIndex } = oldArt;
       let newtaxAmount = taxWriteOffs;
       newtaxAmount += oldPrice * 0.4;
 
       let donoRisk = 0;
       if (priceIndex === 0) {
         donoRisk = 0;
-      }
-      else if (priceIndex === 1) {
+      } else if (priceIndex === 1) {
         donoRisk = 2;
-      }
-      else if (priceIndex === 2) {
+      } else if (priceIndex === 2) {
         donoRisk = 5;
       }
 
-      let donationRisk = donatingRisk + donoRisk;
+      const donationRisk = donatingRisk + donoRisk;
       console.log(donationRisk + donoRisk);
       setDonationRisk(donationRisk + donoRisk);
       console.log(newtaxAmount);
@@ -180,7 +178,7 @@ export default function HomePage() {
   }
 
   function makeDonation(index: number, amount: number) {
-    let donation = donations[index];
+    const donation = donations[index];
     if (liquidFunds >= amount) {
       //reduce liquid funds
       let newliquidFunds = liquidFunds;
@@ -200,26 +198,21 @@ export default function HomePage() {
   }
 
   function makeLoan() {
-    let newliquidFunds = liquidFunds + loanAmount;
+    const newliquidFunds = liquidFunds + loanAmount;
     setLiquidFunds(newliquidFunds);
-    let oldLoan = loanTotals + loanAmount;
+    const oldLoan = loanTotals + loanAmount;
     let lRisk = loanRisk;
     if (oldLoan <= loanCollateral) {
       lRisk += 0;
-    }
-    else if (oldLoan / loanCollateral < 0.9) {
+    } else if (oldLoan / loanCollateral < 0.9) {
       lRisk += 3;
-    }
-    else if (oldLoan / loanCollateral < 0.7) {
+    } else if (oldLoan / loanCollateral < 0.7) {
       lRisk += 5;
-    }
-    else if (oldLoan / loanCollateral < 0.5) {
+    } else if (oldLoan / loanCollateral < 0.5) {
       lRisk += 7;
-    }
-    else if (oldLoan / loanCollateral < 0.3) {
+    } else if (oldLoan / loanCollateral < 0.3) {
       lRisk += 12;
-    }
-    else if (oldLoan / loanCollateral < 0.3) {
+    } else if (oldLoan / loanCollateral < 0.3) {
       lRisk += 15;
     }
     setLoanRisk(lRisk);
@@ -306,7 +299,7 @@ export default function HomePage() {
       taxTotal += value;
     });
     setTaxAmount(taxTotal);
-  }, [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount, taxAmount])
+  }, [incomeTaxAmount, propertyTaxAmount, capitalGainsTaxAmount, taxAmount]);
 
   useEffect(() => {
     let riskTotal = 0;
@@ -460,10 +453,10 @@ export default function HomePage() {
                 </Tabs.Tab>
                 {round >= 1 && <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
                   Donable Assets
-                </Tabs.Tab>}
-              <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={(round >= 2) ? helpTip.bank : 'Deposited money generates interest, which is taxed as income.'}/>}>
+                               </Tabs.Tab>}
+              <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={(round >= 2) ? helpTip.bank : 'Deposited money generates interest, which is taxed as income.'} />}>
                   Bank Holdings
-                </Tabs.Tab>
+              </Tabs.Tab>
                 <Tabs.Tab value="Stocks" rightSection={<HelpIcon topic={helpTip.stocks} />}>
                   Stocks
                 </Tabs.Tab>
@@ -475,7 +468,7 @@ export default function HomePage() {
                 </Tabs.Tab>
                 {round >= 3 && <Tabs.Tab value="Loans" rightSection={<HelpIcon topic={helpTip.loan} />}>
                   Loans
-                </Tabs.Tab>}
+                               </Tabs.Tab>}
               </Tabs.List>
 
               <Tabs.Panel value="Properties">
@@ -484,7 +477,7 @@ export default function HomePage() {
 
               {round >= 1 && <Tabs.Panel value="Donable Assets">
                 <ArtAssets donateArt={donateArt} artsList={arts} evalList={evaluators} editArt={editArt} sellArt={sellArt} />
-              </Tabs.Panel>}
+                             </Tabs.Panel>}
 
               <Tabs.Panel value="Bank Holdings">
                 <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} round={round} />
@@ -500,7 +493,7 @@ export default function HomePage() {
 
               {round >= 3 && <Tabs.Panel value="Loans">
                 <Loan makeLoan={makeLoan} totalLoan={loanTotals} setCollateral={setCollateral} stockList={stocks} loanAmount={loanAmount} setLoanAmount={setLoanAmount} />
-              </Tabs.Panel>}
+                             </Tabs.Panel>}
 
             <Tabs.Panel value="Reporting Salary">
               <NumberInput
@@ -523,7 +516,7 @@ export default function HomePage() {
 
       <div id="fileTaxesBttn">
           {((initialTaxAmount - taxAmount) >= 0)
-            ? <Link id="fileLink" href={{ pathname: '/feedback', query: { round: round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds } }}><text id="reportBttnTxt">File Taxes!</text></Link>
+            ? <Link id="fileLink" href={{ pathname: '/feedback', query: { round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds } }}><text id="reportBttnTxt">File Taxes!</text></Link>
             : <Link id="fileLink" href={{ pathname: '/fired' }}><text id="reportBttnTxt">File Taxes!</text></Link>}
       </div>
       <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>
