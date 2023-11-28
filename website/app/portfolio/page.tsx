@@ -459,7 +459,7 @@ export default function HomePage() {
                 {round >= 1 && <Tabs.Tab value="Donable Assets" rightSection={<HelpIcon topic={helpTip.assets} />}>
                   Donable Assets
                 </Tabs.Tab>}
-                <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={helpTip.bank} />}>
+              <Tabs.Tab value="Bank Holdings" rightSection={<HelpIcon topic={helpTip.bank}/>}>
                   Bank Holdings
                 </Tabs.Tab>
                 <Tabs.Tab value="Stocks" rightSection={<HelpIcon topic={helpTip.stocks} />}>
