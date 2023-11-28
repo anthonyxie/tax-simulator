@@ -88,9 +88,9 @@ export const listOfEvaluators = [
 ];
 
 export const listOfProperties = [
-    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'hahaha' },
-    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
-    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
+    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'A typical nice, wealthy house filled with the posh laughter of the upper class' },
+    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'A second gratuitous expense, you are too poor to understand' },
+    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'Another home just to get the ability to get more homes. Homeception' },
 ];
 
 export const income = 1000000;

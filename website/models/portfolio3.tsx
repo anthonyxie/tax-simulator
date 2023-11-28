@@ -88,9 +88,13 @@ export const listOfEvaluators = [
 ];
 
 export const listOfProperties = [
-    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'hahaha' },
-    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
-    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
+    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Washington, DC', value: 2300000, description: 'It;s a full-on fortress of solitude' },
+    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'United Nation Headquarters', value: 4100000, description: 'Jessicas domination is almost complete' },
+    { name: 'Homunculi Parts', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'They are fleshy and rubbery at the same time. Disturbing' },
+    { name: 'Brain-Cloning facility', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'mass-produced supposedly quantum AI minds are made here' },
+    { name: 'Government trade secrets', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'More than the panama papers, dirt on every world government is here' },
+    { name: 'Stem Cells', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'If the minds are just Ai, why are there stem cells??' },
+
 ];
 
 export const income = 1000000;
