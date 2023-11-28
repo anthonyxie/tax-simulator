@@ -3,6 +3,7 @@
 /* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
@@ -15,7 +16,6 @@ import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
-import { useSearchParams } from 'next/navigation';
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -348,7 +348,7 @@ export default function HomePage() {
         <div id="rightHalf">
           <Image id="clientImg" src="/richClient.png" alt="Brown haired young woman with money" />
         </div>
-        {/* ^takes half and \/ takes half */}
+        {/* ^takes 1/3 and \/ takes 2/3 */}
         <div className="flexCol" id="clientInfo">
 
           <div className="flexRow" id="cInfoDiv">
@@ -371,9 +371,9 @@ export default function HomePage() {
 
             </div>
 
-            {/* TO-DO: put real value variable in the value section and in the tooltip */}
             <div id="ringDiv">
               <RingProgress
+                thickness={10}
                 label={<Text size="xs" ta="center">Tax Breakdown</Text>}
                 sections={[
                   { tooltip: `Income Tax: $${incomeTaxAmount}`, value: (incomeTaxAmount / taxAmount) * 100, color: 'blue' },

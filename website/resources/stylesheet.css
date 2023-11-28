@@ -161,11 +161,8 @@ img {
   display: flex;
 }
 .riskBars{
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 .riskBars > * + * {
   margin-top: 10px;
@@ -173,14 +170,26 @@ img {
 
 #ringDiv{
   display: flex;
-  flex: 1;
+  flex: 2;
   justify-content: center;
+  align-self: center;
+  height: 100%;
+}
+.mantine-RingProgress-root{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.mantine-RingProgress-svg	{
 }
 #cInfoDiv{
   display: flex;
+  flex: 1;
 }
 #cInfoDivTxt{
-  flex: 2;
+  flex: 3;
 }
 /* Portfolio - TABBED MENU */
 #tabbedMenu{
