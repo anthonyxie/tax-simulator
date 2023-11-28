@@ -16,9 +16,9 @@ export default function StockItem({ stock, sellStock, index }: StockItemProps) {
     }
     return (
         <div className="listItemDiv" id="stockItemDiv">
-            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={stock.ticker} labelPosition="left" color="taupe" />
-            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={String(stock.amount)} labelPosition="left" color="taupe" />
-            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={`$${stock.price}`} labelPosition="right" color="taupe" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={stock.ticker} labelPosition="left" color="black" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={String(stock.amount)} labelPosition="left" color="black" />
+            <Divider variant="dotted" id="listItemDivider" my="sm" size="md" label={`$${stock.price}`} labelPosition="right" color="black" />
             <Button variant="filled" color="red" onClick={selltheStock} disabled={stock.disabled}><text id="sellStocksBttnTxt">Sell 100</text></Button>
         </div>
     );

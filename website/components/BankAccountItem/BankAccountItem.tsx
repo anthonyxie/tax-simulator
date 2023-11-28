@@ -1,7 +1,7 @@
 'use client';
-import { Button, Divider, Group } from "@mantine/core";
-import "../../resources/stylesheet.css";
-import { BankAccount } from "@/models/stock";
+
+import '../../resources/stylesheet.css';
+import { BankAccount } from '@/models/stock';
 
 interface BankAccountItemProps {
     account: BankAccount;
@@ -14,7 +14,6 @@ export default function BankAccountItem({ account }: BankAccountItemProps) {
             <div style={{ width: '25%' }}><text>${account.amount}</text></div>
             <div style={{ width: '25%' }}><text>${Math.round(account.amount * account.APY * 0.01)}</text></div>
             <div style={{ width: '25%' }}><text>{account.country}</text></div>
-            {/* need to add feature to create offshore accounts */}
         </div>
-    )
+    );
 }

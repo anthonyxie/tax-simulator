@@ -408,6 +408,9 @@ img {
 /* BANK ACCOUNTS */
 #bankAccountItemDiv {
 }
+#accRow{
+  justify-content: space-between;
+}
 #bankAccountHeader {
   display: flex;
   width: 100%;

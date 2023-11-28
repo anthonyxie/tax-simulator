@@ -96,7 +96,10 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
 
             <Button onClick={createAccount}>Create New Holdings Account</Button>
             </Modal>
-            <text className="panelHeader">Accounts</text>
+            <div className="flexRow" id="accRow">
+                <text className="panelHeader">Accounts</text>
+                <Button variant="filled" color="green" onClick={open}>Open New Account</Button>
+            </div>
             <div id="bankAccountHeader">
                 <div style={{ width: '25%' }}><text>Name</text></div>
                 <div style={{ width: '25%' }}><text>Amount</text></div>
@@ -106,9 +109,6 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
             </div>
             {accountsList.map((account, index) =>
                 (<BankAccountItem account={account} key={index} />))}
-            <div style={{ marginTop: '10vh' }}>
-                <Button variant="filled" color="green" onClick={open}>Open New Account</Button>
-            </div>
         </div>
     );
 }
