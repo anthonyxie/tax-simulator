@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
-import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
+//import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import StockList from '@/components/StockList/StockList';
 import DonationList from '@/components/DonationList/DonationList';
@@ -22,16 +22,16 @@ export default function HomePage() {
   const round: number = parseInt(searchParams.get('round') || '0', 10);
 
   const [netWorth, setNetWorth] = useState(0);
-  const [yearlyIncome, setYearlyIncome] = useState(income);
-  const [yearlySalary, setYearlySalary] = useState(salary);
+  const [yearlyIncome, setYearlyIncome] = useState<number>(0);
+  const [yearlySalary, setYearlySalary] = useState<number>(0);
   const [bankIncome, setBankIncome] = useState(0);
-  const [reportedIncome, setReportedIncome] = useState<number>(salary);
+  const [reportedIncome, setReportedIncome] = useState<number>(0);
   const [reportedBankIncome, setReportedBankIncome] = useState(0);
 
-  const [stocks, setStocks] = useState<Stock[]>(listOfStocks);
-  const [properties, setProperties] = useState<Property[]>(listOfProperties);
-  const [arts, setArts] = useState<Art[]>(listOfArts);
-  const [accounts, setAccounts] = useState<BankAccount[]>(listOfAccounts);
+  const [stocks, setStocks] = useState<Stock[]>([]);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [arts, setArts] = useState<Art[]>([]);
+  const [accounts, setAccounts] = useState<BankAccount[]>([]);
 
   const [taxAmount, setTaxAmount] = useState(0);
   const [incomeTaxAmount, setIncomeTaxAmount] = useState(0);
@@ -52,8 +52,40 @@ export default function HomePage() {
   const [loanTotals, setLoanTotals] = useState(0);
   const [loanCollateral, setLoanCollateral] = useState(0);
 
-  const liquidFundsGoal = fundsGoal;
-  const initialTaxAmount = initialTaxes;
+  const [liquidFundsGoal, setLiquidFundsGoal] = useState(0);
+  const [initialTaxAmount, setInitialTaxAmount] = useState(0);
+  const [donations, setDonations] = useState([])
+  const [countries, setCountries] = useState<[]>([]);
+  const [evaluators, setEvaluators] = useState<[]>([]);
+
+  const [loading, setLoading] = useState(true);
+  const [reset, setReset] = useState(false);
+
+  // LOAD PORTFOLIO HERE
+  useEffect(() => {
+    const loadPortfolio = async () => {
+      try {
+        const module = await import(`@/models/portfolio${round}`);
+        setYearlyIncome(module.income);
+        setYearlySalary(module.salary);
+        setReportedIncome(module.salary)
+        setArts(module.listOfArts);
+        setAccounts(module.listOfAccounts);
+        setStocks(module.listOfStocks);
+        setProperties(module.listOfProperties);
+        setDonations(module.listOfDonations);
+        setCountries(module.listOfCountries);
+        setEvaluators(module.listOfEvaluators);
+        setLiquidFundsGoal(module.fundsGoal);
+        setInitialTaxAmount(module.initialTaxes);
+      } catch (error) {
+        console.error(`Error importing portfolio${round}:`, error);
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or failure
+      }
+    };
+    loadPortfolio();
+  }, [round, reset]);
 
   function sellStock(index: number, amountSold: number): any {
     console.log('stock sold');
@@ -143,7 +175,7 @@ export default function HomePage() {
   }
 
   function makeDonation(index: number, amount: number) {
-    let donation = listOfDonations[index];
+    let donation = donations[index];
     if (liquidFunds >= amount) {
       //reduce liquid funds
       let newliquidFunds = liquidFunds;
@@ -220,10 +252,7 @@ export default function HomePage() {
     event.preventDefault();
     // Resetting numerical states
     setNetWorth(0);
-    setYearlyIncome(income);
-    setYearlySalary(salary);
     setBankIncome(0);
-    setReportedIncome(salary);
     setReportedBankIncome(0);
 
     setLiquidFunds(0);
@@ -243,10 +272,7 @@ export default function HomePage() {
     setDonationRisk(0);
 
     // Resetting array states
-    setStocks(listOfStocks);
-    setProperties(listOfProperties);
-    setArts(listOfArts);
-    setAccounts(listOfAccounts);
+    setReset(true); // This triggers a reload of the portfolio
   }
 
 // Other functions and JSX remain unchanged
@@ -337,6 +363,9 @@ export default function HomePage() {
     setPropertyTaxAmount(propTaxAmt);
   }, [properties, propertyTaxAmount]);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
     <div id="portfolioDiv">
@@ -442,19 +471,19 @@ export default function HomePage() {
               </Tabs.Panel>
 
               <Tabs.Panel value="Donable Assets">
-                  <ArtAssets donateArt={donateArt} artsList={arts} evalList={listOfEvaluators} editArt={editArt} sellArt={sellArt} />
+                  <ArtAssets donateArt={donateArt} artsList={arts} evalList={evaluators} editArt={editArt} sellArt={sellArt} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Bank Holdings">
-                <BankAccountList countryList={listOfCountries} addAccount={addAccount} accountsList={accounts} />
+                <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Stocks">
-                <StockList sellStock={sellStock} stocksList={listOfStocks} />
+                <StockList sellStock={sellStock} stocksList={stocks} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Charity Donations">
-                <DonationList makeDonation={makeDonation} liquidFunds={liquidFunds} donationList={listOfDonations} />
+                <DonationList makeDonation={makeDonation} liquidFunds={liquidFunds} donationList={donations} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Loans">
