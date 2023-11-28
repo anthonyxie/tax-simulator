@@ -65,12 +65,14 @@ function SwipeableTextMobileStepper() {
           <text>Eventually, you will have to meet two goals: </text>
             <text>1. lower the tax </text>
             <text>2. liquidate enough assets </text>
+            <br />
           <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to liquidate her assets.</text>
           <text>To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
         </div>
         {/* Stages */}
         <div className="flexCol">
           <text>As the game progresses, you will unlock new tax evading techniques.</text>
+          <br />
           <text>Level 1: Underreporting income & Charitable Donations</text>
           <text>Level 2: Donating Assets</text>
           <text>Level 3: Offshore Bank Accounts</text>
@@ -79,12 +81,18 @@ function SwipeableTextMobileStepper() {
         {/* Property */}
         <div className="flexCol">
           <text>Properties generate property tax.</text>
+          <br />
           <text>There's no action needed in this tab as the properties as there only to provide the source of property tax.</text>
           <text>They also tie into your client's journey of becoming uber-wealthy!</text>
         </div>
         {/* Bank */}
         <div className="flexCol">
-          stage 2
+          <text>When you keep money in the bank, it gains interest. Interest is money that banks add to your account for keeping your money with them.</text>
+          <text>For an average person like you, getting 1% interest on your $10,000 saving account is nice, but when you are rich and get 1% on MILLIONS, that's not too shabby!</text>
+          <br />
+          <text>Interest is taxed as income. But if you keep that money in an off-shore bank account (bank account in another country), then the government wouldn't know to tax!</text>
+          <br />
+          <text>You unlock the ability to open off-shore bank accounts in level 3.</text>
         </div>
         {/* Stocks */}
         <div className="flexCol">
