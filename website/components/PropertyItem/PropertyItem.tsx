@@ -18,18 +18,8 @@ export default function PropertyItem({ property }: PropertyItemProps) {
             return num.toString();
     };
     return (
-        // <div className="flexRow" id="propertyItemDiv">
-        //     <div className="flexRow" id="propDetailRow">
-        //         <text id="propertyDetails">{property.name}</text>
-        //         <text id="propertyValue">${formatNumber(property.value)}</text>
-        //     </div>
-        //     <Image id="propertyImg" src={property.imgPath} alt="stock image of house" />
-        //     <text id="propertyDetails">{property.location}</text>
-        //     <text id="propertyDetails">{property.description}</text>
-        // </div>
-        <div className="flexRow" id="artItemDiv">
-
-            <div id="artImg">
+        <div className="flexRow" id="propertyItemDiv">
+            <div id="propertyImg" className="propertyImgDiv">
                 <Image src={property.imgPath} alt="art" fit="contain" h="auto" w="auto" />
             </div>
             <div className="flexCol" id="artInfo">
