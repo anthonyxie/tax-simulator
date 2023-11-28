@@ -34,8 +34,9 @@ export default function FeedbackNarrative() {
 
     const neutralDisplayTest = 
         `Y didn't save any money from taxes this year. He didn't explicit say so, but you could sense him
-        thinking to himself: 'Why did I even hire them in the first place?' This is not good. You think of 
-        your age parents, and know you have to improve.`
+        thinking to himself: 'Why did I even hire them in the first place?' 
+        
+        This is not good. You think of your aging parents, and vow to improve.`
 
     let displayText = parseInt(tax) > 0 ? positiveDisplayText[round] : (parseInt(tax) === 0 ? neutralDisplayTest : negativeDisplayText[round]);
 
