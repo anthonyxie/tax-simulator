@@ -48,9 +48,9 @@ export default function ArtItem({ evalList, art, index, editArt, donateArt, sell
                 {!art.appraised ?
                     <Evaluators evalList={evalList} index={index} editArt={editArt} art={art} />
                     :
-                    <div className="flexRow">
-                        <Button variant="filled" color="taupe" onClick={sell}>Sell Art</Button>
-                        <Button variant="filled" color="taupe" onClick={donation}>Donate Art</Button>
+                    <div className="flexCol" id="appraisedArtBttns">
+                        <Button variant="filled" color="copper" onClick={sell}>Sell Art</Button>
+                        <Button variant="filled" color="copper" onClick={donation}>Donate Art</Button>
                     </div>
                 }
             </div>

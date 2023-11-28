@@ -345,7 +345,7 @@ img {
   flex: 1;
   justify-content: right;
   padding: 10px;
-  max-height: 400px;
+  max-height: 300px;
 }
 #artImg img{
   object-fit: contain;
@@ -365,6 +365,13 @@ img {
 #purchaseRow text{
   padding-right: 10px;
 }
+#appraisedArtBttns {
+  justify-content: space-between;
+  max-width: 40vw;
+}
+#appraisedArtBttns Button{
+  margin-bottom: 10px;
+}
 
 /* ART - Evaluator */
 #evalDiv {
@@ -376,6 +383,7 @@ img {
   background-color: #39B1B0;
   border-radius: 5px;
   height: 100%;
+  max-height: 150px;
   flex-wrap: wrap;
 }
 #evalName{
