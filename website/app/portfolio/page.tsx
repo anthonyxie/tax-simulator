@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image } from '@mantine/core';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, Button } from '@mantine/core';
 import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 //import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
@@ -510,7 +510,7 @@ export default function HomePage() {
       </div>
 
       <div id="fileTaxesBttn">
-          <Link id="fileLink" href={{ pathname: '/feedback', query: { round: round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds}}}><text id="reportBttnTxt">File Taxes!</text></Link>
+          <Link id="fileLink" href={{ pathname: '/feedback', query: { round: round, amount: initialTaxAmount - taxAmount, liquid: liquidFunds, reportingRisk: reportingRisk, loanRisk: loanRisk, donatingRisk: donatingRisk, bankReportingRisk: bankReportingRisk}}}><text id="reportBttnTxt">File Taxes!</text></Link>
       </div>
       <button id="resetBttn" onClick={resetAllValues}><text>Reset Game</text></button>
     </div>
