@@ -4,8 +4,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, Button, ActionIcon } from '@mantine/core';
-import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
+import { IconQuestionMark } from '@tabler/icons-react';
+import { useDisclosure } from '@mantine/hooks';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, ActionIcon, Modal, Button } from '@mantine/core';
 //import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import StockList from '@/components/StockList/StockList';
@@ -16,7 +17,7 @@ import PropertyList from '@/components/PropertyList/PropertyList';
 import Loan from '@/components/Loan/Loan';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
-import { IconQuestionMark } from '@tabler/icons-react';
+import { Stock, Property, BankAccount, Art, helpTip } from '@/models/stock';
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -61,6 +62,8 @@ export default function HomePage() {
 
   const [loading, setLoading] = useState(true);
   const [reset, setReset] = useState(false);
+
+  const [opened, { open, close }] = useDisclosure(false);
 
   // LOAD PORTFOLIO HERE
   useEffect(() => {
@@ -372,7 +375,10 @@ export default function HomePage() {
     <div id="portfolioDiv">
       <div className="flexRow" id="headerDiv">
         <text id="header1">Client Portfolio</text>
-        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions">
+        <Modal id="helpModal" opened={opened} onClose={close} title="Instruction Guide">
+          <text>hi</text>
+        </Modal>
+        <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={() => { window.location.href = '/instructions'; }}>
           <IconQuestionMark style={{ width: '70%', height: '70%' }} stroke={3} color="#E4C696" />
         </ActionIcon>
       </div>
