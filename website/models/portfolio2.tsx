@@ -88,9 +88,12 @@ export const listOfEvaluators = [
 ];
 
 export const listOfProperties = [
-    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'hahaha' },
-    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
-    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
+    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'Several new complexes surround it, strangely' },
+    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Omaha, Nebraska', value: 4100000, description: 'The old one was removed for this one, its fille with several mysterious compounds on a much larger area' },
+    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'The investment property has expanded' },
+    { name: 'Conflict Diamonds', imgPath: '/propertyImgs/apartment.jpg', location: 'Kitty Hawk, NC', value: 1500000, description: 'Barely legal, you feel shudders just thinking about how they got there.' },
+    { name: 'Copyright and Patents', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
+    { name: 'Stem Cell Farm', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'What is the purpose of all of these. Where did she get them. Say what you will about Stem Cell Ethics, it’s strange to think about why an AI millionaire would need them.' },
 ];
 
 export const income = 1000000;

@@ -88,9 +88,13 @@ export const listOfEvaluators = [
 ];
 
 export const listOfProperties = [
-    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'hahaha' },
-    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'hahaha' },
-    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'hahaha' },
+    { name: 'Primary Residence', imgPath: '/propertyImgs/house2.jpg', location: 'Sunnyvale, CA', value: 2300000, description: 'There’s been a basement installed, why? What could it be for.' },
+    { name: 'Vacation Home', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 4100000, description: 'Free from the watchful eye of governments and passerby, a fitting fortress of solitude' },
+    { name: 'Rolls-Royce', imgPath: '/propertyImgs/beachhouse.jpg', location: 'Newport Beach, CA', value: 180000, description: 'The SUV, modeled on the latest innovations in the text industry instantly draw your attention. The supercooled engine is quicker than any electric car. Jessica has spared no expense.' },
+    { name: 'Investment Home', imgPath: '/propertyImgs/apartment.jpg', location: 'Menlo Park, CA', value: 1500000, description: 'Another home just to get the ability to get more homes. Homeception' },
+    { name: 'Mysterious Laboratory', imgPath: '/propertyImgs/apartment.jpg', location: 'Brasov, Romania', value: 1500000, description: 'What could this possibly be for?' },
+    { name: 'Sacred Texts', imgPath: '/propertyImgs/apartment.jpg', location: 'New York, NY', value: 1500000, description: 'Limited edition copies of the Bhagavad Gita, Torah, Bible, Quran, books of wiccan witchcraft and philosophers stone' },
+    { name: 'Copyrights and Patents', imgPath: '/propertyImgs/apartment.jpg', location: 'Stanford, CA', value: 1500000, description: ' Jessica is a genius, that is one thing that no one can deny' },
 ];
 
 export const income = 1000000;
