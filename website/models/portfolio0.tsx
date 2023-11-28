@@ -55,7 +55,7 @@ export const listOfArts = [
         prices: [50000, 60000, 70000],
     },
     {
-        name: 'Picture Of A Dog',
+        name: 'Vase Of A Million Suns',
         index: 2,
         artist: 'Ting',
         startPrice: 20,

@@ -35,34 +35,34 @@ export const listOfDonations = [
 
 export const listOfArts = [
     {
-        name: 'Nepo Child Artwork',
+        name: 'Slime Vase',
         index: 0,
         artist: 'Anthony',
         year: '2023',
         startPrice: 10,
-        imgPath: '/assetsImgs/a0.png',
+        imgPath: '/assetsImgs/a9.png',
         appraised: false,
-        prices: [10000, 60000, 100000]
+        prices: [10000, 60000, 100000],
     },
     {
-        name: 'Narry Stight by Paclo Pibasso',
+        name: 'Non-Binary in Terra(cota)',
         index: 1,
         startPrice: 15,
-        artist: 'Ore',
+        artist: 'Terra',
         year: '2023',
-        imgPath: '/assetsImgs/a1.png',
+        imgPath: '/assetsImgs/a10.png',
         appraised: false,
-        prices: [50000, 60000, 70000]
+        prices: [50000, 60000, 70000],
     },
     {
         name: 'Picture Of A Dog',
         index: 2,
-        artist: 'Ting',
+        artist: 'Alexia',
         startPrice: 20,
         year: '2023',
-        imgPath: '/assetsImgs/a2.png',
+        imgPath: '/assetsImgs/a11.png',
         appraised: false,
-        prices: [100, 200, 200000]
+        prices: [100, 200, 200000],
     },
 ];
 

@@ -35,34 +35,34 @@ export const listOfDonations = [
 
 export const listOfArts = [
     {
-        name: 'Nepo Child Artwork',
+        name: '...But you can\'t make it drink',
         index: 0,
-        artist: 'Anthony',
+        artist: 'DJ Lil Texas',
         year: '2023',
         startPrice: 10,
-        imgPath: '/assetsImgs/a0.png',
+        imgPath: '/assetsImgs/a6.png',
         appraised: false,
-        prices: [10000, 60000, 100000]
+        prices: [10000, 60000, 100000],
     },
     {
-        name: 'Narry Stight by Paclo Pibasso',
+        name: 'Origami Wrong',
         index: 1,
         startPrice: 15,
-        artist: 'Ore',
+        artist: 'Knala',
         year: '2023',
-        imgPath: '/assetsImgs/a1.png',
+        imgPath: '/assetsImgs/a7.png',
         appraised: false,
-        prices: [50000, 60000, 70000]
+        prices: [50000, 60000, 70000],
     },
     {
-        name: 'Picture Of A Dog',
+        name: 'For Daisy and Daisies',
         index: 2,
-        artist: 'Ting',
+        artist: 'Fran',
         startPrice: 20,
         year: '2023',
-        imgPath: '/assetsImgs/a2.png',
+        imgPath: '/assetsImgs/a8.png',
         appraised: false,
-        prices: [100, 200, 200000]
+        prices: [100, 200, 200000],
     },
 ];
 
