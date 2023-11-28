@@ -59,6 +59,10 @@ img {
   max-height: 100%;
   overflow: hidden;
 }
+#headerDiv{
+  align-items: center;
+  justify-content: space-between;
+}
 
 #header1{ 
   color: #E4C696;
