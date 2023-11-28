@@ -2,13 +2,15 @@
 
 import '../../resources/stylesheet.css';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function GameNarrative() {
+    const searchParams = useSearchParams();
+    const reason = searchParams.get('reason');
     const router = useRouter();
     const [storyIndex, setStoryIndex] = useState(0);
     const [gameStory, setGameStory] = useState([
-        `You took one too many risks - and the IRS has come knocking. Y, denying any knowledge
+        `You took one too many risks - and the IRS has come knocking. ${reason == "reporting" ? "The IRS discovered that his salary was underreported, and audited him." : ""}${reason == "bank" ? "The IRS found the offshore accounts and seized them." : ""}${reason == "loan" ? "The collateral of your loan collapsed and he couldn't pay it back.": ""} ${reason == "donation" ? "The IRS discovered the charity he owned was secretly paying him a salary and was largely fraudulent.":""} Y, denying any knowledge
         of the actions you took, has simply paid back his duly owed taxes; at the same time,
         he has filed a lawsuit against you to recover damages.`,
         `You don't stand a chance against his fancy lawyers, and you are forced to 
@@ -18,6 +20,8 @@ export default function GameNarrative() {
         student debt. Now, the illusion has crumbled and all that's left are ruins. Was there a way
         for you to win in the first place?`,
     ]);
+
+
 
     const handleContinue = () => {
         if (storyIndex < gameStory.length - 1) {
