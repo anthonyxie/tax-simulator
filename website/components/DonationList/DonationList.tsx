@@ -1,7 +1,9 @@
 'use client';
-import { Donation } from "@/models/stock";
-import DonationItem from "../DonationItem/DonationItem";
-import { Accordion } from "@mantine/core";
+
+/* eslint-disable max-len */
+import { Accordion } from '@mantine/core';
+import { Donation } from '@/models/stock';
+import DonationItem from '../DonationItem/DonationItem';
 
 interface DonationListProps {
     donationList: Donation[]
@@ -9,17 +11,16 @@ interface DonationListProps {
     liquidFunds: number
 }
 
-export default function DonationList({donationList, makeDonation, liquidFunds}: DonationListProps) {
+export default function DonationList({ donationList, makeDonation, liquidFunds }: DonationListProps) {
     return (
         <div>
             <text className="panelHeader">Donations</text>
             <div id="donationHeader">
-                <text>Charity</text>
-                <text id="rightmost">Value</text>
+                <text>Charities your client are associated with through personal relationships:</text>
             </div>
             <Accordion>
-                {donationList.map((theDonation, index) => (<DonationItem makeDonation={makeDonation} index={index} liquidFunds={liquidFunds} donation={theDonation} key={index}></DonationItem>))}
+                {donationList.map((theDonation, index) => (<DonationItem makeDonation={makeDonation} index={index} liquidFunds={liquidFunds} donation={theDonation} key={index} />))}
             </Accordion>
-         </div>
+        </div>
     );
 }
