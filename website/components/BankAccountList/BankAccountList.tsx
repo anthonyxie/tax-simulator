@@ -11,10 +11,11 @@ interface AccountListProps {
     countryList: Country[],
     accountsList: BankAccount[],
     addAccount: any,
+    round: number,
 }
 
 // eslint-disable-next-line max-len
-export default function BankAccountList({ countryList, accountsList, addAccount }: AccountListProps) {
+export default function BankAccountList({ countryList, accountsList, addAccount, round }: AccountListProps) {
     const [opened, { open, close }] = useDisclosure(false);
     const [divertedAccount, setDivertedAccount] = useState<string | null>('');
     const [usedAccountIndex, setUsedAccountIndex] = useState(0);
@@ -98,7 +99,7 @@ export default function BankAccountList({ countryList, accountsList, addAccount 
             </Modal>
             <div className="flexRow" id="accRow">
                 <text className="panelHeader">Accounts</text>
-                <Button variant="filled" color="green" onClick={open}>Open New Account</Button>
+                {round >= 2 && <Button variant="filled" color="green" onClick={open}>Open New Account</Button>}
             </div>
             <div id="bankAccountHeader">
                 <div style={{ width: '25%' }}><text>Name</text></div>

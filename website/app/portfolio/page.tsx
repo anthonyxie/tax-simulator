@@ -475,7 +475,7 @@ export default function HomePage() {
               </Tabs.Panel>}
 
               <Tabs.Panel value="Bank Holdings">
-                <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} />
+                <BankAccountList countryList={countries} addAccount={addAccount} accountsList={accounts} round={round} />
               </Tabs.Panel>
 
               <Tabs.Panel value="Stocks">
