@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import ArtItem from '../ArtItem/ArtItem';
 import { instructionList } from '@/models/stock';
 import '../../resources/stylesheet.css';
 
@@ -31,23 +30,21 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box id="artDiv">
+    <Box>
       <div>
-      {/* <text className="panelHeader">{artsList[activeStep].name}</text> */}
-        <text className="panelHeader">Donable Assets Gallery</text>
+        <text className="panelHeader">{instructionList[activeStep].title}</text>
       </div>
       <SwipeableViews
-        id="artCarousel"
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
         {instructionList.map((art, index) => (
-          <div key={index} id="artCarouselDiv">
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               // eslint-disable-next-line max-len
-              <text>hi</text>
+              <text>{instructionList[index].text}</text>
             ) : null}
           </div>
         ))}
@@ -62,7 +59,7 @@ function SwipeableTextMobileStepper() {
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            <text id="mobileStepTxt">Next</text>
+            <text>Next</text>
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -77,7 +74,7 @@ function SwipeableTextMobileStepper() {
             ) : (
               <KeyboardArrowLeft />
             )}
-            <text id="mobileStepTxt">Back</text>
+            <text>Back</text>
           </Button>
         }
       />

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { IconQuestionMark } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
-import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, ActionIcon, Modal, Button } from '@mantine/core';
+import { NumberInput, Progress, Tabs, Tooltip, RingProgress, Text, Image, ActionIcon, Modal } from '@mantine/core';
 //import { listOfStocks, listOfDonations, listOfArts, listOfAccounts, listOfProperties, listOfEvaluators, listOfCountries, salary, income, initialTaxes, fundsGoal } from '@/models/portfolio0';
 import RiskBar from '@/components/RiskBar/RiskBar';
 import StockList from '@/components/StockList/StockList';
@@ -376,7 +376,7 @@ export default function HomePage() {
     <div id="portfolioDiv">
       <div className="flexRow" id="headerDiv">
         <text id="header1">Client Portfolio</text>
-        <Modal id="helpModal" opened={opened} onClose={close} title="Instruction Guide">
+        <Modal id="helpModal" opened={opened} onClose={close} title="Tax Hero Instruction Guide">
           <HelpModal />
         </Modal>
         {/* <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={() => { window.location.href = '/instructions'; }}> */}
