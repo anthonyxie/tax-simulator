@@ -96,7 +96,12 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Stocks */}
         <div className="flexCol">
-          stage 3
+          <text>Stocks are investments into other coporations.</text>
+          <text>If their business is doing well, the value of the stocks go up! If their business is doing bad, the value of the stock goes down!</text>
+          <br />
+          <text>There are two ways you can use stocks here:</text>
+          <text>1. Liquidate Stocks - sell the stocks to make liquid funds</text>
+          <text>2. Use Stocks as Collateral for Asset-Based Loans - technique unlocked in level 4.</text>
         </div>
         {/* Charity */}
         <div className="flexCol">
