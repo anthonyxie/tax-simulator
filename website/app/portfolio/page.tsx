@@ -160,10 +160,12 @@ export default function HomePage() {
       let donoRisk = 0;
       if (priceIndex === 0) {
         donoRisk = 0;
-      } else if (priceIndex === 1) {
-        donoRisk = 2;
-      } else if (priceIndex === 2) {
-        donoRisk = 5;
+      }
+      else if (priceIndex === 1) {
+        donoRisk = 4;
+      }
+      else if (priceIndex === 2) {
+        donoRisk = 10;
       }
 
       const donationRisk = donatingRisk + donoRisk;
@@ -191,9 +193,9 @@ export default function HomePage() {
       setTaxWriteOffs(newtaxAmount);
 
       //increase risk
-      let riskAmount = risk;
+      let riskAmount = donatingRisk;
       riskAmount += amount * donation.riskFactor * 0.001;
-      setRisk(riskAmount);
+      setDonationRisk(riskAmount);
     }
   }
 
