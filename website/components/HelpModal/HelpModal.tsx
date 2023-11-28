@@ -69,6 +69,15 @@ function SwipeableTextMobileStepper() {
           <text>When Elizabeth demands you make a certain amount of funds "liquid" for her the means she wants you to liquidate her assets.</text>
           <text>To liquidate assets means to take things that are worth money and trade them in for actual money. This could take the form of selling stocks or art.</text>
         </div>
+        {/* How to Lose - Risk, auditing and getting fired */}
+        <div className="flexCol">
+          <text>Two ways to lose: </text>
+            <text>1. Get Fired </text>
+            <text>2. Get Audited </text>
+            <br />
+          <text></text>
+          <text></text>
+        </div>
         {/* Stages */}
         <div className="flexCol">
           <text>As the game progresses, you will unlock new tax evading techniques.</text>
@@ -105,11 +114,16 @@ function SwipeableTextMobileStepper() {
         </div>
         {/* Charity */}
         <div className="flexCol">
-          stage 1
+          <text>Charitable donations are tax deductible! That means that the money you spent donating will not be taxed.</text>
+          <br />
+          <text>Why is it risky? Well... who is the money going to?</text>
+          <text>Donating to your client's own foundation leads to more tax cuts but more risk.</text>
         </div>
         {/* Salary */}
         <div className="flexCol">
-          stage 2
+          <text>A good ole technique - underreporting income!</text>
+          <br />
+          <text>They can't tax you on what they don't know you have.</text>
         </div>
         {/* Assets */}
         <div className="flexCol">
