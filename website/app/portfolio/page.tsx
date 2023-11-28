@@ -370,7 +370,7 @@ export default function HomePage() {
     <>
     <div id="portfolioDiv">
       <div id="headerDiv">
-        <text id="header1">Y0 Portfolio</text>
+        <text id="header1">Client's Portfolio</text>
       </div>
 
       <div className="flexRow" id="client">
