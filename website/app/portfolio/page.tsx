@@ -387,7 +387,7 @@ export default function HomePage() {
 
           <div className="flexRow" id="cInfoDiv">
             <div className="flexCol" id="cInfoDivTxt">
-              <text id="clientName">Jane Client Doe</text>
+              <text id="clientName">Elizabeth</text>
 
               <div className="flexRow" id="clientDetails">
                 <div className="flexCol">
