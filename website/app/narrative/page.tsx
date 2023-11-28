@@ -10,6 +10,8 @@ export default function GameNarrative() {
     const searchParams = useSearchParams();
     const round: number = parseInt(searchParams.get('round') || '0', 10);
     const [storyIndex, setStoryIndex] = useState(0);
+    
+    // note: each round in display text is an array of strings
     const displayText = [
         // round 0
         [
@@ -22,7 +24,9 @@ export default function GameNarrative() {
             'It’s November, one month till tax season. With full access to Y’s portfolio, you must now try and manipulate his income, assets, and donations to help him pay as little in taxes as possible.',
         ],
         // round 1...
-        ["round 1 narrative"]
+        ["round 1 narrative",],
+        ["round 2 narrrative",],
+        ["round 3 narrrative",],
     ]
     const [gameStory, setGameStory] = useState(displayText[round]);
 
