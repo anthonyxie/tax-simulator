@@ -27,17 +27,21 @@ export default function DonationItem({ donation, makeDonation, liquidFunds, inde
             <Accordion.Item key={donation.charity} value={donation.charity}>
             <Accordion.Control>{donation.charity}</Accordion.Control>
             <Accordion.Panel>
-                <text id="charityDescription">{donation.description}</text>
-                <Group>
-                    <NumberInput
-                      max={liquidFunds}
-                      min={0}
-                      step={Math.round(liquidFunds / 20)}
-                      value={value}
-                      onChange={(value) => setValue(Number(value))}
-                    />
-                    <Button onClick={donationButton} color="green">Donate</Button>
-                </Group>
+                <div id="charityDetailsWrapper">
+                    <div id="charityDescriptionWrapper">
+                        <text id="charityDescription">{donation.description}</text>
+                    </div>
+                    <Group>
+                        <NumberInput
+                        max={liquidFunds}
+                        min={0}
+                        step={Math.round(liquidFunds / 20)}
+                        value={value}
+                        onChange={(value) => setValue(Number(value))}
+                        />
+                        <Button onClick={donationButton} color="green">Donate</Button>
+                    </Group>
+                </div>
             </Accordion.Panel>
             </Accordion.Item>
 

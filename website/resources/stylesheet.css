@@ -310,6 +310,18 @@ img {
   display: flex;
   flex: 1;
 }
+#charityDescription{
+  font-family: Inika;
+  font-size: 1rem;
+  margin-bottom: 1%;
+}
+#charityDescriptionWrapper {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+#charityDetailsWrapper {
+  padding-left: 2%;
+}
 
 /* ART ASSETS */
 .MuiMobileStepper-root{
