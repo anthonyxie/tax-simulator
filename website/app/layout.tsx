@@ -2,7 +2,9 @@ import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript, createTheme, rem } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 //import { theme } from '../theme';
+import '@mantine/notifications/styles.css';
 
 const theme = createTheme({
   colors: {
@@ -48,7 +50,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}><Notifications position="top-right" limit={5}/>{children}</MantineProvider>
       </body>
     </html>
   );
