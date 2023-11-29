@@ -4,6 +4,7 @@ import React from 'react';
 import { MantineProvider, ColorSchemeScript, createTheme, rem } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 //import { theme } from '../theme';
+import '@mantine/notifications/styles.css';
 
 const theme = createTheme({
   colors: {

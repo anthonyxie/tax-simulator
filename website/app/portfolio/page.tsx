@@ -106,6 +106,10 @@ export default function HomePage() {
 
       let newtaxAmount = capitalGainsTaxAmount;
       newtaxAmount += profit * 0.1;
+      notifications.show({
+        title: 'Art Sold',
+        message: `You received ${profit} in liquid funds for the sale, but were also taxed $${profit * 0.1} in capital gains tax.`,
+      });
       setCapitalGainsTaxAmount(newtaxAmount);
 
       setStocks(stockList);
@@ -160,14 +164,18 @@ export default function HomePage() {
         newtaxAmount += oldPrice * 0.4;
 
         let donoRisk = 0;
+        let risky = "";
         if (priceIndex === 0) {
           donoRisk = 0;
+          risky = "The valuation was fair."
         }
         else if (priceIndex === 1) {
           donoRisk = 4;
+          risky = "The valuation was a little overvalued.";
         }
         else if (priceIndex === 2) {
           donoRisk = 10;
+          risky = "The valuation was a highly suspect.";
         }
 
         const donationRisk = donatingRisk + donoRisk;
@@ -177,8 +185,8 @@ export default function HomePage() {
         artsList.splice(index, 1);
         notifications.show({
           title: 'Art Donated',
-          message: `You were able to write off ${oldPrice * 0.4} from your income tax`,
-        })
+          message: `You were able to write off ${oldPrice * 0.4} from your income tax thanks to your donation! ${risky}`,
+        });
         setTaxWriteOffs(newtaxAmount);
         setArts(artsList);
       }
@@ -197,6 +205,10 @@ export default function HomePage() {
       //reduce tax amount
       let newtaxAmount = taxWriteOffs;
       newtaxAmount += amount * 0.4;
+      notifications.show({
+        title: 'Charitable Donation Made',
+        message: `You were able to write off ${amount * 0.4} from your income tax thanks to your donation!`,
+      });
       setTaxWriteOffs(newtaxAmount);
 
       //increase risk
@@ -224,6 +236,11 @@ export default function HomePage() {
     } else if (oldLoan / loanCollateral < 0.3) {
       lRisk += 15;
     }
+
+    notifications.show({
+      title: 'Asset-based loan',
+      message: `You received a loan for $${loanAmount} in liquid funds!`,
+    });
     setLoanRisk(lRisk);
     setLoanTotals(oldLoan);
     setLoanAmount(0);
@@ -233,13 +250,13 @@ export default function HomePage() {
     let taxTotal = 0;
     taxTotal += incomeTax;
     taxTotal -= taxWriteOffs;
+    taxTotal = Math.max(0, taxTotal);
     setIncomeTaxAmount(taxTotal);
   }, [taxWriteOffs, incomeTax]);
 
   function sellArt(index: number): any {
     const artsList = arts.slice();
     const oldArt = artsList[index];
-    console.log('whaaaaa');
     if (oldArt.appraised) {
       if (oldArt.priceIndex) {
         const oldPrice = oldArt.prices[oldArt.priceIndex];
@@ -250,9 +267,14 @@ export default function HomePage() {
         newtaxAmount += oldPrice * 0.15;
 
         artsList.splice(index, 1);
+        notifications.show({
+          title: 'Art Sold',
+          message: `You received ${oldPrice} in liquid funds for the sale, but were also taxed $${oldPrice * 0.15} in capital gains tax.`,
+        });
         setTaxAmount(newtaxAmount);
         setLiquidFunds(newliquidFunds);
         setArts(artsList);
+
       }
     }
   }
@@ -328,7 +350,7 @@ export default function HomePage() {
     const amountOff = reportedIncome / yearlySalary;
     let taxRisk = 0;
     if (amountOff < 1) {
-      taxRisk += 15;
+      taxRisk += 5;
       if (amountOff < 0.2) {
         taxRisk += 75;
       } else if (amountOff < 0.4) {
