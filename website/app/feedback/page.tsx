@@ -83,7 +83,7 @@ export default function FeedbackNarrative() {
         She has dark circles under her eyes, and mutters to herself incessantly. You still don't quite understand
         what her company does - something to do with testing? Did you hear her say blood? Either way, you need to get it together
         - your job is in jeopardy.`,
-        `Elizabeth didn't save any money from taxes this year. Without hesitation, you are fired. Now jobless, you walk down the street
+        `Elizabeth didn't save any money from taxes this year. She informed you that you weren't a good fit as her accountant. After the conversation, you walk down the street
         and pass by a magazine stand, where you see a cover of Forbes with her face on it, printed in black and white. 
         Below, it reads: 'The Next Steve Careers: Elizabeth House'.`
     ] 
@@ -93,7 +93,7 @@ export default function FeedbackNarrative() {
     const NextRoundLink = round < 3 ? (
         <Link id="continueButton" href={{ pathname: "/narrative", query: { round: round + 1 } }}>Next</Link>
     ) : (
-        <Link id="continueButton" href="/ending">Next</Link>
+        <Link id="continueButton" href="/endingNarrative">Next</Link>
     );
     if (loaded) {
         return (
