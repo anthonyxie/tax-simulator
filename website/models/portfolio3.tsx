@@ -2,8 +2,8 @@ export const listOfStocks = [
     { ticker: 'dogcoin', price: 1000, amount: 400 },
     { ticker: 'anthonycoin', price: 200, amount: 500 },
     { ticker: 'coincoin', price: 300, amount: 600 },
-    { ticker: 'FOUR', price: 400, amount: 500 },
-    { ticker: 'FIVE', price: 500, amount: 500 },
+    { ticker: 'Ethereum', price: 400, amount: 500 },
+    { ticker: 'Scamcoin', price: 500, amount: 500 },
 ];
 
 export const listOfDonations = [
