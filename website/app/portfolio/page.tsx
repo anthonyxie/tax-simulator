@@ -19,6 +19,7 @@ import HelpModal from '@/components/HelpModal/HelpModal';
 import '../../resources/stylesheet.css';
 import HelpIcon from '@/components/HelpIcon/HelpIcon';
 import { Stock, Property, BankAccount, Art, helpTip, Donation } from '@/models/stock';
+import { notifications } from '@mantine/notifications';
 
 export default function HomePage() {
   const searchParams = useSearchParams();
@@ -171,10 +172,13 @@ export default function HomePage() {
 
         const donationRisk = donatingRisk + donoRisk;
         console.log(donationRisk + donoRisk);
-        setDonationRisk(donationRisk + donoRisk);
+        setDonationRisk(donationRisk);
         console.log(newtaxAmount);
         artsList.splice(index, 1);
-
+        notifications.show({
+          title: 'Art Donated',
+          message: `You were able to write off ${oldPrice * 0.4} from your income tax`,
+        })
         setTaxWriteOffs(newtaxAmount);
         setArts(artsList);
       }
@@ -228,7 +232,7 @@ export default function HomePage() {
   useEffect(() => {
     let taxTotal = 0;
     taxTotal += incomeTax;
-    taxTotal -= Math.min(incomeTax * 0.4, taxWriteOffs);
+    taxTotal -= taxWriteOffs;
     setIncomeTaxAmount(taxTotal);
   }, [taxWriteOffs, incomeTax]);
 
@@ -443,7 +447,7 @@ export default function HomePage() {
                 {/* need conditional to make label appear properly */}
                 <Progress.Root size={20}>
                   { liquidFunds / liquidFundsGoal < 0.12 ? (
-                    <Progress.Label>Liquid Funds</Progress.Label>
+                    <Progress.Label>{`Liquid Funds: $${liquidFunds}`}</Progress.Label>
                   ) : (
                     <Tooltip label={`Liquid Funds: $${liquidFunds}`}>
                       <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
