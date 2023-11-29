@@ -34,7 +34,7 @@ export interface Art {
 export interface Eval {
     name: string,
     imgPath: string,
-    index: number[],
+    index: number,
     quote: string,
 }
 
@@ -63,6 +63,7 @@ export interface Instructions {
     title: string,
     text: string,
 }
+
 
 // export const helpTip = {
 //     property: 'Your properties generate property tax for you. No action needed here, but you can check out the cool stuff your client owns!',
@@ -102,7 +103,7 @@ export const instructionList = [
     { title: 'The End', text: 'thanks !' },
 ];
 
-export const listOfEvaluators = [
+export const listOfEvaluators: Eval[] = [
     { name: 'Risky McRiskPants', imgPath: '/evalImgs/2.png', index: 2, quote: 'This is gonna be good for you, good for me, good for the artist -- we are all gonna eat!' },
     { name: 'Realistic Evaluator', imgPath: '/evalImgs/0.png', index: 0, quote: 'All you got in this game is your reputation and I have mine! People call me The Judge because of my fairness.' },
     { name: 'Medium Burger with Fries Evaluator', imgPath: '/evalImgs/1.png', index: 1, quote: 'We can be reasonable! I know what you want me to do but I\'m going to do what you need' },
