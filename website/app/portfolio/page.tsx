@@ -65,7 +65,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [reset, setReset] = useState(false);
 
-  const [opened, { open, close }] = useDisclosure(false);
+  const [opened, { open, close }] = useDisclosure(true);
 
   // LOAD PORTFOLIO HERE
   useEffect(() => {
