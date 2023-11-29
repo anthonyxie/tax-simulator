@@ -407,7 +407,7 @@ export default function HomePage() {
       <div className="flexRow" id="headerDiv">
         <text id="header1">Client Portfolio</text>
         <Modal id="helpModal" opened={opened} onClose={close} title="Tax Hero Instruction Guide">
-          <HelpModal />
+            <HelpModal round={round}/>
         </Modal>
         {/* <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={() => { window.location.href = '/instructions'; }}> */}
         <ActionIcon variant="outline" color="#E4C696" size="lg" radius="xl" aria-label="Instructions" onClick={open}>
