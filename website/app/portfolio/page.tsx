@@ -473,7 +473,7 @@ export default function HomePage() {
                   ) : (
                     <Tooltip label={`Liquid Funds: $${liquidFunds}`}>
                       <Progress.Section value={(liquidFunds / liquidFundsGoal) * 100} color="blue">
-                        <Progress.Label>Liquid Funds</Progress.Label>
+                        <Progress.Label>{`Liquid Funds: $${liquidFunds}`}</Progress.Label>
                       </Progress.Section>
                     </Tooltip>
                   )}
